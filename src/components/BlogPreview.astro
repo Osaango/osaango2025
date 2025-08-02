@@ -1,0 +1,49 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+        post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+---
+
+<article class="card">
+        <h4><a href={`/blog/${post.id}/`}>{post.data.title}</a></h4>
+        <p class="publish-date">{post.data.publishDate.toLocaleDateString()}</p>
+        <p class="description">{post.data.description}</p>
+</article>
+
+<style>
+        .card {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1.5rem;
+                border: 1px solid var(--gray-800);
+                border-radius: 0.75rem;
+                background: var(--gradient-subtle);
+                box-shadow: var(--shadow-sm);
+        }
+
+        .card h4 {
+                margin: 0;
+                font-size: var(--text-lg);
+        }
+
+        .publish-date {
+                font-size: var(--text-xs);
+                color: var(--gray-500);
+        }
+
+        .description {
+                font-size: var(--text-sm);
+                color: var(--gray-300);
+        }
+
+        @media (min-width: 50em) {
+                .card {
+                        border-radius: 1.5rem;
+                }
+        }
+</style>
