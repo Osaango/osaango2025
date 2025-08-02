@@ -33,21 +33,21 @@ const posts = (await getCollection('blog'))
 			<header class="hero">
 				<Hero
 					title="Unblocking bottlenecks. Unlocking growth."
-					tagline="Empower your teams with scalable tools, insightful methods, and expert coaching, we turn bottlenecks into breakthroughs."
+					tagline="Empower your teams with scalable tools, insightful methods, and expert coaching, we turn bottlenecks into breakthroughs.."
 					align="start"
 				>
 					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+						<Pill><Icon icon="code" size="1.33em" /> Consulting APIs and Agile</Pill>
+						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaking</Pill>
+						<Pill><Icon icon="pencil-line" size="1.33em" /> Guidelines and Marketing messages</Pill>
 					</div>
 				</Hero>
 
 				<img
-					alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
+					alt="Marjukka Niinioja, founder of Osaango"
 					width="480"
 					height="620"
-					src="/assets/portrait.jpg"
+					src="/assets/marjukka4.png"
 				/>
 			</header>
 
@@ -81,27 +81,7 @@ const posts = (await getCollection('blog'))
 				</div>
 			</section>
 
-                        <section class="section with-background bg-variant">
-                                <header class="section-header stack gap-2 lg:gap-4">
-                                        <h3>Mentions</h3>
-                                        <p>
-                                                I have been fortunate enough to receive praise for my work in several publications. Take
-                                                a look below to learn more.
-                                        </p>
-                                </header>
 
-                                <div class="gallery">
-                                        <Grid variant="small">
-                                                {
-                                                        ['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
-                                                                <li class="mention-card">
-                                                                        <p>{brand}</p>
-                                                                </li>
-                                                        ))
-                                                }
-                                        </Grid>
-                                </div>
-                        </section>
 
                         <section class="section with-background with-cta">
                                 <header class="section-header stack gap-2 lg:gap-4">
@@ -145,11 +125,11 @@ const posts = (await getCollection('blog'))
 	}
 
 	.hero img {
-		aspect-ratio: 5 / 4;
+		aspect-ratio: 1/1;
 		object-fit: cover;
 		object-position: top;
 		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
+		/* box-shadow: var(--shadow-md); */
 	}
 
 	@media (min-width: 50em) {
@@ -167,7 +147,7 @@ const posts = (await getCollection('blog'))
 		}
 
 		.hero img {
-			aspect-ratio: 3 / 4;
+			aspect-ratio: 1/1;
 			border-radius: 4.5rem;
 			object-fit: cover;
 		}
