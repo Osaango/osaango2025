@@ -9,6 +9,9 @@ const { post } = Astro.props;
 ---
 
 <article class="card">
+        {post.data.heroImage && (
+                <img src={post.data.heroImage} alt={post.data.heroImageAlt || ''} />
+        )}
         <h4><a href={`/blog/${post.id}/`}>{post.data.title}</a></h4>
         <p class="publish-date">{post.data.publishDate.toLocaleDateString()}</p>
         <p class="description">{post.data.description}</p>
@@ -24,6 +27,13 @@ const { post } = Astro.props;
                 border-radius: 0.75rem;
                 background: var(--gradient-subtle);
                 box-shadow: var(--shadow-sm);
+        }
+
+        .card img {
+                width: 100%;
+                aspect-ratio: 16 / 9;
+                object-fit: cover;
+                border-radius: 0.5rem;
         }
 
         .card h4 {

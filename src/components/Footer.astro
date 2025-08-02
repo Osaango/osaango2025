@@ -2,22 +2,24 @@
 ---
 
 <footer>
-        <p>Osaango Oy is a private limited company registered in Finland.</p>
-        <p>
-                Osaango Oy,<br />
-                c/o Spaces, Mannerheiminaukio 1 A<br />
-                00100 Helsinki, Finland
-        </p>
-        <p>
-                info@osaango.com<br />
-                +358 9 25166110
-        </p>
-        <p>
-                Trade register: 2881365-2<br />
-                VAT registration: FI28813652<br />
-                DUNS: 368558872
-        </p>
-        <p>&copy; 2025 Osaango. All rights reserved.</p>
+        <div class="columns">
+                <p>Osaango Oy is a private limited company registered in Finland.</p>
+                <p>
+                        Osaango Oy,<br />
+                        c/o Spaces, Mannerheiminaukio 1 A<br />
+                        00100 Helsinki, Finland
+                </p>
+                <p>
+                        info@osaango.com<br />
+                        +358 9 25166110
+                </p>
+                <p>
+                        Trade register: 2881365-2<br />
+                        VAT registration: FI28813652<br />
+                        DUNS: 368558872
+                </p>
+        </div>
+        <p class="copyright">&copy; 2025 Osaango. All rights reserved.</p>
 </footer>
 
 <style>
@@ -32,8 +34,30 @@
                 font-size: var(--text-sm);
         }
 
+        .columns {
+                display: grid;
+                gap: 1.5rem;
+        }
+
         footer p {
                 margin: 0;
+        }
+
+        .copyright {
+                text-align: center;
+        }
+
+        @media (min-width: 40em) {
+                .columns {
+                        grid-template-columns: repeat(2, 1fr);
+                        text-align: left;
+                }
+        }
+
+        @media (min-width: 64em) {
+                .columns {
+                        grid-template-columns: repeat(4, 1fr);
+                }
         }
 
         @media (min-width: 50em) {

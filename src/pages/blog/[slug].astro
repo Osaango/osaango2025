@@ -13,6 +13,13 @@ const { Content } = await render(post);
 
 <BaseLayout title={post.data.title} description={post.data.description}>
         <article class="wrapper stack gap-4 lg:gap-8">
+                {post.data.heroImage && (
+                        <img
+                                class="hero-image"
+                                src={post.data.heroImage}
+                                alt={post.data.heroImageAlt || ''}
+                        />
+                )}
                 <h1>{post.data.title}</h1>
                 <p class="publish-date">{post.data.publishDate.toLocaleDateString()}</p>
                 <Content />
@@ -23,6 +30,13 @@ const { Content } = await render(post);
         h1 {
                 font-size: var(--text-4xl);
                 margin: 0;
+        }
+
+        .hero-image {
+                width: 100%;
+                aspect-ratio: 16 / 9;
+                object-fit: cover;
+                border-radius: 1rem;
         }
 
         .publish-date {
