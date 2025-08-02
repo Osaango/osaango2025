@@ -21,10 +21,9 @@ export const collections = {
                         title: z.string(),
                         description: z.string(),
                         publishDate: z.coerce.date(),
-                        author: z.string().optional(),
-                        heroImage: z.string().optional(),
-                        heroImageAlt: z.string().optional(),
-                        tags: z.array(z.string()).optional(),
+                        tags: z.array(z.string()),
+                        img: z.string(),
+                        img_alt: z.string().optional(),
                 }),
         }),
 };
