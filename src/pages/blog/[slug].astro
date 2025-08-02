@@ -32,18 +32,18 @@ const { Content } = await render(entry);
 			<header>
 				<div class="wrapper stack gap-2">
                                         <a class="back-link" href="/blog/"><Icon icon="arrow-left" /> Blog</a>
-					<Hero title={entry.data.title} align="start">
-						<div class="details">
-							<div class="tags">
-								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
-							</div>
-							<p class="description">{entry.data.description}</p>
-						</div>
-					</Hero>
-				</div>
-			</header>
-			<main class="wrapper">
-				<div class="stack gap-10 content">
+                                        <Hero title={entry.data.title} align="start">
+                                                <div class="content details">
+                                                        <div class="tags">
+                                                                {entry.data.tags.map((t) => <Pill>{t}</Pill>)}
+                                                        </div>
+                                                        <p class="description">{entry.data.description}</p>
+                                                </div>
+                                        </Hero>
+                                </div>
+                        </header>
+                        <main class="wrapper">
+                                <div class="stack gap-10 content">
 					{entry.data.img && <img src={entry.data.img} alt={entry.data.img_alt || ''} />}
 					<div class="content">
 						<Content />
@@ -65,19 +65,21 @@ const { Content } = await render(entry);
 		display: none;
 	}
 
-	.details {
-		display: flex;
-		flex-direction: column;
-		padding: 0.5rem;
-		gap: 1.5rem;
-		justify-content: space-between;
-		align-items: center;
-	}
+        .details {
+                display: flex;
+                flex-direction: column;
+                padding: 0.5rem;
+                gap: 1.5rem;
+                justify-content: center;
+                align-items: center;
+        }
 
-	.tags {
-		display: flex;
-		gap: 0.5rem;
-	}
+        .tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                justify-content: center;
+        }
 
 	.description {
 		font-size: var(--text-lg);
