@@ -1,0 +1,158 @@
+---
+import Hero from '../components/Hero.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Privacy Policy" description="">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="Privacy Policy"
+				tagline=""
+			>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">SECTION 1 - WHAT DO WE DO WITH YOUR INFORMATION</h2>
+				<div class="content">
+					<p>
+						When you browse our website, we automatically receive your computer’s Internet Protocol (IP) address to provide us with information that helps us learn about your browser and operating system. </p>
+					<p>
+						We may send you emails about our site, new services, events, and other updates with your permission.
+					</p>					
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">SECTION 2 - CONSENT</h2>
+				<div class="content">
+					<h4>How do you get my consent?</h4>
+ 
+					<p>When you provide us with personal information to complete a transaction, verify your credit card, place an order, arrange a delivery, or return a purchase, we imply that you consent to our collecting and using it for that specific reason only. </p>
+
+					<p>If we ask for your personal information for a secondary reason, like marketing, we will either ask you directly for your expressed consent or provide you with an opportunity to say no.</p>
+
+					<h4>How do I withdraw my consent?</h4>
+
+					<p>If after you opt-in, you change your mind, you may withdraw your consent for us to contact you, for the continued collection, use or disclosure of your information, at any time, by contacting us at info@osaango.com.</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">SECTION 3 - DISCLOSURE</h2>
+				<div class="content">
+					<p>We may disclose your personal information if we are required by law to do so.</p>
+ 				</div>
+			</section>
+			<section>
+				<h2 class="section-title">SECTION 4 – SERVICE PROVIDERS</h2>
+				<div class="content">
+					<p>Our website is hosted on Netlify Inc., in Delaware, a US-based company. They provide us with the website platform. They only store the routing information necessary for their operations.</p>
+					<p>
+					We use Google’s application suite for email, documents, and calendar, and ConvertKit for sending email campaigns. We only allow dedicated personnel access to these systems.
+					</p>
+ 				</div>
+			</section>
+			<section>
+				<h2 class="section-title">SECTION 5 - THIRD-PARTY SERVICES</h2>
+				<div class="content">
+					<p>In general, the third-party providers used by us will only collect, use, and disclose your information to the extent necessary to allow them to perform the services they provide to us. 
+					However, certain third-party service providers, such as payment gateways and other payment transaction processors, have their own privacy policies with respect to the information we are required to provide to them for your purchase-related transactions. 
+					</p>
+					<p>
+					For these providers, we recommend that you read their privacy policies so you can understand the manner in which your personal information will be handled by these providers. 
+					In particular, remember that certain providers may be located in or have facilities that are located a different jurisdiction than either you or us. So if you elect to proceed with a transaction that involves the services of a third-party service provider, then your information may become subject to the laws of the jurisdiction(s) in which that service provider or its facilities are located.</p>
+					<h4>Links</h4>
+					<p>When you click on links on our website or store, they may direct you away from our site. We are not responsible for the privacy practices of other sites and encourage you to read their privacy statements.</p>
+			</section>
+			<section>
+				<h2 class="section-title">SECTION 6 - SECURITY</h2>
+				<div class="content">
+					<p>To protect your personal information, we take reasonable precautions and follow industry best practices to make sure it is not inappropriately lost, misused, accessed, disclosed, altered or destroyed.</p>
+					<p>If you provide us with your credit card information, the information is encrypted using secure socket layer technology (SSL) and stored with AES-256 encryption. Although no method of transmission over the Internet or method of electronic storage is 100% secure, we follow all PCI-DSS requirements and implement additional generally accepted industry standards.</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">SECTION 7 - COOKIES</h2>
+				<div class="content">
+					<p>We use cookies to help us remember and process the items in your shopping cart, understand and save your preferences for future visits, and compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future.</p>
+					<p>You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies. You do this through your browser settings. Each browser is a little different, so look at your browser’s Help menu to learn the correct way to modify your cookies.</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">SECTION 8 - AGE OF CONSENT</h2>
+				<div class="content">
+					<p>By using this site, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site.</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">SECTION 9 - CHANGES TO THIS PRIVACY POLICY</h2>
+				<div class="content">
+					<p>We may update this privacy policy from time to time. We will notify you about significant changes in the way we treat personal information by sending a notice to the primary email address specified in your account or by placing a prominent notice on our site.</p>
+					<p>We encourage you to periodically review this page for the latest information on our privacy practices.</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">SECTION 10 - CONTACT US</h2>
+				<div class="content">
+					<p>If you have any questions or comments about this privacy policy, please contact us at info@osaango.com
+			</section>
+ 				</div>
+		</main>
+	</div>
+</BaseLayout>
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
