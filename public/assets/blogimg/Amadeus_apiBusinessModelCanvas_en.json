@@ -1,0 +1,340 @@
+{
+  "templateId": "apiBusinessModelCanvas",
+  "locale": "en",
+  "metadata": {
+    "source": "Amadeus",
+    "license": "",
+    "authors": [
+      "Based on Amadeus Marjukka Niinioja",
+      " Osaango"
+    ],
+    "website": "https://www.osaango.com/blog",
+    "date": "2025-08-03T19:45:08.719Z"
+  },
+  "sections": [
+    {
+      "sectionId": "keyPartners",
+      "stickyNotes": [
+        {
+          "content": "Start-ups and SMEs to co-create innovativesolutions                                                                                                                        ",
+          "position": {
+            "x": 883.6666259765625,
+            "y": 166.94790649414062
+          },
+          "size": 80,
+          "color": "#7DC9E7"
+        },
+        {
+          "content": "Strategic Partners to expand Amadeus'offerings                                                                                                                   ",
+          "position": {
+            "x": 794.6666259765625,
+            "y": 252.94790649414062
+          },
+          "size": 80,
+          "color": "#7DC9E7"
+        },
+        {
+          "content": "Travel Sellers: agencies  & platforms                                                                ",
+          "position": {
+            "x": 37.6666259765625,
+            "y": 138.94790649414062
+          },
+          "size": 80,
+          "color": "#7DC9E7"
+        },
+        {
+          "content": "Travel Providers: airlines, hotels, car rentals etc.                                                          ",
+          "position": {
+            "x": 37.6666259765625,
+            "y": 232.94790649414062
+          },
+          "size": 80,
+          "color": "#7DC9E7"
+        },
+        {
+          "content": "Young and Independent Complementors                                                        ",
+          "position": {
+            "x": 36.6666259765625,
+            "y": 324.9479064941406
+          },
+          "size": 80,
+          "color": "#7DC9E7"
+        }
+      ]
+    },
+    {
+      "sectionId": "keyActivities",
+      "stickyNotes": [
+        {
+          "content": "API product management                                                                                                                ",
+          "position": {
+            "x": 217.6666259765625,
+            "y": 108.94790649414062
+          },
+          "size": 80,
+          "color": "#fff399"
+        },
+        {
+          "content": "Marketing, sales, partner and developer relations                                                                                                             ",
+          "position": {
+            "x": 309.6666259765625,
+            "y": 107.94790649414062
+          },
+          "size": 80,
+          "color": "#fff399"
+        },
+        {
+          "content": "Maintaining and updating APIs                                                                                                           ",
+          "position": {
+            "x": 225.6666259765625,
+            "y": 185.94790649414062
+          },
+          "size": 80,
+          "color": "#fff399"
+        },
+        {
+          "content": "Maintaining environments and provisioning                                                                                                         ",
+          "position": {
+            "x": 314.6666259765625,
+            "y": 183.94790649414062
+          },
+          "size": 80,
+          "color": "#fff399"
+        }
+      ]
+    },
+    {
+      "sectionId": "keyResources",
+      "stickyNotes": [
+        {
+          "content": "Limited threshold of free calls per API                                                                                                  ",
+          "position": {
+            "x": 309.6666259765625,
+            "y": 314.9479064941406
+          },
+          "size": 80,
+          "color": "#DFDDC5"
+        },
+        {
+          "content": "Production and test environments                                                                                                ",
+          "position": {
+            "x": 219.6666259765625,
+            "y": 316.9479064941406
+          },
+          "size": 80,
+          "color": "#DFDDC5"
+        },
+        {
+          "content": "25 APIs exclusively via REST/JSON API                                                                                                  ",
+          "position": {
+            "x": 225.6666259765625,
+            "y": 368.9479064941406
+          },
+          "size": 80,
+          "color": "#DFDDC5"
+        }
+      ]
+    },
+    {
+      "sectionId": "apiValueProposition",
+      "stickyNotes": [
+        {
+          "content": "Hybrid platform for quick, open connections                                                                                                ",
+          "position": {
+            "x": 410.6666259765625,
+            "y": 130.94790649414062
+          },
+          "size": 80,
+          "color": "#fff399"
+        },
+        {
+          "content": "Available to absolutely anybody.                                                                                              ",
+          "position": {
+            "x": 502.6666259765625,
+            "y": 132.94790649414062
+          },
+          "size": 80,
+          "color": "#fff399"
+        },
+        {
+          "content": "Convenient developer environment, ready-to-use APIs                                                                                      ",
+          "position": {
+            "x": 409.6666259765625,
+            "y": 222.94790649414062
+          },
+          "size": 80,
+          "color": "#fff399"
+        },
+        {
+          "content": "Transact.- based model                                                                                ",
+          "position": {
+            "x": 501.6666259765625,
+            "y": 220.94790649414062
+          },
+          "size": 80,
+          "color": "#fff399"
+        },
+        {
+          "content": "Payment complexity handled in the background                                                                              ",
+          "position": {
+            "x": 501.6666259765625,
+            "y": 310.9479064941406
+          },
+          "size": 80,
+          "color": "#fff399"
+        },
+        {
+          "content": "self-service APIs                                                                          ",
+          "position": {
+            "x": 411.6666259765625,
+            "y": 310.9479064941406
+          },
+          "size": 80,
+          "color": "#fff399"
+        },
+        {
+          "content": "Open and vibrant ecosystem  innovating new offers                                                                         ",
+          "position": {
+            "x": 506.6666259765625,
+            "y": 502.9479064941406
+          },
+          "size": 80,
+          "color": "#C0EB6A"
+        }
+      ]
+    },
+    {
+      "sectionId": "developerRelations",
+      "stickyNotes": [
+        {
+          "content": "Self-service documentation                                               ",
+          "position": {
+            "x": 687.6666259765625,
+            "y": 111.94790649414062
+          },
+          "size": 80,
+          "color": "#fff399"
+        },
+        {
+          "content": "Immediate access to the test environment                                                ",
+          "position": {
+            "x": 596.6666259765625,
+            "y": 112.94790649414062
+          },
+          "size": 80,
+          "color": "#fff399"
+        },
+        {
+          "content": "Developer communities support using the APIs.                                              ",
+          "position": {
+            "x": 601.6666259765625,
+            "y": 178.94790649414062
+          },
+          "size": 80,
+          "color": "#fff399"
+        },
+        {
+          "content": "Building partner relationships around travel data usage                                          ",
+          "position": {
+            "x": 695.6666259765625,
+            "y": 177.94790649414062
+          },
+          "size": 80,
+          "color": "#fff399"
+        }
+      ]
+    },
+    {
+      "sectionId": "channels",
+      "stickyNotes": [
+        {
+          "content": "Amadeus online channels                                        ",
+          "position": {
+            "x": 602.6666259765625,
+            "y": 319.9479064941406
+          },
+          "size": 80,
+          "color": "#DFDDC5"
+        },
+        {
+          "content": "Open API platforms                                  ",
+          "position": {
+            "x": 692.6666259765625,
+            "y": 321.9479064941406
+          },
+          "size": 80,
+          "color": "#DFDDC5"
+        }
+      ]
+    },
+    {
+      "sectionId": "apiConsumerSegments",
+      "stickyNotes": [
+        {
+          "content": "Anyone interested in the travel sector                                                                    ",
+          "position": {
+            "x": 792.6666259765625,
+            "y": 166.94790649414062
+          },
+          "size": 80,
+          "color": "#7DC9E7"
+        },
+        {
+          "content": "Those listed as partners, if they use Amadeus APIs                                                         ",
+          "position": {
+            "x": 882.6666259765625,
+            "y": 252.94790649414062
+          },
+          "size": 80,
+          "color": "#7DC9E7"
+        },
+        {
+          "content": "Freemium for marketing                             ",
+          "position": {
+            "x": 607.6666259765625,
+            "y": 504.9479064941406
+          },
+          "size": 80,
+          "color": "#C0EB6A"
+        }
+      ]
+    },
+    {
+      "sectionId": "costs",
+      "stickyNotes": [
+        {
+          "content": "Maintenance costs for APIs                      ",
+          "position": {
+            "x": 51.6666259765625,
+            "y": 507.9479064941406
+          },
+          "size": 80,
+          "color": "#FFAFAF"
+        },
+        {
+          "content": "Expenses of supporting the developer community                    ",
+          "position": {
+            "x": 149.6666259765625,
+            "y": 508.9479064941406
+          },
+          "size": 80,
+          "color": "#FFAFAF"
+        }
+      ]
+    },
+    {
+      "sectionId": "benefits",
+      "stickyNotes": [
+        {
+          "content": "Transaction fees, usage basedrevenue sharing                         ",
+          "position": {
+            "x": 699.6666259765625,
+            "y": 504.9479064941406
+          },
+          "size": 80,
+          "color": "#C0EB6A"
+        }
+      ]
+    }
+  ]
+}

@@ -17,6 +17,49 @@ const { title, description } = Astro.props;
 
 <html lang="en">
 	<head>
+		<!-- Google tag (gtag.js) -->
+		<script src="https://www.googletagmanager.com/gtag/js?id=G-35GC5RBXFN"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-35GC5RBXFN');
+			gtag('consent', 'default', {
+			'ad_storage': 'denied',
+			'ad_user_data': 'denied',
+			'ad_personalization': 'denied',
+			'analytics_storage': 'denied'
+			});
+		</script>
+		<script src="https://cmp.osano.com/16BZDhS0UUK0u2Oim/69f08877-e636-4cfb-babe-d34955a59b6e/osano.js"></script>
+		<meta name="facebook-domain-verification" content="z63p56t2by3qkt0gkjqcieya5qyip6" />
+  <style>
+      .osano-cm-widget {
+        background-image: url(https://cdn.osano.com/hubfs/assets/logos/1000w/Indigo%20O%20on%20Transparent-1000px.png);
+        background-size: contain;
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        right: 1rem;
+        bottom: 1rem;
+        opacity: 0.9;
+        transition-property: opacity, visibility, transform;
+                        }
+      .osano-cm-widget svg {
+        display: none;
+                        }
+      .osano-cm-widget:focus,
+      .osano-cm-widget:hover {
+        opacity: 1;
+        transform: none;
+                        }
+      .osano-cm-widget:active {
+        transform: translateY(1px);
+                        }
+  </style>
+
+		<meta name="facebook-domain-verification" content="z63p56t2by3qkt0gkjqcieya5qyip6" />
 		<MainHead title={title} description={description} />
 	</head>
 	<body>
@@ -34,8 +77,8 @@ const { title, description } = Astro.props;
 		<style>
 			:root {
 				--_placeholder-bg: linear-gradient(transparent, transparent);
-				--bg-image-main: url('/assets/backgrounds/bg-main-light-800w.jpg');
-				--bg-image-main-curves: url('/assets/backgrounds/bg-main-light.svg');
+				--bg-image-main: url('/assets/backgrounds/os/bg-main-light-800w.jpg');
+				--bg-image-main-curves: url('/assets/backgrounds/os/bg-main-light.svg');
 				--bg-image-subtle-1: var(--_placeholder-bg);
 				--bg-image-subtle-2: var(--_placeholder-bg);
 				--bg-image-footer: var(--_placeholder-bg);
@@ -48,8 +91,8 @@ const { title, description } = Astro.props;
 			}
 
 			:root.theme-dark {
-				--bg-image-main: url('/assets/backgrounds/bg-main-dark-800w.jpg');
-				--bg-image-main-curves: url('/assets/backgrounds/bg-main-dark.svg');
+				--bg-image-main: url('/assets/backgrounds/os/bg-main-dark-800w.jpg');
+				--bg-image-main-curves: url('/assets/backgrounds/os/bg-main-dark.svg');
 				--bg-svg-blend-mode: darken;
 				--bg-blend-mode: lighten;
 			}
@@ -57,34 +100,34 @@ const { title, description } = Astro.props;
 			/* These backgrounds are displayed below the fold, so we lazy load them
 			   once the `.loaded` class has been set.  */
 			:root.loaded {
-				--bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-light-800w.jpg');
-				--bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-light-800w.jpg');
-				--bg-image-footer: url('/assets/backgrounds/bg-footer-light-800w.jpg');
+				--bg-image-subtle-1: url('/assets/backgrounds/os/bg-subtle-1-light-800w.jpg');
+				--bg-image-subtle-2: url('/assets/backgrounds/os/bg-subtle-2-light-800w.jpg');
+				--bg-image-footer: url('/assets/backgrounds/os/bg-footer-light-800w.jpg');
 			}
 			:root.loaded.theme-dark {
-				--bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-dark-800w.jpg');
-				--bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-dark-800w.jpg');
-				--bg-image-footer: url('/assets/backgrounds/bg-footer-dark-800w.jpg');
+				--bg-image-subtle-1: url('/assets/backgrounds/os/bg-subtle-1-dark-800w.jpg');
+				--bg-image-subtle-2: url('/assets/backgrounds/os/bg-subtle-2-dark-800w.jpg');
+				--bg-image-footer: url('/assets/backgrounds/os/bg-footer-dark-800w.jpg');
 			}
 
 			@media (min-width: 50em) {
 				:root {
 					--bg-scale: 1;
-					--bg-image-main: url('/assets/backgrounds/bg-main-light-1440w.jpg');
+					--bg-image-main: url('/assets/backgrounds/os/bg-main-light-1440w.jpg');
 				}
 				:root.theme-dark {
-					--bg-image-main: url('/assets/backgrounds/bg-main-dark-1440w.jpg');
+					--bg-image-main: url('/assets/backgrounds/os/bg-main-dark-1440w.jpg');
 				}
 
 				:root.loaded {
-					--bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-light-1440w.jpg');
-					--bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-light-1440w.jpg');
-					--bg-image-footer: url('/assets/backgrounds/bg-footer-light-1440w.jpg');
+					--bg-image-subtle-1: url('/assets/backgrounds/os/bg-subtle-1-light-1440w.jpg');
+					--bg-image-subtle-2: url('/assets/backgrounds/os/bg-subtle-2-light-1440w.jpg');
+					--bg-image-footer: url('/assets/backgrounds/os/bg-footer-light-1440w.jpg');
 				}
 				:root.loaded.theme-dark {
-					--bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-dark-1440w.jpg');
-					--bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-dark-1440w.jpg');
-					--bg-image-footer: url('/assets/backgrounds/bg-footer-dark-1440w.jpg');
+					--bg-image-subtle-1: url('/assets/backgrounds/os/bg-subtle-1-dark-1440w.jpg');
+					--bg-image-subtle-2: url('/assets/backgrounds/os/bg-subtle-2-dark-1440w.jpg');
+					--bg-image-footer: url('/assets/backgrounds/os/bg-footer-dark-1440w.jpg');
 				}
 			}
 
