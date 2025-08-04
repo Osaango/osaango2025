@@ -9,32 +9,20 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.publishDate.va
 ---
 
 <BaseLayout title="Blog">
-        <main class="wrapper stack gap-8 lg:gap-20">
+	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
 			<Hero
 				title="Blog"
 				tagline="Our latest news and articles."
 				align="start"
 			/>
-                <div class="gallery">
-                        <Grid variant="small">
-                                {posts.map((post) => (
-                                        <li>
-                                                <BlogPreview post={post} />
-                                        </li>
-                                ))}
-                        </Grid>
-                </div>
-        </main>
+                                <Grid variant="small">
+                                        {posts.map((post) => (
+                                                <li>
+                                                        <BlogPreview post={post} />
+                                                </li>
+                                        ))}
+                                </Grid>
+                </main>
+        </div>
 </BaseLayout>
-
-<style>
-        .section-header {
-                text-align: center;
-                color: var(--gray-300);
-        }
-
-        h1 {
-                font-size: var(--text-4xl);
-        }
-</style>
