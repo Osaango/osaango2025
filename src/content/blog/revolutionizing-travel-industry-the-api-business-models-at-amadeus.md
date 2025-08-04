@@ -1,7 +1,7 @@
 ---
 title: Revolutionizing Travel Industry - The API Business Models at Amadeus
 publishDate: 2023-08-08 00:00:00
-img: /assets/blogimg/Amadeus_apiBusinessModelCanvas_en.png
+img: ../../assets/blogimg/Amadeus_apiBusinessModelCanvas_en.png
 img_alt: Amadeus API Business Model Canvas by Marjukka Niinioja, based on research by Heshmatisafa & Seppänen 2023
 description: |
   What does a real API business model look like - case Amadeus
