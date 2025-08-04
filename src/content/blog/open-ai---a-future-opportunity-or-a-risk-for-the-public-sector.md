@@ -1,7 +1,7 @@
 ---
 title: Open AI - A Future Opportunity or a Risk for the Public Sector?
 publishDate: 2024-10-03 00:00:00
-img: /assets/blogimg/how-open-is-open-ai.jpg
+img: ../../assets/blogimg/how-open-is-open-ai.jpg
 img_alt: Data stream opening up
 description: |
   What is a really open AI and why does it matter
@@ -17,7 +17,7 @@ The recently (Oct 3, 2024) published for review [Open Source AI Definition](http
 
 This SWOT analysis summarizes the strengths, weaknesses, opportunities and threats of open AI (note: not OpenAI the company and product) to public sector organizations. In this blog, we'll concentrate more on opportunities and threats.
 
-![SWOT analysis of open AI](/assets/blogimg/swot-open-ai.png)
+![SWOT analysis of open AI](../../assets/blogimg/swot-open-ai.png)
 
 
 ### Opportunities: Modernization and Efficiency

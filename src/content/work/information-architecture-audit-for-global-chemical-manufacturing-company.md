@@ -1,7 +1,7 @@
 ---
 title: "Information Architecture Audit for Global Chemical Manufacturing Company"
 publishDate: 2023-08-03 00:00:00
-img: /assets/case-study-info-architecture-for-manufacturing.jpg
+img: ../../assets/case-study-info-architecture-for-manufacturing.jpg
 img_alt: A neat row of manufactured chemical industry products in barrels
 description: |
   A business unit of a global chemical manufacturing company aimed to upgrade their sales concepts for the UK & Ireland.

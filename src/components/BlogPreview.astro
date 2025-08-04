@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 
 interface Props {
         post: CollectionEntry<'blog'>;
@@ -10,7 +11,7 @@ const { post } = Astro.props;
 
 <article class="card">
         {post.data.img && (
-                <img src={post.data.img} alt={post.data.img_alt || ''} />
+                <Image src={post.data.img} alt={post.data.img_alt || ''} format="webp" />
         )}
         <h4><a href={`/blog/${post.id}/`}>{post.data.title}</a></h4>
         <p class="publish-date">{post.data.publishDate.toLocaleDateString()}</p>

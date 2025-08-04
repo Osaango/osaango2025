@@ -2,6 +2,8 @@
 import ContactCTA from '../components/ContactCTA.astro';
 import Hero from '../components/Hero.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import atWork from '../assets/at-work.jpg';
 ---
 
 <BaseLayout title="About | Osaango" description="Let’s shape the future—one API at a time.">
@@ -11,12 +13,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				title="About"
 				tagline="Our Dream at Osaango: Tech That Connects People and Ideas."
 			>
-				<img
-					width="1553"
-					height="873"
-					src="/assets/at-work.jpg"
-					alt="Marjukka Niinioja, founder of Osaango, speaking at APIdays Helsinki & North conference."
-				/>
+                                <Image
+                                        src={atWork}
+                                        width={1553}
+                                        height={873}
+                                        alt="Marjukka Niinioja, founder of Osaango, speaking at APIdays Helsinki & North conference."
+                                        format="webp"
+                                />
 			</Hero>
 
 			<section>

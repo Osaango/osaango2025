@@ -13,6 +13,8 @@ import Skills from '../components/Skills.astro';
 import BlogPreview from '../components/BlogPreview.astro';
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import heroWoman from '../assets/osaango-hero-woman.jpg';
 
 // Content Fetching: List four most recent work projects
 const projects = (await getCollection('work'))
@@ -43,12 +45,13 @@ const posts = (await getCollection('blog'))
 					</div> -->
 				</Hero>
 
-				<img
-					alt="a woman looking at a scalable ecosystem"
-					width="480"
-					height="620"
-					src="/assets/osaango-hero-woman.jpg"
-				/>
+                                <Image
+                                        src={heroWoman}
+                                        alt="a woman looking at a scalable ecosystem"
+                                        width={480}
+                                        height={620}
+                                        format="webp"
+                                />
 			</header>
 
 			<Skills />

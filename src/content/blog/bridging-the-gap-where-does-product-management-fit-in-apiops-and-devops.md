@@ -1,7 +1,7 @@
 ---
 title: "Bridging the Gap: Where does product management fit in APIOps and DevOps?"
 publishDate: 2023-07-25 00:00:00
-img: /assets/blogimg/apiops-vs-devops.jpg
+img: ../../assets/blogimg/apiops-vs-devops.jpg
 img_alt: Venn diagram of APIOps, DevOps, and other related methods and paradigms
 description: |
   API product management and DevOps are both essential aspects of modern software development, but they focus on different areas of the development process. What, then, is APIOps, closely related to DevOps? Does it also support API product management activities?
