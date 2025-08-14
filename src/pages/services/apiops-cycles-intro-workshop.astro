@@ -4,18 +4,25 @@ import ContactCTA from '../../components/ContactCTA.astro';
 import StripeBuyButton from '../../components/StripeBuyButton.astro';
 import Grid from '../../components/Grid.astro';
 import InfoCard from '../../components/InfoCard.astro';
+import ExpertCard from '../../components/ExpertCard.astro';
 ---
 
 <BaseLayout title="APIOps Cycles Intro Workshop | Osaango" description="Your first practical step toward scalable, business-aligned APIs.">
   <div class="stack gap-20">
     <main class="wrapper service">
-      <header class="intro">
-        <h1>APIOps Cycles Intro Workshop / Masterclass</h1>
-        <p class="tagline">Your first practical step toward scalable, business-aligned APIs.</p>
-        <div class="image-placeholder">Image Placeholder</div>
-        <p class="pitch">A compact, high-impact <strong>2-hour online or onsite workshop</strong> for API product owners, architects, platform teams, and IT leaders. Discover if the APIOps Cycles method fits your needs and what it takes to roll it out.</p>
-        <StripeBuyButton buyButtonId="buy_btn_1Rw0X1ACa46L5dH7qNU9smmB" />
-      </header>
+      <section class="intro">
+        <header class="section-header stack gap-2 lg:gap-4">
+          <h1>APIOps Cycles Intro Workshop / Masterclass</h1>
+          <p class="tagline">Your first practical step toward scalable, business-aligned APIs.</p>
+        </header>
+        <div class="promo-content">
+          <div class="text stack gap-4">
+            <p class="pitch">A compact, high-impact <strong>2-hour online or onsite workshop</strong> for API product owners, architects, platform teams, and IT leaders. Discover if the APIOps Cycles method fits your needs and what it takes to roll it out.</p>
+            <StripeBuyButton buyButtonId="buy_btn_1Rw0X1ACa46L5dH7qNU9smmB" />
+          </div>
+          <div class="service-image">Image Placeholder</div>
+        </div>
+      </section>
 
       <section class="cards">
         <Grid variant="small">
@@ -70,6 +77,21 @@ import InfoCard from '../../components/InfoCard.astro';
           </InfoCard>
         </Grid>
       </section>
+
+      <section class="experts">
+        <h2>Our Experts</h2>
+        <Grid variant="small">
+          <ExpertCard name="Expert 1" title="Title">
+            <p>Short bio about the expert highlighting relevant experience and background.</p>
+          </ExpertCard>
+          <ExpertCard name="Expert 2" title="Title">
+            <p>Short bio about the expert highlighting relevant experience and background.</p>
+          </ExpertCard>
+          <ExpertCard name="Expert 3" title="Title">
+            <p>Short bio about the expert highlighting relevant experience and background.</p>
+          </ExpertCard>
+        </Grid>
+      </section>
     </main>
 
     <ContactCTA />
@@ -86,7 +108,7 @@ import InfoCard from '../../components/InfoCard.astro';
   .intro {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
   }
 
   .tagline {
@@ -94,7 +116,14 @@ import InfoCard from '../../components/InfoCard.astro';
     color: var(--gray-300);
   }
 
-  .image-placeholder {
+  .promo-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .service-image {
     width: 100%;
     aspect-ratio: 16 / 9;
     background: var(--gray-800);
@@ -110,6 +139,12 @@ import InfoCard from '../../components/InfoCard.astro';
   }
 
   .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .experts {
     display: flex;
     flex-direction: column;
     gap: 2rem;
