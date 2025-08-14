@@ -2,79 +2,74 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 import StripeBuyButton from '../../components/StripeBuyButton.astro';
+import Grid from '../../components/Grid.astro';
+import InfoCard from '../../components/InfoCard.astro';
 ---
 
 <BaseLayout title="APIOps Cycles Intro Workshop | Osaango" description="Your first practical step toward scalable, business-aligned APIs.">
   <div class="stack gap-20">
     <main class="wrapper service">
-      <h1>APIOps Cycles Intro Workshop / Masterclass</h1>
-      <p class="tagline">Your first practical step toward scalable, business-aligned APIs.</p>
-      <div class="image-placeholder">Image Placeholder</div>
+      <header class="intro">
+        <h1>APIOps Cycles Intro Workshop / Masterclass</h1>
+        <p class="tagline">Your first practical step toward scalable, business-aligned APIs.</p>
+        <div class="image-placeholder">Image Placeholder</div>
+        <p class="pitch">A compact, high-impact <strong>2-hour online or onsite workshop</strong> for API product owners, architects, platform teams, and IT leaders. Discover if the APIOps Cycles method fits your needs and what it takes to roll it out.</p>
+        <StripeBuyButton buyButtonId="buy_btn_1Rw0X1ACa46L5dH7qNU9smmB" />
+      </header>
 
-      <section>
-        <h2>Purpose</h2>
-        <p>A compact, high-impact <strong>2-hour online or onsite workshop</strong> designed for API product owners, architects, platform teams, and IT leaders who want to understand the APIOps Cycles method and how to apply it to their own context. This session helps you understand how, and if, using the method can help you and what will it take to roll it out for your needs.</p>
+      <section class="cards">
+        <Grid variant="small">
+          <InfoCard icon="strategy" title="You’ll Learn">
+            <ul>
+              <li>What the APIOps Cycles method is and why it works</li>
+              <li>How to avoid common API delivery wastes and misalignments</li>
+              <li>Where to focus first with a capability audit</li>
+              <li>How to engage teams and stakeholders across roles</li>
+            </ul>
+          </InfoCard>
+
+          <InfoCard icon="trophy" title="What You Get">
+            <ul>
+              <li>A visual <strong>metro map</strong> of your API maturity</li>
+              <li>A custom <strong>take-home summary</strong> for internal use</li>
+              <li>Follow-up access to resources, checklists, and templates</li>
+              <li>A taster of how our partners work, should you need further assistance</li>
+            </ul>
+          </InfoCard>
+
+          <InfoCard icon="code" title="Audience">
+            <ul>
+              <li>Product managers, platform leads, architects</li>
+              <li>IT leaders evaluating API practices</li>
+              <li>Anyone looking to improve API delivery without big consulting packages</li>
+            </ul>
+          </InfoCard>
+
+          <InfoCard icon="list" title="Pricing">
+            <p>Intro rate in Europe <strong>€450 / team (up to 4 people)</strong>. VAT 25,5% applies if delivered within Finland.</p>
+          </InfoCard>
+
+          <InfoCard icon="paper-plane-tilt" title="Delivery">
+            <ul>
+              <li>Online via Zoom/Google Meet/Teams or your in-house system</li>
+              <li>Available between 8.00 – 20.00 CET</li>
+              <li>Languages: English, French, or Finnish (others on request)</li>
+            </ul>
+          </InfoCard>
+
+          <InfoCard icon="heart" title="Bonus">
+            <p>Attendees receive a <strong>discount voucher</strong> for future APIOps training, consulting, or a follow-up capability audit.</p>
+          </InfoCard>
+
+          <InfoCard icon="rocket-launch" title="Best Fit">
+            <p>Perfect for teams with APIs in production or planning who want better outcomes without long-term consulting engagements.</p>
+          </InfoCard>
+
+          <InfoCard icon="microphone-stage" title="Positioning">
+            <p>This is not a webinar. It’s a structured introduction with practical tools mapped to your real-world needs. You leave with clarity, not just slides.</p>
+          </InfoCard>
+        </Grid>
       </section>
-
-      <section>
-        <h2>You’ll Learn</h2>
-        <ul>
-          <li>What the APIOps Cycles method is and why it works</li>
-          <li>How to avoid common API delivery wastes and misalignments</li>
-          <li>Where to focus first: audit your organizations capability and opportunities</li>
-          <li>How to engage teams and stakeholders across roles</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>What You Get</h2>
-        <ul>
-          <li>A visual <strong>metro map</strong> of your API maturity</li>
-          <li>A custom <strong>take-home summary</strong> for internal use</li>
-          <li>Follow-up access to resources, checklists, and templates</li>
-          <li>A taster of how our partners work, should you need further assistance</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Audience</h2>
-        <ul>
-          <li>Product managers, platform leads, architects</li>
-          <li>IT leaders evaluating API practices</li>
-          <li>Anyone looking to improve API delivery without big consulting packages</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Pricing</h2>
-        <p>Intro rate in Europe <strong>€450 / team (up to 4 people)</strong>, request a quote for other pricing.<br />Available only for business customers, VAT 25,5% applicable if delivered within Finland.</p>
-      </section>
-
-      <section>
-        <h2>Delivery</h2>
-        <ul>
-          <li>Online via Zoom/Google meet/Teams or in-house system, between 8.00 - 20.00 CET</li>
-          <li>Language: English/French/Finnish according to availability.</li>
-          <li>Contact us to request other languages, timezones, on-site etc.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Bonus</h2>
-        <p>Attendees receive a <strong>discount voucher</strong> for future APIOps training, consulting or a follow-up capability audit.</p>
-      </section>
-
-      <section>
-        <h2>Best Fit</h2>
-        <p>For teams who already have APIs in production or planning and want to improve outcomes without committing to a long-term consulting engagement.</p>
-      </section>
-
-      <section>
-        <h2>Positioning</h2>
-        <p>This is not a webinar. It’s a structured introduction with practical tools, mapped to your real-world needs. You leave with clarity, not just slides.</p>
-      </section>
-
-      <StripeBuyButton buyButtonId="buy_btn_1Rw0X1ACa46L5dH7qNU9smmB" />
     </main>
 
     <ContactCTA />
@@ -85,7 +80,13 @@ import StripeBuyButton from '../../components/StripeBuyButton.astro';
   .service {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 4rem;
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .tagline {
@@ -104,13 +105,13 @@ import StripeBuyButton from '../../components/StripeBuyButton.astro';
     color: var(--gray-400);
   }
 
-  section {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  .pitch {
+    font-size: var(--text-md);
   }
 
-  ul {
-    padding-left: 1.25rem;
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 </style>
