@@ -1,0 +1,45 @@
+---
+import Icon from './Icon.astro';
+import { iconPaths } from './IconPaths';
+
+interface Props {
+  icon: keyof typeof iconPaths;
+  title: string;
+}
+
+const { icon, title } = Astro.props;
+---
+<li class="card">
+  <Icon icon={icon} size="2.5rem" />
+  <h3>{title}</h3>
+  <div class="content"><slot /></div>
+</li>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: var(--gradient-subtle);
+    border: 1px solid var(--gray-800);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  h3 {
+    margin: 0;
+    font-size: var(--text-lg);
+  }
+
+  ul {
+    padding-left: 1.25rem;
+  }
+
+  @media (min-width: 50em) {
+    .card {
+      border-radius: 1.5rem;
+      padding: 2rem;
+    }
+  }
+</style>

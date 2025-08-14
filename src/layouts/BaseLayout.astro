@@ -17,23 +17,7 @@ const { title, description } = Astro.props;
 
 <html lang="en">
 	<head>
-		<!-- Google tag (gtag.js) -->
-		<script src="https://www.googletagmanager.com/gtag/js?id=G-35GC5RBXFN"></script>
-		<script is:inline>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
 
-			gtag('config', 'G-35GC5RBXFN');
-			gtag('consent', 'default', {
-			'ad_storage': 'denied',
-			'ad_user_data': 'denied',
-			'ad_personalization': 'denied',
-			'analytics_storage': 'denied'
-			});
-		</script>
-		<script src="https://cmp.osano.com/AzZiasU51W8qO2GF2/9c3d7adf-75a0-4fa6-84c3-b2dfea793c24/osano.js"></script>
-		<meta name="facebook-domain-verification" content="z63p56t2by3qkt0gkjqcieya5qyip6" />
   <style>
       .osano-cm-widget {
         background-image: url(https://cdn.osano.com/hubfs/assets/logos/1000w/Indigo%20O%20on%20Transparent-1000px.png);
@@ -155,5 +139,21 @@ const { title, description } = Astro.props;
 				}
 			}
 		</style>
+				<script defer src="https://cmp.osano.com/AzZiasU51W8qO2GF2/9c3d7adf-75a0-4fa6-84c3-b2dfea793c24/osano.js"></script>
+		<!-- Google tag (gtag.js) -->
+		<script defer src="https://www.googletagmanager.com/gtag/js?id=G-35GC5RBXFN"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-35GC5RBXFN');
+			gtag('consent', 'default', {
+			'ad_storage': 'denied',
+			'ad_user_data': 'denied',
+			'ad_personalization': 'denied',
+			'analytics_storage': 'denied'
+			});
+		</script>
 	</body>
 </html>

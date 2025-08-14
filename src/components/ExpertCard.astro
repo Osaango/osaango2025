@@ -1,0 +1,66 @@
+---
+interface Props {
+  name: string;
+  title: string;
+  imageSrc?: string;
+}
+
+const { name, title, imageSrc } = Astro.props;
+import { Image } from 'astro:assets';
+---
+<li class="expert-card">
+  {imageSrc ? (
+                                    <Image
+                                        src={imageSrc}
+                                        alt={name}
+                                        width={480}
+                                        height={620}
+                                        format="webp"
+										loading="eager"
+                                        fetchpriority="high"
+                                />
+  ) : (
+    <div class="expert-image">Image Placeholder</div>
+  )}
+  <h3>{name}</h3>
+  <p class="title">{title}</p>
+  <div class="bio"><slot /></div>
+</li>
+
+<style>
+  .expert-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .expert-image,
+  .expert-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--gray-800);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-400);
+  }
+
+  h3 {
+    margin: 0;
+    font-size: var(--text-lg);
+  }
+
+  .title {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--gray-300);
+  }
+
+  .bio {
+    font-size: var(--text-sm);
+  }
+</style>

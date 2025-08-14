@@ -14,7 +14,8 @@ import BlogPreview from '../components/BlogPreview.astro';
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
-import heroWoman from '../assets/osaango-hero-woman.jpg';
+import heroWoman from '../assets/osaango-hero-woman2.jpg';
+import apiopsCyclesWS from '../assets/service-images/accelerate-your-apis-with-apiops-cycles.png';
 
 // Content Fetching: List four most recent work projects
 const projects = (await getCollection('work'))
@@ -51,18 +52,48 @@ const posts = (await getCollection('blog'))
                                         width={480}
                                         height={620}
                                         format="webp"
+										loading="eager"
+                                        fetchpriority="high"
                                 />
 			</header>
 
 			<Skills />
-		</div>
+                </div>
 
-		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p>Take a look below at some of our featured work for clients from the past few years.</p>
-				</header>
+                <main class="wrapper stack gap-20 lg:gap-48">
+					<section class="intro">
+						<div class="promo-content">
+							<div class="text stack gap-4">
+								<header class="section-header stack gap-2 lg:gap-4">
+									<h3>Accelerate Your APIs with APIOps Cycles Workshop</h3>
+									<p class="">Your first practical step toward scalable, business-aligned APIs. A compact, high-impact <strong>2-hour online or onsite workshop</strong> </p>
+								</header>
+																<div class="cta">
+                                        <CallToAction href="/services/accelerate-your-apis-with-apiops-cycles/">
+                                                View Details
+                                                <Icon icon="arrow-right" size="1.2em" />
+                                        </CallToAction>
+                                </div>
+							</div>
+							<div class="service-image">
+												<Image
+														src={apiopsCyclesWS}
+														alt="business people looking at the APIOps Cycles metro map"
+														width={1120}
+														height={630}
+														format="webp"
+																			loading="eager"
+														fetchpriority="high"
+												/>
+							</div>
+						</div>
+					</section>
+
+                        <section class="section with-background with-cta">
+                                <header class="section-header stack gap-2 lg:gap-4">
+                                        <h3>Selected Work</h3>
+                                        <p>Take a look below at some of our featured work for clients from the past few years.</p>
+                                </header>
 
 				<div class="gallery">
 					<Grid variant="offset">
@@ -128,9 +159,8 @@ const posts = (await getCollection('blog'))
 	}
 
 	.hero img {
-		aspect-ratio: 3/4;
 		object-fit: cover;
-		object-position: top;
+		object-position: left center;
 		border-radius: 1.5rem;
 		/* box-shadow: var(--shadow-md); */
 	}
@@ -199,14 +229,61 @@ const posts = (await getCollection('blog'))
 		color: var(--gray-300);
 	}
 
-	.section-header h3 {
-		font-size: var(--text-2xl);
-	}
+        .section-header h3 {
+                font-size: var(--text-2xl);
+        }
 
-	@media (min-width: 50em) {
-		.section {
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
+
+  .service {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .tagline {
+    font-size: var(--text-lg);
+    color: var(--gray-300);
+  }
+
+  .promo-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .service-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--gray-800);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-400);
+  }
+
+  .service-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    object-fit: cover;
+  }
+
+  .pitch {
+    font-size: var(--text-md);
+  }
+
+        @media (min-width: 50em) {
+                .section {
+                        grid-template-columns: repeat(4, 1fr);
+                        grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
 			gap: 5rem;
 		}
 
