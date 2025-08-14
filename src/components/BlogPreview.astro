@@ -11,7 +11,7 @@ const { post } = Astro.props;
 
 <article class="card">
         {post.data.img && (
-                <Image src={post.data.img} alt={post.data.img_alt || ''} format="webp" />
+                <Image src={post.data.img} alt={post.data.img_alt || ''} format="webp" width={400} />
         )}
         <h4><a href={`/blog/${post.id}/`}>{post.data.title}</a></h4>
         <p class="publish-date">{post.data.publishDate.toLocaleDateString()}</p>

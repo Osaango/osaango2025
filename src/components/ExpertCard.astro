@@ -6,10 +6,19 @@ interface Props {
 }
 
 const { name, title, imageSrc } = Astro.props;
+import { Image } from 'astro:assets';
 ---
 <li class="expert-card">
   {imageSrc ? (
-    <img src={imageSrc} alt={name} />
+                                    <Image
+                                        src={imageSrc}
+                                        alt={name}
+                                        width={480}
+                                        height={620}
+                                        format="webp"
+										loading="eager"
+                                        fetchpriority="high"
+                                />
   ) : (
     <div class="expert-image">Image Placeholder</div>
   )}

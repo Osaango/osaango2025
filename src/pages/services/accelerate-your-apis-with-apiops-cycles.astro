@@ -5,14 +5,16 @@ import StripeBuyButton from '../../components/StripeBuyButton.astro';
 import Grid from '../../components/Grid.astro';
 import InfoCard from '../../components/InfoCard.astro';
 import ExpertCard from '../../components/ExpertCard.astro';
+import { Image } from 'astro:assets';
+import apiopsCyclesWS from '../../assets/service-images/accelerate-your-apis-with-apiops-cycles.png';
 ---
 
-<BaseLayout title="APIOps Cycles Intro Workshop | Osaango" description="Your first practical step toward scalable, business-aligned APIs.">
+<BaseLayout title="Accelerate Your APIs with APIOps Cycles Workshop | Osaango" description="Your first practical step toward scalable, business-aligned APIs.">
   <div class="stack gap-20">
     <main class="wrapper service">
       <section class="intro">
         <header class="section-header stack gap-2 lg:gap-4">
-          <h1>APIOps Cycles Intro Workshop / Masterclass</h1>
+          <h1>Accelerate Your APIs with APIOps Cycles Workshop</h1>
           <p class="tagline">Your first practical step toward scalable, business-aligned APIs.</p>
         </header>
         <div class="promo-content">
@@ -20,7 +22,17 @@ import ExpertCard from '../../components/ExpertCard.astro';
             <p class="pitch">A compact, high-impact <strong>2-hour online or onsite workshop</strong> for API product owners, architects, platform teams, and IT leaders. Discover if the APIOps Cycles method fits your needs and what it takes to roll it out.</p>
             <StripeBuyButton buyButtonId="buy_btn_1Rw0X1ACa46L5dH7qNU9smmB" />
           </div>
-          <div class="service-image">Image Placeholder</div>
+          <div class="service-image">
+                                <Image
+                                        src={apiopsCyclesWS}
+                                        alt="business people looking at the APIOps Cycles metro map"
+                                        width={1120}
+                                        height={630}
+                                        format="webp"
+										                    loading="eager"
+                                        fetchpriority="high"
+                                />
+          </div>
         </div>
       </section>
 
@@ -53,7 +65,8 @@ import ExpertCard from '../../components/ExpertCard.astro';
           </InfoCard>
 
           <InfoCard icon="list" title="Pricing">
-            <p>Intro rate in Europe <strong>€450 / team (up to 4 people)</strong>. VAT 25,5% applies if delivered within Finland.</p>
+            <p>Intro rate in Europe <strong>€450 / team (up to 4 people)</strong>. 
+            <p class="small-text">VAT 25,5% applies if delivered within Finland.</p>
           </InfoCard>
 
           <InfoCard icon="paper-plane-tilt" title="Delivery">
@@ -81,14 +94,14 @@ import ExpertCard from '../../components/ExpertCard.astro';
       <section class="experts">
         <h2>Our Experts</h2>
         <Grid variant="small">
-          <ExpertCard name="Expert 1" title="Title">
-            <p>Short bio about the expert highlighting relevant experience and background.</p>
+          <ExpertCard name="Marjukka Niinioja" title="APIOps Cycles Founder @ Osaango" imageSrc="/assets/experts/marjukka-niinioja.jpg">
+            <p>The “mother” of the lean, open, and business-oriented APIOps Cycles method. Niinioja works as an API business consultant, architect, and trainer for companies and public-sector. She has 10+ years of experience with API Economy from retail, energy, ICT, construction, Telco/n, and traffic industries, among others.</p>
           </ExpertCard>
-          <ExpertCard name="Expert 2" title="Title">
-            <p>Short bio about the expert highlighting relevant experience and background.</p>
+          <ExpertCard name="Audrey Kolski" title="API Product Consultant @ AboutAPIs" imageSrc="/assets/experts/audrey-kolski.jpg">
+            <p>Consultant in API Product Management. With a technical background and a diverse career across product, pre-sales, and partnerships in industries like telecommunications, financial services, music, and ad-tech, Audrey is passionate about solving complex problems and creating value through APIs. </p>
           </ExpertCard>
-          <ExpertCard name="Expert 3" title="Title">
-            <p>Short bio about the expert highlighting relevant experience and background.</p>
+          <ExpertCard name="Claire Barrett" title="Consultant & Leader @ APIsFirst" imageSrc="/assets/experts/claire-barrett.jpg">
+            <p>Experienced consultant and technology leader, gets organisational traction for API-enabled programs. Strategy translator for realising API potential forging stakeholder buy-in and commitment so that change sticks. </p>
           </ExpertCard>
         </Grid>
       </section>
@@ -134,6 +147,13 @@ import ExpertCard from '../../components/ExpertCard.astro';
     color: var(--gray-400);
   }
 
+  .service-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    object-fit: cover;
+  }
+
   .pitch {
     font-size: var(--text-md);
   }
@@ -148,5 +168,10 @@ import ExpertCard from '../../components/ExpertCard.astro';
     display: flex;
     flex-direction: column;
     gap: 2rem;
+  }
+
+  .small-text {
+    font-size: var(--text-sm);
+    color: var(--gray-500);
   }
 </style>
