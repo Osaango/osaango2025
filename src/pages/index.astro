@@ -55,14 +55,32 @@ const posts = (await getCollection('blog'))
 			</header>
 
 			<Skills />
-		</div>
+                </div>
 
-		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p>Take a look below at some of our featured work for clients from the past few years.</p>
-				</header>
+                <main class="wrapper stack gap-20 lg:gap-48">
+                        <section class="section with-background service-promo">
+                                <header class="section-header stack gap-2 lg:gap-4">
+                                        <h3>APIOps Cycles Intro Workshop</h3>
+                                        <p>Your first practical step toward scalable, business-aligned APIs.</p>
+                                </header>
+
+                                <div class="promo-content">
+                                        <div class="text stack gap-4">
+                                                <p>A compact, high-impact 2-hour workshop introducing the APIOps Cycles method.</p>
+                                                <CallToAction href="/services/apiops-cycles-intro-workshop/">
+                                                        Learn More
+                                                        <Icon icon="arrow-right" size="1.2em" />
+                                                </CallToAction>
+                                        </div>
+                                        <div class="image-placeholder">Image Placeholder</div>
+                                </div>
+                        </section>
+
+                        <section class="section with-background with-cta">
+                                <header class="section-header stack gap-2 lg:gap-4">
+                                        <h3>Selected Work</h3>
+                                        <p>Take a look below at some of our featured work for clients from the past few years.</p>
+                                </header>
 
 				<div class="gallery">
 					<Grid variant="offset">
@@ -199,14 +217,37 @@ const posts = (await getCollection('blog'))
 		color: var(--gray-300);
 	}
 
-	.section-header h3 {
-		font-size: var(--text-2xl);
-	}
+        .section-header h3 {
+                font-size: var(--text-2xl);
+        }
 
-	@media (min-width: 50em) {
-		.section {
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
+        .service-promo .promo-content {
+                display: grid;
+                gap: 1.5rem;
+        }
+
+        .service-promo .image-placeholder {
+                width: 100%;
+                aspect-ratio: 16 / 9;
+                background: var(--gray-800);
+                border-radius: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--gray-400);
+        }
+
+        @media (min-width: 50em) {
+                .service-promo .promo-content {
+                        grid-template-columns: 1fr 1fr;
+                        align-items: center;
+                }
+        }
+
+        @media (min-width: 50em) {
+                .section {
+                        grid-template-columns: repeat(4, 1fr);
+                        grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
 			gap: 5rem;
 		}
 
