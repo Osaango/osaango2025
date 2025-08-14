@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ContactCTA from '../../components/ContactCTA.astro';
-import StripeBuyButton from '../../components/StripeBuyButton.astro';
+import CallToAction from '../../components/CallToAction.astro';
+import Icon from '../../components/Icon.astro';
 import Grid from '../../components/Grid.astro';
 import InfoCard from '../../components/InfoCard.astro';
 import ExpertCard from '../../components/ExpertCard.astro';
@@ -20,7 +20,10 @@ import apiopsCyclesWS from '../../assets/service-images/accelerate-your-apis-wit
         <div class="promo-content">
           <div class="text stack gap-4">
             <p class="pitch">A compact, high-impact <strong>2-hour online or onsite workshop</strong> for API product owners, architects, platform teams, and IT leaders. Discover if the APIOps Cycles method fits your needs and what it takes to roll it out.</p>
-            <StripeBuyButton buyButtonId="buy_btn_1Rw0X1ACa46L5dH7qNU9smmB" />
+              <CallToAction href="https://calendar.app.google/u7sf4kTpiQGc1tr18">
+                Book Now
+                <Icon icon="calendar-dots" size="1.2em" />
+              </CallToAction>
           </div>
           <div class="service-image">
                                 <Image
@@ -65,7 +68,7 @@ import apiopsCyclesWS from '../../assets/service-images/accelerate-your-apis-wit
           </InfoCard>
 
           <InfoCard icon="list" title="Pricing">
-            <p>Intro rate in Europe <strong>€450 / team (up to 4 people)</strong>. 
+            <p><strong>€450 / team (up to 4 people)</strong> 
             <p class="small-text">VAT 25,5% applies if delivered within Finland.</p>
           </InfoCard>
 
@@ -85,8 +88,8 @@ import apiopsCyclesWS from '../../assets/service-images/accelerate-your-apis-wit
             <p>Perfect for teams with APIs in production or planning who want better outcomes without long-term consulting engagements.</p>
           </InfoCard>
 
-          <InfoCard icon="microphone-stage" title="Positioning">
-            <p>This is not a webinar. It’s a structured introduction with practical tools mapped to your real-world needs. You leave with clarity, not just slides.</p>
+          <InfoCard icon="microphone-stage" title="This is not a webinar">
+            <p>It’s a structured introduction with practical tools mapped to your real-world needs. You leave with clarity, not just slides.</p>
           </InfoCard>
         </Grid>
       </section>
@@ -105,9 +108,19 @@ import apiopsCyclesWS from '../../assets/service-images/accelerate-your-apis-wit
           </ExpertCard>
         </Grid>
       </section>
+      <section class="section with-background with-cta">
+          <header class="section-header stack gap-2 lg:gap-4">
+            <h3>Ready to Accelerate Your APIs?</h3>
+            <p>Book your workshop now and take the first step towards scalable, business-aligned APIs.</p>
+          </header>
+    			<div class="bottom-cta">
+              <CallToAction href="https://calendar.app.google/u7sf4kTpiQGc1tr18">
+                Book Now
+                <Icon icon="arrow-right" size="1.2em" />
+              </CallToAction>
+				</div>
+			</section>
     </main>
-
-    <ContactCTA />
   </div>
 </BaseLayout>
 
@@ -173,5 +186,11 @@ import apiopsCyclesWS from '../../assets/service-images/accelerate-your-apis-wit
   .small-text {
     font-size: var(--text-sm);
     color: var(--gray-500);
+  }
+
+  .bottom-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
   }
 </style>
