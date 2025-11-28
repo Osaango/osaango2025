@@ -61,33 +61,59 @@ const posts = (await getCollection('blog'))
                 </div>
 
                 <main class="wrapper stack gap-20 lg:gap-48">
-					<section class="intro">
-						<div class="promo-content">
-							<div class="text stack gap-4">
-								<header class="section-header stack gap-2 lg:gap-4">
-									<h3>Accelerate Your APIs with APIOps Cycles Workshop</h3>
-									<p class="">Your first practical step toward scalable, business-aligned APIs. A compact, high-impact <strong>2-hour online or onsite workshop</strong> </p>
-								</header>
-																<div class="cta">
+                                        <section class="intro">
+                                                <div class="promo-content">
+                                                        <div class="text stack gap-4">
+                                                                <header class="section-header stack gap-2 lg:gap-4">
+                                                                        <h3>Accelerate Your APIs with APIOps Cycles Workshop</h3>
+                                                                        <p class="">Your first practical step toward scalable, business-aligned APIs. A compact, high-impact <strong>2-hour online or onsite workshop</strong> </p>
+                                                                </header>
+                                                                                                                                <div class="cta">
                                         <CallToAction href="/services/accelerate-your-apis-with-apiops-cycles/">
                                                 View Details
                                                 <Icon icon="arrow-right" size="1.2em" />
                                         </CallToAction>
                                 </div>
-							</div>
-							<div class="service-image">
-												<Image
-														src={apiopsCyclesWS}
-														alt="business people looking at the APIOps Cycles metro map"
-														width={1120}
-														height={630}
-														format="webp"
-																			loading="eager"
-														fetchpriority="high"
-												/>
-							</div>
-						</div>
-					</section>
+                                                        </div>
+                                                        <div class="service-image">
+                                                                                                                                        <Image
+                                                                                                                                                        src={apiopsCyclesWS}
+                                                                                                                                                        alt="business people looking at the APIOps Cycles metro map"
+                                                                                                                                                        width={1120}
+                                                                                                                                                        height={630}
+                                                                                                                                                        format="webp"
+                                                                                                                                                                          loading="eager"
+                                                                                                                                                        fetchpriority="high"
+                                                                                                                                        />
+                                                        </div>
+                                                </div>
+                                        </section>
+
+                                        <section class="intro">
+                                                <div class="promo-content promo-content--games">
+                                                        <div class="text stack gap-4">
+                                                                <header class="section-header stack gap-2 lg:gap-4">
+                                                                        <h3>Agile Collaboration Games</h3>
+                                                                        <p class="">Two ready-to-play games that energize retros, workshops, and agile coaching—tested with Agile Tampere 2025 participants.</p>
+                                                                </header>
+
+                                                                <div class="cta">
+                                                                        <CallToAction href="/services/agile-collaboration-games/">
+                                                                                Discover the games
+                                                                                <Icon icon="arrow-right" size="1.2em" />
+                                                                        </CallToAction>
+                                                                </div>
+                                                        </div>
+                                                        <div class="service-image service-image--games">
+                                                                <div class="badge">New</div>
+                                                                <div class="games-list">
+                                                                        <p><strong>Agile Sprint Challenge Game</strong></p>
+                                                                        <p><strong>Agile Retro Card Game</strong></p>
+                                                                        <p>Order at shop.osaango.com</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </section>
 
                         <section class="section with-background with-cta">
                                 <header class="section-header stack gap-2 lg:gap-4">
@@ -278,6 +304,44 @@ const posts = (await getCollection('blog'))
 
   .pitch {
     font-size: var(--text-md);
+  }
+
+  .promo-content--games {
+    align-items: stretch;
+  }
+
+  .service-image--games {
+    background: radial-gradient(circle at 20% 20%, var(--gray-700), var(--gray-900)), var(--gradient-subtle);
+    border: 1px solid var(--gray-700);
+    box-shadow: var(--shadow-lg);
+    gap: 0.75rem;
+    padding: 1.5rem;
+    text-align: left;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    background: var(--gray-0);
+    color: var(--gray-900);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: var(--text-xs);
+    letter-spacing: 0.05em;
+  }
+
+  .games-list {
+    display: grid;
+    gap: 0.35rem;
+    font-size: var(--text-md);
+    color: var(--gray-0);
+  }
+
+  .games-list p {
+    margin: 0;
   }
 
         @media (min-width: 50em) {
