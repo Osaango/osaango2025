@@ -24,8 +24,6 @@ const GA_MEASUREMENT_ID = 'G-35GC5RBXFN';
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <script src="https://cmp.osano.com/AzZiasU51W8qO2GF2/9c3d7adf-75a0-4fa6-84c3-b2dfea793c24/osano.js"></script>
-{!import.meta.env.PROD && (
-  <>
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
     <script is:inline>
       const GA_ID = '${GA_MEASUREMENT_ID}';
@@ -104,8 +102,6 @@ const GA_MEASUREMENT_ID = 'G-35GC5RBXFN';
 
       gtag('config', GA_ID);
     </script>
-  </>
-)}
 
 <link
   rel="preload"
