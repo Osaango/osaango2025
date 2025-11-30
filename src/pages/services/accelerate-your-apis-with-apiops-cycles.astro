@@ -18,7 +18,7 @@ import apiopsCyclesWS from '../../assets/service-images/AccelerateAPIOpsCycles.j
           <p class="tagline">Your first practical step toward scalable, business-aligned APIs.</p>
         </header>
         <div class="promo-content">
-        <div>
+        <div class="promo-image">
           <Image
             src={apiopsCyclesWS}
             alt="business people looking at the APIOps Cycles metro map"
@@ -28,6 +28,7 @@ import apiopsCyclesWS from '../../assets/service-images/AccelerateAPIOpsCycles.j
             loading="eager"
             fetchpriority="high"
             class="service-image"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
            />
           </div>
           <div class="text stack gap-4">
@@ -140,9 +141,20 @@ import apiopsCyclesWS from '../../assets/service-images/AccelerateAPIOpsCycles.j
 
   .promo-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'image'
+      'text';
     gap: 2rem;
     align-items: center;
+  }
+
+  .promo-content .text {
+    grid-area: text;
+  }
+
+  .promo-content .promo-image {
+    grid-area: image;
   }
 
   .service-image {
@@ -193,5 +205,12 @@ import apiopsCyclesWS from '../../assets/service-images/AccelerateAPIOpsCycles.j
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+  }
+
+  @media (min-width: 50em) {
+    .promo-content {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 'text image';
+    }
   }
 </style>

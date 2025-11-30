@@ -20,12 +20,13 @@ import AgileGames from '../../assets/service-images/Osaango_Agile_Games.jpg';
           <p class="tagline">Turn retros and agile coaching into engaging, solution-focused play.</p>
         </header>
         <div class="promo-content">
-        <div>
+        <div class="promo-image">
                                 <Image
                                         src={AgileGames}
                                         alt="Osaango Agile Sprint Challenge and Retro Card games"
                                         width={1120}
                                         height={630}
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                                         format="webp"
 										                    loading="eager"
                                         fetchpriority="high"
@@ -137,9 +138,20 @@ import AgileGames from '../../assets/service-images/Osaango_Agile_Games.jpg';
 
   .promo-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'image'
+      'text';
     gap: 2rem;
     align-items: center;
+  }
+
+  .promo-content .text {
+    grid-area: text;
+  }
+
+  .promo-content .promo-image {
+    grid-area: image;
   }
 
   .service-image {
@@ -205,9 +217,10 @@ import AgileGames from '../../assets/service-images/Osaango_Agile_Games.jpg';
     margin-top: 2rem;
   }
 
-  @media (max-width: 50em) {
+  @media (min-width: 50em) {
     .promo-content {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 'image text';
     }
   }
 </style>
