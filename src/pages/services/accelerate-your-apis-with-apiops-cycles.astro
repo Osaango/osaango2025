@@ -6,7 +6,7 @@ import Grid from '../../components/Grid.astro';
 import InfoCard from '../../components/InfoCard.astro';
 import ExpertCard from '../../components/ExpertCard.astro';
 import { Image } from 'astro:assets';
-import apiopsCyclesWS from '../../assets/service-images/accelerate-your-apis-with-apiops-cycles.png';
+import apiopsCyclesWS from '../../assets/service-images/AccelerateAPIOpsCycles.jpg';
 ---
 
 <BaseLayout title="Accelerate Your APIs with APIOps Cycles Workshop | Osaango" description="Your first practical step toward scalable, business-aligned APIs.">
@@ -18,23 +18,24 @@ import apiopsCyclesWS from '../../assets/service-images/accelerate-your-apis-wit
           <p class="tagline">Your first practical step toward scalable, business-aligned APIs.</p>
         </header>
         <div class="promo-content">
+        <div>
+          <Image
+            src={apiopsCyclesWS}
+            alt="business people looking at the APIOps Cycles metro map"
+            width={1200}
+            height={630}
+            format="webp"
+            loading="eager"
+            fetchpriority="high"
+            class="service-image"
+           />
+          </div>
           <div class="text stack gap-4">
             <p class="pitch">A compact, high-impact <strong>2-hour online or onsite workshop</strong> for API product owners, architects, platform teams, and IT leaders. Discover if the APIOps Cycles method fits your needs and what it takes to roll it out.</p>
-              <CallToAction href="https://calendar.app.google/u7sf4kTpiQGc1tr18">
-                Book Now
+              <CallToAction href="https://www.osaango.academy/products/live_events/apiops-cycles-workshop">
+                Book Now at Osaango Academy
                 <Icon icon="calendar-dots" size="1.2em" />
               </CallToAction>
-          </div>
-          <div class="service-image">
-                                <Image
-                                        src={apiopsCyclesWS}
-                                        alt="business people looking at the APIOps Cycles metro map"
-                                        width={1120}
-                                        height={630}
-                                        format="webp"
-										                    loading="eager"
-                                        fetchpriority="high"
-                                />
           </div>
         </div>
       </section>
@@ -65,11 +66,6 @@ import apiopsCyclesWS from '../../assets/service-images/accelerate-your-apis-wit
               <li>IT leaders evaluating API practices</li>
               <li>Anyone looking to improve API delivery without big consulting packages</li>
             </ul>
-          </InfoCard>
-
-          <InfoCard icon="list" title="Pricing">
-            <p><strong>€450 / team (up to 4 people)</strong> 
-            <p class="small-text">VAT 25,5% applies if delivered within Finland.</p>
           </InfoCard>
 
           <InfoCard icon="paper-plane-tilt" title="Delivery">
@@ -152,12 +148,17 @@ import apiopsCyclesWS from '../../assets/service-images/accelerate-your-apis-wit
   .service-image {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: var(--gray-800);
+    background: radial-gradient(circle at 20% 20%, var(--gray-700), var(--gray-900)), var(--gradient-subtle);
     border-radius: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--gray-400);
+    border: 1px solid var(--gray-700);
+    box-shadow: var(--shadow-lg);
+    gap: 0.75rem;
+    padding: 0rem 0rem 0rem 0rem;
+    text-align: left;
   }
 
   .service-image img {

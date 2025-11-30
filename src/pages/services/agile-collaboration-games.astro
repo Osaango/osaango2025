@@ -1,0 +1,213 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CallToAction from '../../components/CallToAction.astro';
+import Icon from '../../components/Icon.astro';
+import Grid from '../../components/Grid.astro';
+import InfoCard from '../../components/InfoCard.astro';
+import { Image } from 'astro:assets';
+import AgileGames from '../../assets/service-images/Osaango_Agile_Games.jpg';
+---
+
+<BaseLayout
+  title="Agile Collaboration Games | Osaango"
+  description="Two facilitator-friendly games that turn retros and agile coaching into energizing, solution-focused conversations."
+>
+  <div class="stack gap-20">
+    <main class="wrapper service">
+      <section class="intro">
+        <header class="section-header stack gap-2 lg:gap-4">
+          <h1>Agile Collaboration Games</h1>
+          <p class="tagline">Turn retros and agile coaching into engaging, solution-focused play.</p>
+        </header>
+        <div class="promo-content">
+        <div>
+                                <Image
+                                        src={AgileGames}
+                                        alt="Osaango Agile Sprint Challenge and Retro Card games"
+                                        width={1120}
+                                        height={630}
+                                        format="webp"
+										                    loading="eager"
+                                        fetchpriority="high"
+                                        class="service-image"
+                                />
+        </div>
+          <div class="text stack gap-4">
+            <p class="pitch">
+              Two ready-to-play games tested with Agile Coaches, Scrum Masters, and Product Owners. They spark open dialogue, help teams share practices, and make even tough topics easier to address together.
+            </p>
+            <div class="games-list">
+              <p><strong>Agile Sprint Challenge Game</strong></p>
+              <p><strong>Agile Retro Card Game</strong></p>
+              <p>Available from our webshop</p>
+            </div>
+            <CallToAction href="https://shop.osaango.com">
+              View pricing and delivery options
+              <Icon icon="arrow-right" size="1.2em" />
+            </CallToAction>
+          </div>
+      </section>
+
+      <section class="cards">
+        <Grid variant="small">
+          <InfoCard icon="trophy" title="Two games, one goal">
+            <ul>
+              <li><strong>Agile Sprint Challenge Game:</strong> Teams face sprint challenges and aim to finish as many backlog items as possible.</li>
+              <li><strong>Agile Retro Card Game:</strong> Ideal for retros, improvement programs, and sharing practices across teams.</li>
+            </ul>
+          </InfoCard>
+
+          <InfoCard icon="strategy" title="Works best for">
+            <ul>
+              <li>Onboarding workshops and team kick-offs</li>
+              <li>Retrospectives or improvement sessions</li>
+              <li>Agility coaching and development programs</li>
+              <li>Cross-team learning and practice sharing</li>
+            </ul>
+          </InfoCard>
+
+          <InfoCard icon="rocket-launch" title="Outcomes from playtests">
+            <ul>
+              <li>Teams quickly exchanged good practices and solved problems together.</li>
+              <li>Neutral ground for discussing sensitive or challenging topics.</li>
+              <li>Energy and engagement increased as teams rallied around shared goals.</li>
+            </ul>
+          </InfoCard>
+
+          <InfoCard icon="heart" title="Common challenges we address">
+            <ul>
+              <li>Resistance to change and unlearning old habits</li>
+              <li>Difficulty iterating and dealing with heavy dependencies</li>
+              <li>Lack of leadership support or limiting organizational structures</li>
+            </ul>
+          </InfoCard>
+
+          <InfoCard icon="paper-plane-tilt" title="Delivery options">
+            <ul>
+              <li>Playable on-site or remotely</li>
+              <li>Great for teams, communities of practice, or training cohorts</li>
+              <li>Order ready-made sets or request a guided demo session</li>
+            </ul>
+          </InfoCard>
+
+          <InfoCard icon="microphone-stage" title="What participants said">
+            <ul>
+              <li>“The game is a great way to activate and spark discussion.”</li>
+              <li>“Playing makes learning stick.”</li>
+              <li>“Enables neutral conversations—even on difficult topics.”</li>
+              <li>“We should play this with our team!”</li>
+            </ul>
+          </InfoCard>
+        </Grid>
+      </section>
+
+      <section class="section with-background with-cta">
+        <header class="section-header stack gap-2 lg:gap-4">
+          <h3>Bring the games to your team</h3>
+          <p>Order the decks or ask for a demo. Perfect for retros, onboarding, and agile improvement programs—on-site or remote.</p>
+        </header>
+        <div class="bottom-cta">
+          <CallToAction href="https://shop.osaango.com">
+            Order now
+            <Icon icon="arrow-right" size="1.2em" />
+          </CallToAction>
+        </div>
+      </section>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  .service {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .tagline {
+    font-size: var(--text-lg);
+    color: var(--gray-300);
+  }
+
+  .promo-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .service-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: radial-gradient(circle at 20% 20%, var(--gray-700), var(--gray-900)), var(--gradient-subtle);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-400);
+    border: 1px solid var(--gray-700);
+    box-shadow: var(--shadow-lg);
+    gap: 0.75rem;
+    padding: 0rem 0rem 0rem 0rem;
+    text-align: left;
+  }
+
+  .service-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    object-fit: cover;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    background: var(--gray-0);
+    color: var(--gray-900);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: var(--text-xs);
+    letter-spacing: 0.05em;
+  }
+
+  .games-list {
+    display: grid;
+    gap: 0.5rem;
+    font-size: var(--text-md);
+  }
+
+  .games-list p {
+    margin: 0;
+  }
+
+  .pitch {
+    font-size: var(--text-md);
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .bottom-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 50em) {
+    .promo-content {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
