@@ -77,12 +77,13 @@ const posts = (await getCollection('blog'))
                                                                         </CallToAction>
                                                                 </div>
                                                         </div>
-                                                        <div>
+                                                        <div class="promo-image">
                                                                 <Image
                                                                         src={apiopsCyclesWS}
                                                                         alt="business people looking at the APIOps Cycles metro map"
                                                                         width={1200}
                                                                         height={650}
+                                                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                                                                         format="webp"
                                                                         loading="eager"
                                                                         fetchpriority="high"
@@ -94,12 +95,13 @@ const posts = (await getCollection('blog'))
 
                                         <section class="intro">
                                                 <div class="promo-content promo-content--games">
-                                                        <div class="stack gap-2 lg:gap-4">
+                                                        <div class="promo-image stack gap-2 lg:gap-4">
                                                                 <Image
                                                                                 src={AgileGames}
                                                                                 alt="Osaango Agile Sprint Challenge and Retro Card games"
                                                                                 width={1120}
                                                                                 height={630}
+                                                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                                                                                 format="webp"
                                                                                 loading="eager"
                                                                                 fetchpriority="high"
@@ -291,9 +293,20 @@ const posts = (await getCollection('blog'))
 
   .promo-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'image'
+      'text';
     gap: 2rem;
     align-items: center;
+  }
+
+  .promo-content .text {
+    grid-area: text;
+  }
+
+  .promo-content .promo-image {
+    grid-area: image;
   }
 
   .service-image {
@@ -353,6 +366,15 @@ const posts = (await getCollection('blog'))
   }
 
         @media (min-width: 50em) {
+                .promo-content {
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-areas: 'text image';
+                }
+
+                .promo-content--games {
+                        grid-template-areas: 'image text';
+                }
+
                 .section {
                         grid-template-columns: repeat(4, 1fr);
                         grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
