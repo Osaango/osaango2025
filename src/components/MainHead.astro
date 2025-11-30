@@ -2,16 +2,16 @@
 import '../styles/global.css';
 
 interface Props {
-	title?: string | undefined;
-	description?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
 }
 
 const {
-	title = 'Osaango - From Chaos to Clarity',
-	description = 'Build strategy-driven ecosystems that scale.',
+  title = 'Osaango - From Chaos to Clarity',
+  description = 'Build strategy-driven ecosystems that scale.',
 } = Astro.props;
 
-const GTM_ID = 'G-35GC5RBXFN';
+const GA_MEASUREMENT_ID = 'G-35GC5RBXFN';
 ---
 
 <meta charset="UTF-8" />
@@ -23,67 +23,85 @@ const GTM_ID = 'G-35GC5RBXFN';
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-					<script is:inline>
-						window.dataLayer = window.dataLayer || [];
-						function gtag(){dataLayer.push(arguments);}
-						gtag('js', new Date());
-
-{						gtag('consent', 'default', {
-						'ad_storage': 'denied',
-						'ad_user_data': 'denied',
-						'ad_personalization': 'denied',
-						'analytics_storage': 'denied'
-						});}
-						gtag('config', 'G-35GC5RBXFN');
-					</script>
 <script src="https://cmp.osano.com/AzZiasU51W8qO2GF2/9c3d7adf-75a0-4fa6-84c3-b2dfea793c24/osano.js"></script>
+{!import.meta.env.DEV && (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+    <script is:inline>
+      const GA_ID = ${JSON.stringify(GA_MEASUREMENT_ID)};
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+      });
 
-<link 
-    rel="preload"
-    as="style"
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap"
+      const applyOsanoConsentToGtag = () => {
+        const consentState = window.Osano?.cm?.getConsent?.();
+        if (!consentState) return;
+
+        const analyticsGranted = Boolean(
+          consentState.analytics ?? consentState.statistics ?? consentState.performance,
+        );
+        const marketingGranted = Boolean(consentState.marketing);
+
+        gtag('consent', 'update', {
+          ad_storage: marketingGranted ? 'granted' : 'denied',
+          ad_user_data: marketingGranted ? 'granted' : 'denied',
+          ad_personalization: marketingGranted ? 'granted' : 'denied',
+          analytics_storage: analyticsGranted ? 'granted' : 'denied',
+        });
+      };
+
+      window.addEventListener('osano-cm-loaded', applyOsanoConsentToGtag);
+      window.addEventListener('osano-cm-consent-changed', applyOsanoConsentToGtag);
+      applyOsanoConsentToGtag();
+
+      gtag('config', GA_ID);
+    </script>
+  </>
+)}
+
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap"
 />
 <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap"
-    media="print"
-    onload="this.media='all'"
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap"
+  media="print"
+  onload="this.media='all'"
 />
 <noscript>
-<link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap"
-/>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap"
+  />
 </noscript>
 
 <script is:inline>
-	// This code is inlined in the head to make dark mode instant & blocking.
-	const getThemePreference = () => {
-		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-			return localStorage.getItem('theme');
-		}
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	};
-	const isDark = getThemePreference() === 'dark';
-	document.documentElement.classList[isDark ? 'add' : 'remove']('theme-dark');
+  // This code is inlined in the head to make dark mode instant & blocking.
+  const getThemePreference = () => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
+  const isDark = getThemePreference() === 'dark';
+  document.documentElement.classList[isDark ? 'add' : 'remove']('theme-dark');
 
-	if (typeof localStorage !== 'undefined') {
-		// Watch the document element and persist user preference when it changes.
-		const observer = new MutationObserver(() => {
-			const isDark = document.documentElement.classList.contains('theme-dark');
-			localStorage.setItem('theme', isDark ? 'dark' : 'light');
-		});
-		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-	}
+  if (typeof localStorage !== 'undefined') {
+    // Watch the document element and persist user preference when it changes.
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains('theme-dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  }
 </script>
-		{
-			
-			import.meta.env.DEV && (
-				<>
-§					<!-- Google tag (gtag.js) -->
-
-					<script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-35GC5RBXFN"></script>
-
-					</>
-				)
-		}
