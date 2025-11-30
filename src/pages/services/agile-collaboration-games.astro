@@ -4,6 +4,8 @@ import CallToAction from '../../components/CallToAction.astro';
 import Icon from '../../components/Icon.astro';
 import Grid from '../../components/Grid.astro';
 import InfoCard from '../../components/InfoCard.astro';
+import { Image } from 'astro:assets';
+import AgileGames from '../../assets/service-images/Osaango_Agile_Games.jpg';
 ---
 
 <BaseLayout
@@ -18,28 +20,37 @@ import InfoCard from '../../components/InfoCard.astro';
           <p class="tagline">Turn retros and agile coaching into engaging, solution-focused play.</p>
         </header>
         <div class="promo-content">
+        <div>
+                                <Image
+                                        src={AgileGames}
+                                        alt="Osaango Agile Sprint Challenge and Retro Card games"
+                                        width={1120}
+                                        height={630}
+                                        format="webp"
+										                    loading="eager"
+                                        fetchpriority="high"
+                                        class="service-image"
+                                />
+        </div>
           <div class="text stack gap-4">
             <p class="pitch">
-              Two ready-to-play games tested with Agile Coaches, Scrum Masters, and Product Owners at <strong>Agile Tampere 2025</strong>. They spark open dialogue, help teams share practices, and make even tough topics easier to address together.
+              Two ready-to-play games tested with Agile Coaches, Scrum Masters, and Product Owners. They spark open dialogue, help teams share practices, and make even tough topics easier to address together.
             </p>
-            <CallToAction href="https://shop.osaango.com">
-              Order the games
-              <Icon icon="arrow-right" size="1.2em" />
-            </CallToAction>
-          </div>
-          <div class="service-image service-image--games">
-            <div class="badge">Playful coaching toolkit</div>
             <div class="games-list">
               <p><strong>Agile Sprint Challenge Game</strong></p>
               <p><strong>Agile Retro Card Game</strong></p>
+              <p>Available from our webshop</p>
             </div>
+            <CallToAction href="https://shop.osaango.com">
+              View pricing and delivery options
+              <Icon icon="arrow-right" size="1.2em" />
+            </CallToAction>
           </div>
-        </div>
       </section>
 
       <section class="cards">
         <Grid variant="small">
-          <InfoCard icon="game-controller" title="Two games, one goal">
+          <InfoCard icon="trophy" title="Two games, one goal">
             <ul>
               <li><strong>Agile Sprint Challenge Game:</strong> Teams face sprint challenges and aim to finish as many backlog items as possible.</li>
               <li><strong>Agile Retro Card Game:</strong> Ideal for retros, improvement programs, and sharing practices across teams.</li>
@@ -55,7 +66,7 @@ import InfoCard from '../../components/InfoCard.astro';
             </ul>
           </InfoCard>
 
-          <InfoCard icon="chart-line" title="Outcomes from playtests">
+          <InfoCard icon="rocket-launch" title="Outcomes from playtests">
             <ul>
               <li>Teams quickly exchanged good practices and solved problems together.</li>
               <li>Neutral ground for discussing sensitive or challenging topics.</li>
@@ -63,7 +74,7 @@ import InfoCard from '../../components/InfoCard.astro';
             </ul>
           </InfoCard>
 
-          <InfoCard icon="list" title="Common challenges we address">
+          <InfoCard icon="heart" title="Common challenges we address">
             <ul>
               <li>Resistance to change and unlearning old habits</li>
               <li>Difficulty iterating and dealing with heavy dependencies</li>
@@ -71,7 +82,7 @@ import InfoCard from '../../components/InfoCard.astro';
             </ul>
           </InfoCard>
 
-          <InfoCard icon="cloud" title="Delivery options">
+          <InfoCard icon="paper-plane-tilt" title="Delivery options">
             <ul>
               <li>Playable on-site or remotely</li>
               <li>Great for teams, communities of practice, or training cohorts</li>
@@ -79,7 +90,7 @@ import InfoCard from '../../components/InfoCard.astro';
             </ul>
           </InfoCard>
 
-          <InfoCard icon="chat-dots" title="What participants said">
+          <InfoCard icon="microphone-stage" title="What participants said">
             <ul>
               <li>“The game is a great way to activate and spark discussion.”</li>
               <li>“Playing makes learning stick.”</li>
@@ -134,22 +145,17 @@ import InfoCard from '../../components/InfoCard.astro';
   .service-image {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: var(--gray-800);
+    background: radial-gradient(circle at 20% 20%, var(--gray-700), var(--gray-900)), var(--gradient-subtle);
     border-radius: 1rem;
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
     align-items: center;
     justify-content: center;
-    color: var(--gray-100);
-    text-align: center;
-    padding: 1.5rem;
-  }
-
-  .service-image--games {
-    background: radial-gradient(circle at 20% 20%, var(--gray-700), var(--gray-900)), var(--gradient-subtle);
+    color: var(--gray-400);
     border: 1px solid var(--gray-700);
     box-shadow: var(--shadow-lg);
+    gap: 0.75rem;
+    padding: 0rem 0rem 0rem 0rem;
+    text-align: left;
   }
 
   .service-image img {

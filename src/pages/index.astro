@@ -15,7 +15,9 @@ import BlogPreview from '../components/BlogPreview.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import heroWoman from '../assets/osaango-hero-woman2.jpg';
-import apiopsCyclesWS from '../assets/service-images/accelerate-your-apis-with-apiops-cycles.png';
+import apiopsCyclesWS from '../assets/service-images/AccelerateAPIOpsCycles.jpg';
+import AgileGames from '../assets/service-images/Osaango_Agile_Games.jpg';
+
 
 // Content Fetching: List four most recent work projects
 const projects = (await getCollection('work'))
@@ -68,33 +70,51 @@ const posts = (await getCollection('blog'))
                                                                         <h3>Accelerate Your APIs with APIOps Cycles Workshop</h3>
                                                                         <p class="">Your first practical step toward scalable, business-aligned APIs. A compact, high-impact <strong>2-hour online or onsite workshop</strong> </p>
                                                                 </header>
-                                                                                                                                <div class="cta">
-                                        <CallToAction href="/services/accelerate-your-apis-with-apiops-cycles/">
-                                                View Details
-                                                <Icon icon="arrow-right" size="1.2em" />
-                                        </CallToAction>
-                                </div>
+                                                                <div class="cta">
+                                                                        <CallToAction href="/services/accelerate-your-apis-with-apiops-cycles/">
+                                                                                View Details
+                                                                                <Icon icon="arrow-right" size="1.2em" />
+                                                                        </CallToAction>
+                                                                </div>
                                                         </div>
-                                                        <div class="service-image">
-                                                                                                                                        <Image
-                                                                                                                                                        src={apiopsCyclesWS}
-                                                                                                                                                        alt="business people looking at the APIOps Cycles metro map"
-                                                                                                                                                        width={1120}
-                                                                                                                                                        height={630}
-                                                                                                                                                        format="webp"
-                                                                                                                                                                          loading="eager"
-                                                                                                                                                        fetchpriority="high"
-                                                                                                                                        />
+                                                        <div>
+                                                                <Image
+                                                                        src={apiopsCyclesWS}
+                                                                        alt="business people looking at the APIOps Cycles metro map"
+                                                                        width={1200}
+                                                                        height={650}
+                                                                        format="webp"
+                                                                        loading="eager"
+                                                                        fetchpriority="high"
+                                                                        class="service-image"
+                                                                />
                                                         </div>
                                                 </div>
                                         </section>
 
                                         <section class="intro">
                                                 <div class="promo-content promo-content--games">
+                                                        <div class="stack gap-2 lg:gap-4">
+                                                                <Image
+                                                                                src={AgileGames}
+                                                                                alt="Osaango Agile Sprint Challenge and Retro Card games"
+                                                                                width={1120}
+                                                                                height={630}
+                                                                                format="webp"
+                                                                                loading="eager"
+                                                                                fetchpriority="high"
+                                                                                class="service-image"
+                                                                        />
+                                                        </div>                                                        
                                                         <div class="text stack gap-4">
                                                                 <header class="section-header stack gap-2 lg:gap-4">
                                                                         <h3>Agile Collaboration Games</h3>
-                                                                        <p class="">Two ready-to-play games that energize retros, workshops, and agile coaching—tested with Agile Tampere 2025 participants.</p>
+                                                                        <p class="">Two ready-to-play games that energize retros, workshops, and agile coaching — tested with Agile Coaches, Scrum Masters, and Product Owners.</p>
+                                                                        <div class="games-list">
+                                                                                <p><strong>Agile Sprint Challenge Game</strong></p>
+                                                                                <p><strong>Agile Retro Card Game</strong></p>
+                                                                                <p>Available from our webshop - view more details.</p>
+                                                                        </div>
                                                                 </header>
 
                                                                 <div class="cta">
@@ -102,14 +122,6 @@ const posts = (await getCollection('blog'))
                                                                                 Discover the games
                                                                                 <Icon icon="arrow-right" size="1.2em" />
                                                                         </CallToAction>
-                                                                </div>
-                                                        </div>
-                                                        <div class="service-image service-image--games">
-                                                                <div class="badge">New</div>
-                                                                <div class="games-list">
-                                                                        <p><strong>Agile Sprint Challenge Game</strong></p>
-                                                                        <p><strong>Agile Retro Card Game</strong></p>
-                                                                        <p>Order at shop.osaango.com</p>
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -287,12 +299,17 @@ const posts = (await getCollection('blog'))
   .service-image {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: var(--gray-800);
+    background: radial-gradient(circle at 20% 20%, var(--gray-700), var(--gray-900)), var(--gradient-subtle);
     border-radius: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--gray-400);
+    border: 1px solid var(--gray-700);
+    box-shadow: var(--shadow-lg);
+    gap: 0.75rem;
+    padding: 0rem 0rem 0rem 0rem;
+    text-align: left;
   }
 
   .service-image img {
@@ -308,15 +325,6 @@ const posts = (await getCollection('blog'))
 
   .promo-content--games {
     align-items: stretch;
-  }
-
-  .service-image--games {
-    background: radial-gradient(circle at 20% 20%, var(--gray-700), var(--gray-900)), var(--gradient-subtle);
-    border: 1px solid var(--gray-700);
-    box-shadow: var(--shadow-lg);
-    gap: 0.75rem;
-    padding: 1.5rem;
-    text-align: left;
   }
 
   .badge {
