@@ -15,7 +15,7 @@ import BlogPreview from '../components/BlogPreview.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import apiopsCyclesWS from '../assets/service-images/accelerate-your-apis-with-apiops-cycles.jpg';
-import AgileGames from '../assets/service-images/Osaango_Agile_Games.jpg';
+import AgileGames from '../assets/service-images/Osaango_Agile_Games.png';
 import agilePeopleInt from '../assets/osaango_makes_people_and_integrations_more_agile.png';
 
 // Content Fetching: List four most recent work projects
@@ -57,8 +57,9 @@ const posts = (await getCollection('blog'))
                                         sizes="(max-width: 50em) 75vw, 480px"
                                         widths={[260, 360, 480, 600]}
                                         format="webp"
-					loading="eager"
+                                        loading="eager"
                                         fetchpriority="high"
+                                        class=""
                                 />
 
 			</header>
@@ -209,18 +210,18 @@ const posts = (await getCollection('blog'))
 		display: none;
 	}
 
-	.hero img {
-		object-fit: cover;
-		object-position: center;
-		border-radius: 1.5rem;
-		/* box-shadow: var(--shadow-md); */
-	}
+        .hero img {
+                object-fit: cover;
+                object-position: center;
+                border: 0;
+        }
 
-	@media (min-width: 50em) {
-		.hero {
-			display: grid;
-			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
+
+        @media (min-width: 50em) {
+                .hero {
+                        display: grid;
+                        grid-template-columns: 6fr 4fr;
+                        padding-inline: 2.5rem;
 			gap: 4.75rem;
 		}
 
@@ -230,14 +231,15 @@ const posts = (await getCollection('blog'))
 			gap: 0.5rem;
 		}
 
-		.hero img {
-			aspect-ratio: 1/1;
-			border-radius: 4.5rem;
-			object-fit: cover;
-		}
-	}
+                .hero img {
+                        aspect-ratio: 1/1;
+                        border-radius: 4.5rem;
+                        object-fit: cover;
+                }
+        }
 
-	/* ====================================================== */
+
+        /* ====================================================== */
 
 	.section {
 		display: grid;

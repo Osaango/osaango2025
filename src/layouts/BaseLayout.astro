@@ -28,10 +28,29 @@ const { title, description } = Astro.props;
 			<Footer />
 		</div>
 
-		<script>
-			// Add “loaded” class once the document has completely loaded.
-			addEventListener('load', () => document.documentElement.classList.add('loaded'));
-		</script>
+                <script>
+                        // Add “loaded” class once the document has completely loaded.
+                        addEventListener('load', () => document.documentElement.classList.add('loaded'));
+
+                        const revealElements = Array.from(document.querySelectorAll('.reveal-on-scroll'));
+                        if ('IntersectionObserver' in window) {
+                                const observer = new IntersectionObserver(
+                                        (entries) => {
+                                                entries.forEach((entry) => {
+                                                        if (entry.isIntersecting) {
+                                                                entry.target.classList.add('in-view');
+                                                                observer.unobserve(entry.target);
+                                                        }
+                                                });
+                                        },
+                                        { threshold: 0.2 }
+                                );
+
+                                revealElements.forEach((element) => observer.observe(element));
+                        } else {
+                                revealElements.forEach((element) => element.classList.add('in-view'));
+                        }
+                </script>
 <!-- 
 		<style>
 			:root {
