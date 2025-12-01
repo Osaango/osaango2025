@@ -230,7 +230,27 @@ h5 {
 	gap: 7.5rem;
 }
 .gap-48 {
-	gap: 12rem;
+        gap: 12rem;
+}
+
+.reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 400ms ease, transform 450ms ease;
+}
+
+.reveal-on-scroll.in-view {
+        opacity: 1;
+        transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+        .reveal-on-scroll,
+        .reveal-on-scroll.in-view {
+                opacity: 1;
+                transform: none;
+                transition: none;
+        }
 }
 
 @media (min-width: 50em) {

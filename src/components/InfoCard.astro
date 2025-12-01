@@ -25,6 +25,14 @@ const { icon, title } = Astro.props;
     border-radius: 0.75rem;
     padding: 1.5rem;
     box-shadow: var(--shadow-sm);
+    transition: transform 200ms ease, box-shadow var(--theme-transition);
+    transform: translateZ(0);
+  }
+
+  .card:hover,
+  .card:focus-within {
+    box-shadow: var(--shadow-lg), 0 0 0 1px var(--accent-overlay);
+    transform: translateY(-4px) scale(1.01);
   }
 
   h3 {

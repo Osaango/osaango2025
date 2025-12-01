@@ -57,8 +57,9 @@ const posts = (await getCollection('blog'))
                                         sizes="(max-width: 50em) 75vw, 480px"
                                         widths={[260, 360, 480, 600]}
                                         format="webp"
-					loading="eager"
+                                        loading="eager"
                                         fetchpriority="high"
+                                        class="service-image hero-image"
                                 />
 
 			</header>
@@ -209,18 +210,23 @@ const posts = (await getCollection('blog'))
 		display: none;
 	}
 
-	.hero img {
-		object-fit: cover;
-		object-position: center;
-		border-radius: 1.5rem;
-		/* box-shadow: var(--shadow-md); */
-	}
+        .hero img {
+                object-fit: cover;
+                object-position: center;
+                border-radius: 1.5rem;
+                /* box-shadow: var(--shadow-md); */
+        }
 
-	@media (min-width: 50em) {
-		.hero {
-			display: grid;
-			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
+        .hero-image {
+                animation: hero-glow 7s ease-in-out infinite;
+                box-shadow: var(--shadow-md);
+        }
+
+        @media (min-width: 50em) {
+                .hero {
+                        display: grid;
+                        grid-template-columns: 6fr 4fr;
+                        padding-inline: 2.5rem;
 			gap: 4.75rem;
 		}
 
@@ -230,14 +236,38 @@ const posts = (await getCollection('blog'))
 			gap: 0.5rem;
 		}
 
-		.hero img {
-			aspect-ratio: 1/1;
-			border-radius: 4.5rem;
-			object-fit: cover;
-		}
-	}
+                .hero img {
+                        aspect-ratio: 1/1;
+                        border-radius: 4.5rem;
+                        object-fit: cover;
+                }
+        }
 
-	/* ====================================================== */
+        @keyframes hero-glow {
+                0%,
+                60%,
+                100% {
+                        box-shadow: var(--shadow-md);
+                }
+
+                12% {
+                        box-shadow: var(--shadow-lg), 0 0 0 10px var(--accent-overlay),
+                                0 0 42px 14px var(--accent-overlay);
+                }
+
+                24% {
+                        box-shadow: var(--shadow-lg), 0 0 0 6px var(--accent-overlay),
+                                0 0 28px 10px var(--accent-overlay);
+                }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+                .hero-image {
+                        animation: none;
+                }
+        }
+
+        /* ====================================================== */
 
 	.section {
 		display: grid;
