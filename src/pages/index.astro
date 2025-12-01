@@ -15,7 +15,7 @@ import BlogPreview from '../components/BlogPreview.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import apiopsCyclesWS from '../assets/service-images/accelerate-your-apis-with-apiops-cycles.jpg';
-import AgileGames from '../assets/service-images/Osaango_Agile_Games.jpg';
+import AgileGames from '../assets/service-images/Osaango_Agile_Games.png';
 import agilePeopleInt from '../assets/osaango_makes_people_and_integrations_more_agile.png';
 
 // Content Fetching: List four most recent work projects
@@ -59,7 +59,7 @@ const posts = (await getCollection('blog'))
                                         format="webp"
                                         loading="eager"
                                         fetchpriority="high"
-                                        class="service-image hero-image"
+                                        class=""
                                 />
 
 			</header>
@@ -213,14 +213,9 @@ const posts = (await getCollection('blog'))
         .hero img {
                 object-fit: cover;
                 object-position: center;
-                border-radius: 1.5rem;
-                /* box-shadow: var(--shadow-md); */
+                border: 0;
         }
 
-        .hero-image {
-                animation: hero-glow 7s ease-in-out infinite;
-                box-shadow: var(--shadow-md);
-        }
 
         @media (min-width: 50em) {
                 .hero {
@@ -243,29 +238,6 @@ const posts = (await getCollection('blog'))
                 }
         }
 
-        @keyframes hero-glow {
-                0%,
-                60%,
-                100% {
-                        box-shadow: var(--shadow-md);
-                }
-
-                12% {
-                        box-shadow: var(--shadow-lg), 0 0 0 10px var(--accent-overlay),
-                                0 0 42px 14px var(--accent-overlay);
-                }
-
-                24% {
-                        box-shadow: var(--shadow-lg), 0 0 0 6px var(--accent-overlay),
-                                0 0 28px 10px var(--accent-overlay);
-                }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-                .hero-image {
-                        animation: none;
-                }
-        }
 
         /* ====================================================== */
 

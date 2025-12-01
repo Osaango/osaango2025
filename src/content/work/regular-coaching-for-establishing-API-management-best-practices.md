@@ -1,8 +1,8 @@
 ---
 title: "Regular coaching for establishing API management best practices"
 publishDate: 2025-08-03 00:00:00
-img: ../../assets/regular-coaching-for-api-products.jpg
-img_alt: Team discussing API designs in a coaching session
+img: ../../assets/regular-coaching-for-api-products.png
+img_alt: Team discussing API designs in a coaching session around a money tree
 description: |
   An Australian financial services provider wanted to accelerate its API adoption and maturity. This was crucial for the customer/ digital and technology simplification strategies.
 tags:

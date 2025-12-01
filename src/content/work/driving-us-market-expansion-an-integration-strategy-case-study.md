@@ -1,8 +1,8 @@
 ---
 title: "Driving US Market Expansion - an Integration Strategy Case Study"
 publishDate: 2023-12-01 00:00:00
-img: ../../assets/case-study-mobile-integration-strategy.jpg
-img_alt: Connected cables holding up an American bridge
+img: ../../assets/case-study-mobile-integration-strategy.png
+img_alt: A connected digital tree growing on a mobile device
 description: |
   Operating globally, a leading device management scaleup was poised to accelerate its growth in the US markets. With an existing product and partner strategy in place, the company recognized an increasing demand for integrations by both customers and partners. Integrations were not just a mere request but a potential catalyst for rapid growth.
 tags:
