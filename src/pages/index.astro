@@ -11,6 +11,7 @@ import Pill from '../components/Pill.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Skills from '../components/Skills.astro';
 import BlogPreview from '../components/BlogPreview.astro';
+import Quote from '../components/Quote.astro';
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
@@ -34,11 +35,11 @@ const posts = (await getCollection('blog'))
 <BaseLayout>
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
-			<header class="hero">
-				<Hero
-					title="Make people and integrations more Agile for real growth."
-					tagline="We help organisations remove architectural bottlenecks, improve delivery across teams and vendors, and build the practices needed for sustainable growth — through better operating models, integration strategy and API design."
-					align="start"
+                        <header class="hero">
+                                <Hero
+                                        title="Make people and integrations more Agile for real growth."
+                                        tagline="We help organisations remove architectural bottlenecks, improve delivery across teams and vendors, and build the practices needed for sustainable growth — through better operating models, integration strategy and API design."
+                                        align="start"
 				>
                                 <CallToAction href="https://calendly.com/marjukka-niinioja/meet-with-marjukka">
                                         Book a strategy call
@@ -62,9 +63,15 @@ const posts = (await getCollection('blog'))
                                         class=""
                                 />
 
-			</header>
+                        </header>
 
-			<Skills />
+                        <Quote
+                                quote="Working with Osaango significantly improved our integration delivery. We gained clarity, speed and a shared way of working across teams."
+                                author="CTO"
+                                role="Global SaaS Company"
+                        />
+
+                        <Skills />
                 </div>
 
                 <main class="wrapper stack gap-20 lg:gap-48">
