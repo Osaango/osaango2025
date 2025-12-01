@@ -45,7 +45,7 @@ const { quote, author, role } = Astro.props as Props;
 
   .quote-mark {
     font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--accent-light, #c29bff);
+    color: var(--accent-light);
     line-height: 1;
   }
 
@@ -53,8 +53,8 @@ const { quote, author, role } = Astro.props as Props;
     margin: 0;
     color: var(--gray-0);
     font-size: clamp(var(--text-lg), 1.1rem, var(--text-xl));
-    line-height: 1.5;
-    font-weight: 600;
+    line-height: 1.2;
+    font-weight: 400;
   }
 
   figcaption {
