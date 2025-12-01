@@ -5,8 +5,19 @@ import Icon from '../../components/Icon.astro';
 import Grid from '../../components/Grid.astro';
 import InfoCard from '../../components/InfoCard.astro';
 import ExpertCard from '../../components/ExpertCard.astro';
+import PortfolioPreview from '../../components/PortfolioPreview.astro';
+import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import apiopsCyclesWS from '../../assets/service-images/accelerate-your-apis-with-apiops-cycles.jpg';
+
+const caseStudySlugs = [
+  'design-and-renewal-of-digital-services-and-it-architecture',
+  'driving-us-market-expansion-an-integration-strategy-case-study',
+];
+
+const caseStudies = (await getCollection('work'))
+  .filter((entry) => caseStudySlugs.includes(entry.id))
+  .sort((a, b) => caseStudySlugs.indexOf(a.id) - caseStudySlugs.indexOf(b.id));
 ---
 
 <BaseLayout title="Accelerate Your APIs with APIOps Cycles Workshop | Osaango" description="Your first practical step toward scalable, business-aligned APIs.">
@@ -112,6 +123,20 @@ import apiopsCyclesWS from '../../assets/service-images/accelerate-your-apis-wit
           </ExpertCard>
         </Grid>
       </section>
+
+      <section class="case-studies section with-background">
+        <header class="section-header stack gap-2 lg:gap-4">
+          <h3>Related case studies</h3>
+          <p>See how we unblock integration delivery, align teams, and scale API practices in complex organisations.</p>
+        </header>
+        <Grid variant="offset">
+          {caseStudies.map((project) => (
+            <li>
+              <PortfolioPreview project={project} />
+            </li>
+          ))}
+        </Grid>
+      </section>
       <section class="section with-background with-cta">
           <header class="section-header stack gap-2 lg:gap-4">
             <h3>Ready to Accelerate Your APIs?</h3>
@@ -214,10 +239,53 @@ import apiopsCyclesWS from '../../assets/service-images/accelerate-your-apis-wit
     margin-top: 2rem;
   }
 
+  .case-studies {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .case-studies.with-background {
+    position: relative;
+  }
+
+  .case-studies.with-background::before {
+    --hero-bg: var(--bg-image-subtle-2);
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    left: 50%;
+    width: 100vw;
+    aspect-ratio: calc(2.25 / var(--bg-scale));
+    top: 0;
+    transform: translateY(-65%) translateX(-50%);
+    background:
+      url('/assets/backgrounds/noise.png') top center/220px repeat,
+      var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
+      var(--gray-999);
+    background-blend-mode: overlay, normal, normal, normal;
+    mix-blend-mode: var(--bg-blend-mode);
+    z-index: -1;
+  }
+
+  .case-studies .section-header {
+    text-align: center;
+    margin-inline: auto;
+    max-width: 56ch;
+    color: var(--gray-200);
+  }
+
+  .case-studies .section-header h3 {
+    font-size: var(--text-2xl);
+  }
+
   @media (min-width: 50em) {
     .promo-content {
       grid-template-columns: 1fr 1fr;
       grid-template-areas: 'text image';
+    }
+
+    .case-studies .section-header h3 {
+      font-size: var(--text-3xl);
     }
   }
 </style>
