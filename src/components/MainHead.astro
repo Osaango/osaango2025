@@ -52,6 +52,7 @@ const openGraphImageHeight = pageOpenGraphImage.height ?? 630;
 const openGraphImageType = pageOpenGraphImage.format
   ? `image/${pageOpenGraphImage.format}`
   : 'image/png';
+const twitterCardType = pageOpenGraphImage.src ? 'summary_large_image' : 'summary';
 const GA_MEASUREMENT_ID = 'G-35GC5RBXFN';
 const structuredDataEntries = [
   {
@@ -178,12 +179,12 @@ const analyticsScript = `
 <meta property="og:image:height" content={openGraphImageHeight} />
 <meta property="og:image:type" content={openGraphImageType} />
 
-<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:card" content={twitterCardType} />
+<meta name="twitter:url" content={canonicalUrl} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={openGraphImage} />
-<meta name="twitter:image:width" content={openGraphImageWidth} />
-<meta name="twitter:image:height" content={openGraphImageHeight} />
+<meta name="twitter:image:alt" content={title} />
 <script type="application/ld+json" set:html={structuredDataJson}></script>
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
