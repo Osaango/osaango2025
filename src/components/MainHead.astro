@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
-import socialImage from '../assets/osaango_makes_people_and_integrations_more_agile.png';
+import socialImage from '../assets/osaango_opengraph_image.png';
 
 interface Props {
   title?: string | undefined;
@@ -60,7 +60,7 @@ const structuredDataEntries = [
     '@type': 'Organization',
     name: 'Osaango',
     url: siteUrl,
-    logo: new URL('/favicon.svg', siteUrl).toString(),
+    logo: new URL('/osaango.svg', siteUrl).toString(),
     sameAs: ['https://www.linkedin.com/company/osaango/'],
   },
   {
@@ -175,8 +175,8 @@ const analyticsScript = `
 <meta property="og:site_name" content="Osaango" />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:image" content={openGraphImage} />
-<meta property="og:image:width" content={openGraphImageWidth} />
-<meta property="og:image:height" content={openGraphImageHeight} />
+<meta property="og:image:width" content=1200 />
+<meta property="og:image:height" content=630 />
 <meta property="og:image:type" content={openGraphImageType} />
 
 <meta name="twitter:card" content={twitterCardType} />
