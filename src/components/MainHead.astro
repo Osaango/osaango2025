@@ -80,6 +80,85 @@ const structuredDataEntries = [
   },
   ...structuredData,
 ];
+
+const structuredDataJson = JSON.stringify(structuredDataEntries);
+const analyticsScript = `
+  const GA_ID = '${GA_MEASUREMENT_ID}';
+  const CONSENT_STORAGE_KEY = 'osano-gtag-consent-state';
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  const getStoredConsent = () => {
+    try {
+      const stored = localStorage.getItem(CONSENT_STORAGE_KEY);
+      return stored ? JSON.parse(stored) : null;
+    } catch (error) {
+      console.warn('Unable to read stored consent', error);
+      return null;
+    }
+  };
+
+  const persistConsent = (consentUpdate) => {
+    try {
+      localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(consentUpdate));
+    } catch (error) {
+      console.warn('Unable to persist consent', error);
+    }
+  };
+
+  const buildGtagConsentUpdate = (consentState) => {
+    const analyticsGranted = Boolean(
+      consentState.analytics ?? consentState.statistics ?? consentState.performance,
+    );
+    const marketingGranted = Boolean(
+      consentState.marketing ?? consentState.advertisement ?? consentState.targeting,
+    );
+
+    return {
+      ad_storage: marketingGranted ? 'granted' : 'denied',
+      ad_user_data: marketingGranted ? 'granted' : 'denied',
+      ad_personalization: marketingGranted ? 'granted' : 'denied',
+      analytics_storage: analyticsGranted ? 'granted' : 'denied',
+    };
+  };
+
+  const applyConsentUpdate = (consentUpdate, shouldPersist = false) => {
+    gtag('consent', 'update', consentUpdate);
+    if (shouldPersist) {
+      persistConsent(consentUpdate);
+    }
+  };
+
+  gtag('js', new Date());
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+  });
+
+  const storedConsent = typeof localStorage !== 'undefined' ? getStoredConsent() : null;
+  if (storedConsent) {
+    applyConsentUpdate(storedConsent);
+  }
+
+  const applyOsanoConsentToGtag = () => {
+    const consentState = window.Osano?.cm?.getConsent?.();
+    if (!consentState) return;
+
+    const consentUpdate = buildGtagConsentUpdate(consentState);
+    applyConsentUpdate(consentUpdate, true);
+  };
+
+  window.addEventListener('osano-cm-loaded', applyOsanoConsentToGtag);
+  window.addEventListener('osano-cm-consent-changed', applyOsanoConsentToGtag);
+  applyOsanoConsentToGtag();
+
+  gtag('config', GA_ID);
+`;
 ---
 
 <meta charset="UTF-8" />
@@ -105,90 +184,14 @@ const structuredDataEntries = [
 <meta name="twitter:image" content={openGraphImage} />
 <meta name="twitter:image:width" content={openGraphImageWidth} />
 <meta name="twitter:image:height" content={openGraphImageHeight} />
-<script type="application/ld+json">{JSON.stringify(structuredDataEntries)}</script>
+<script type="application/ld+json" set:html={structuredDataJson}></script>
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <script src="https://cmp.osano.com/AzZiasU51W8qO2GF2/9c3d7adf-75a0-4fa6-84c3-b2dfea793c24/osano.js"></script>
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
-    <script is:inline>
-      const GA_ID = '${GA_MEASUREMENT_ID}';
-      const CONSENT_STORAGE_KEY = 'osano-gtag-consent-state';
-
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-
-      const getStoredConsent = () => {
-        try {
-          const stored = localStorage.getItem(CONSENT_STORAGE_KEY);
-          return stored ? JSON.parse(stored) : null;
-        } catch (error) {
-          console.warn('Unable to read stored consent', error);
-          return null;
-        }
-      };
-
-      const persistConsent = (consentUpdate) => {
-        try {
-          localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(consentUpdate));
-        } catch (error) {
-          console.warn('Unable to persist consent', error);
-        }
-      };
-
-      const buildGtagConsentUpdate = (consentState) => {
-        const analyticsGranted = Boolean(
-          consentState.analytics ?? consentState.statistics ?? consentState.performance,
-        );
-        const marketingGranted = Boolean(
-          consentState.marketing ?? consentState.advertisement ?? consentState.targeting,
-        );
-
-        return {
-          ad_storage: marketingGranted ? 'granted' : 'denied',
-          ad_user_data: marketingGranted ? 'granted' : 'denied',
-          ad_personalization: marketingGranted ? 'granted' : 'denied',
-          analytics_storage: analyticsGranted ? 'granted' : 'denied',
-        };
-      };
-
-      const applyConsentUpdate = (consentUpdate, shouldPersist = false) => {
-        gtag('consent', 'update', consentUpdate);
-        if (shouldPersist) {
-          persistConsent(consentUpdate);
-        }
-      };
-
-      gtag('js', new Date());
-      gtag('consent', 'default', {
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        analytics_storage: 'denied',
-      });
-
-      const storedConsent = typeof localStorage !== 'undefined' ? getStoredConsent() : null;
-      if (storedConsent) {
-        applyConsentUpdate(storedConsent);
-      }
-
-      const applyOsanoConsentToGtag = () => {
-        const consentState = window.Osano?.cm?.getConsent?.();
-        if (!consentState) return;
-
-        const consentUpdate = buildGtagConsentUpdate(consentState);
-        applyConsentUpdate(consentUpdate, true);
-      };
-
-      window.addEventListener('osano-cm-loaded', applyOsanoConsentToGtag);
-      window.addEventListener('osano-cm-consent-changed', applyOsanoConsentToGtag);
-      applyOsanoConsentToGtag();
-
-      gtag('config', GA_ID);
-    </script>
+    <script is:inline set:html={analyticsScript}></script>
 
 <link
   rel="preload"
