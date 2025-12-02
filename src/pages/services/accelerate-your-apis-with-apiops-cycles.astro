@@ -20,7 +20,11 @@ const caseStudies = (await getCollection('work'))
   .sort((a, b) => caseStudySlugs.indexOf(a.id) - caseStudySlugs.indexOf(b.id));
 ---
 
-<BaseLayout title="Accelerate Your APIs with APIOps Cycles Workshop | Osaango" description="Your first practical step toward scalable, business-aligned APIs.">
+<BaseLayout
+  title="Accelerate Your APIs with APIOps Cycles Workshop | Osaango"
+  description="Your first practical step toward scalable, business-aligned APIs."
+  image={apiopsCyclesWS}
+>
   <div class="stack gap-20">
     <main class="wrapper service">
       <section class="intro">

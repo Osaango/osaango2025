@@ -6,7 +6,11 @@ import { Image } from 'astro:assets';
 import atWork from '../assets/at-work.jpg';
 ---
 
-<BaseLayout title="About | Osaango" description="Let’s shape the future—one API at a time.">
+<BaseLayout
+        title="About | Osaango"
+        description="Let’s shape the future—one API at a time."
+        image={atWork}
+>
 	<div class="stack gap-20">
 		<main class="wrapper about">
 			<Hero
