@@ -26,7 +26,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const siteUrl = Astro.site?.href ?? 'https://www.osaango.com/';
-const canonicalUrl = Astro.url?.href ?? new URL(`/blog/${entry.id}/`, siteUrl).toString();
+const canonicalUrl = new URL(Astro.url?.pathname ?? `/blog/${entry.id}/`, siteUrl).toString();
 const featureImage = entry.data.img;
 const articleStructuredData = [
         {

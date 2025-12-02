@@ -20,7 +20,7 @@ const {
 } = Astro.props as Props;
 
 const siteUrl = Astro.site?.href ?? 'https://www.osaango.com/';
-const canonicalUrl = Astro.url?.href ?? siteUrl;
+const canonicalUrl = new URL(Astro.url?.pathname ?? '/', siteUrl).toString();
 
 const resolveImageMetadata = (
   imageInput: ImageMetadata | { src: string; width?: number; height?: number; format?: string } | string,
