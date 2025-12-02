@@ -1,24 +1,111 @@
 ---
 import '../styles/global.css';
+import type { ImageMetadata } from 'astro';
+import socialImage from '../assets/osaango_makes_people_and_integrations_more_agile.png';
 
 interface Props {
   title?: string | undefined;
   description?: string | undefined;
+  image?: ImageMetadata | { src: string; width?: number; height?: number; format?: string } | string;
+  isHome?: boolean;
+  structuredData?: Array<Record<string, unknown>>;
 }
 
 const {
   title = 'Osaango - Make people and integrations more Agile for real growth.',
   description = 'We help organisations remove architectural bottlenecks, improve delivery across teams and vendors, and build the practices needed for sustainable growth — through better operating models, integration strategy and API design.',
-} = Astro.props;
+  image,
+  isHome = false,
+  structuredData = [],
+} = Astro.props as Props;
 
+const siteUrl = Astro.site?.href ?? 'https://www.osaango.com/';
+const canonicalUrl = Astro.url?.href ?? siteUrl;
+
+const resolveImageMetadata = (
+  imageInput: ImageMetadata | { src: string; width?: number; height?: number; format?: string } | string,
+) => {
+  if (!imageInput) return undefined;
+
+  if (typeof imageInput === 'string') {
+    return { src: imageInput };
+  }
+
+  if ('src' in imageInput) {
+    return {
+      src: imageInput.src,
+      width: 'width' in imageInput ? imageInput.width : undefined,
+      height: 'height' in imageInput ? imageInput.height : undefined,
+      format: 'format' in imageInput ? imageInput.format : undefined,
+    };
+  }
+
+  return undefined;
+};
+
+const defaultOpenGraphImage = resolveImageMetadata(socialImage)!;
+const resolvedPageImage = image && !isHome ? resolveImageMetadata(image) : undefined;
+const pageOpenGraphImage = resolvedPageImage ?? defaultOpenGraphImage;
+const openGraphImage = new URL(pageOpenGraphImage.src, siteUrl).toString();
+const openGraphImageWidth = pageOpenGraphImage.width ?? 1200;
+const openGraphImageHeight = pageOpenGraphImage.height ?? 630;
+const openGraphImageType = pageOpenGraphImage.format
+  ? `image/${pageOpenGraphImage.format}`
+  : 'image/png';
 const GA_MEASUREMENT_ID = 'G-35GC5RBXFN';
+const structuredDataEntries = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Osaango',
+    url: siteUrl,
+    logo: new URL('/favicon.svg', siteUrl).toString(),
+    sameAs: ['https://www.linkedin.com/company/osaango/'],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Osaango',
+    url: siteUrl,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    description,
+    url: canonicalUrl,
+    isPartOf: siteUrl,
+    image: openGraphImage,
+    primaryImageOfPage: openGraphImage,
+  },
+  ...structuredData,
+];
 ---
 
 <meta charset="UTF-8" />
-<meta name="description" property="og:description" content={description} />
+<meta name="description" content={description} />
 <meta name="viewport" content="width=device-width" />
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
+<link rel="canonical" href={canonicalUrl} />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:site_name" content="Osaango" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={openGraphImage} />
+<meta property="og:image:width" content={openGraphImageWidth} />
+<meta property="og:image:height" content={openGraphImageHeight} />
+<meta property="og:image:type" content={openGraphImageType} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={openGraphImage} />
+<meta name="twitter:image:width" content={openGraphImageWidth} />
+<meta name="twitter:image:height" content={openGraphImageHeight} />
+<script type="application/ld+json">{JSON.stringify(structuredDataEntries)}</script>
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
