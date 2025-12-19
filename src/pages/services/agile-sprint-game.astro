@@ -1,0 +1,214 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CallToAction from '../../components/CallToAction.astro';
+import Icon from '../../components/Icon.astro';
+import Grid from '../../components/Grid.astro';
+import InfoCard from '../../components/InfoCard.astro';
+import { Image } from 'astro:assets';
+import AgileGames from '../../assets/service-images/Osaango_Agile_Games.png';
+---
+
+<BaseLayout
+  title="Agile Sprint Challenge Game | Osaango"
+  description="A collaborative sprint simulation that helps teams practice prioritisation, flow, and value delivery together."
+  image={AgileGames}
+>
+  <div class="stack gap-20">
+    <main class="wrapper service">
+      <section class="intro">
+        <header class="section-header stack gap-2 lg:gap-4">
+          <h3>Simulate sprint execution in a safe, engaging way</h3>
+          <p>
+            The Osaango Agile Sprint Challenge is a collaborative game where teams navigate real-life blockers on a Kanban board,
+            roll dice, and work through challenge cards to complete sprint goals.
+          </p>
+        </header>
+
+        <div class="promo-content">
+          <div class="promo-image">
+            <Image
+              src={AgileGames}
+              alt="Osaango Agile Sprint Challenge game board"
+              width={1200}
+              height={630}
+              widths={[280, 360, 480, 600, 660]}
+              sizes="(max-width: 50em) 70vw, 660px"
+              format="webp"
+              loading="eager"
+              fetchpriority="high"
+              class="service-image"
+            />
+          </div>
+          <div class="text stack gap-4">
+            <p class="pitch">
+              Best for retrospectives, onboarding, and maturity assessments. Ideal for small teams of <strong>2–5 people</strong>
+              with an experienced facilitator guiding discussion on backlog focus and delivering customer value.
+            </p>
+            <p>
+              The first playthrough is intentionally "raw"—participants experience common Agile hurdles before the facilitator
+              introduces tactics to improve flow and value delivery.
+            </p>
+            <CallToAction href="https://shop.osaango.com">
+              Order a deck or book a demo
+              <Icon icon="arrow-right" size="1.2em" />
+            </CallToAction>
+          </div>
+        </div>
+      </section>
+
+      <section class="cards">
+        <Grid variant="small">
+          <InfoCard icon="trophy" title="What you practice">
+            <ul>
+              <li>Navigating sprint blockers with dice-driven randomness.</li>
+              <li>Keeping work visible on a Kanban board while making trade-offs.</li>
+              <li>Focusing on customer value rather than activity for its own sake.</li>
+            </ul>
+          </InfoCard>
+
+          <InfoCard icon="strategy" title="Best uses">
+            <ul>
+              <li>Retrospectives and post-implementation reviews.</li>
+              <li>Onboarding teams to Agile ways of working.</li>
+              <li>Assessing maturity in flow, prioritisation, and delivery.</li>
+            </ul>
+          </InfoCard>
+
+          <InfoCard icon="users" title="Players & format">
+            <ul>
+              <li>2–5 players plus a facilitator.</li>
+              <li>Play across two rounds to experience and then improve sprint outcomes.</li>
+              <li>Use the provided challenge cards, dice, and Kanban board.</li>
+            </ul>
+          </InfoCard>
+
+          <InfoCard icon="lightbulb" title="Typical Q&A highlights">
+            <ul>
+              <li>Card colours represent common sprint themes—mix difficulty to suit the group.</li>
+              <li>Invite teams to customise scorecards for velocity, defect rate, and customer satisfaction.</li>
+              <li>Discuss how backlog item types map to your own work to keep play relevant.</li>
+            </ul>
+          </InfoCard>
+        </Grid>
+      </section>
+
+      <section class="section with-background">
+        <header class="section-header stack gap-2 lg:gap-4">
+          <h3>How to facilitate</h3>
+          <p>Run two short rounds to help teams experience constraints and then adjust for value-focused delivery.</p>
+        </header>
+        <div class="stack gap-8">
+          <div class="stack gap-3">
+            <h4>Round 1: Learn through constraints (10–15 minutes)</h4>
+            <ul>
+              <li>Lay out the game board, challenge cards, dice, and backlog items.</li>
+              <li>Let teams play with minimal guidance so they feel common Agile bottlenecks.</li>
+              <li>Expect unfinished work and blocked items—this sets up the learning for round two.</li>
+            </ul>
+          </div>
+          <div class="stack gap-3">
+            <h4>Round 2: Optimise for value</h4>
+            <ul>
+              <li>Introduce the concept of value and how to prioritise when delivery is uncertain.</li>
+              <li>Use the instructions on the drawn card to adapt tactics and clear blockers.</li>
+              <li>Encourage teams to finish items before starting new ones and hold a quick retro on what changed.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section with-background with-cta">
+        <header class="section-header stack gap-2 lg:gap-4">
+          <h3>Ready to try the Agile Sprint Challenge?</h3>
+          <p>Order a set or ask us to facilitate your next session—on-site or online.</p>
+        </header>
+        <div class="bottom-cta">
+          <CallToAction href="https://shop.osaango.com">
+            Shop or schedule a session
+            <Icon icon="arrow-right" size="1.2em" />
+          </CallToAction>
+        </div>
+      </section>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  .service {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .promo-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'image'
+      'text';
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .promo-content .text {
+    grid-area: text;
+  }
+
+  .promo-content .promo-image {
+    grid-area: image;
+  }
+
+  .service-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: radial-gradient(circle at 20% 20%, var(--gray-700), var(--gray-900)), var(--gradient-subtle);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-400);
+    border: 1px solid var(--gray-700);
+    box-shadow: var(--shadow-lg);
+    gap: 0.75rem;
+    padding: 0;
+    text-align: left;
+  }
+
+  .cards ul {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .with-background {
+    background: var(--gray-900);
+    border: 1px solid var(--gray-800);
+    border-radius: 1rem;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .with-cta {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .with-cta .bottom-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  @media (min-width: 60em) {
+    .promo-content {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 'text image';
+      gap: 3rem;
+    }
+  }
+</style>
