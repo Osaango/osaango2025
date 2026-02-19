@@ -150,7 +150,7 @@ const articleStructuredData = [
 	.content :global(blockquote) {
 		/*font-size: var(--text-lg);*/
 		font-family: var(--font-brand);
-		font-weight: normal;!important;
+		font-weight: normal;
 		line-height: 1.5;
 		padding-inline-start: 1.5rem;
 		border-inline-start: 0.25rem solid var(--accent-dark);
@@ -160,10 +160,29 @@ const articleStructuredData = [
 
 	.back-link,
 	.content :global(a) {
-		text-decoration: 1px solid underline transparent;
+		color: var(--blog-link-color, var(--link-color));
+		font-weight: 600;
+		text-decoration-thickness: 0.12em;
 		text-underline-offset: 0.25em;
 		transition: text-decoration-color var(--theme-transition);
 	}
+
+	.back-link {
+		text-decoration: 1px solid underline transparent;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline currentColor;
+	}
+
+	:global(:root) {
+		--blog-link-color: #005ea8;
+	}
+
+	:global(:root.theme-dark) {
+		--blog-link-color: #50d1ff;
+	}
+
 
 	.back-link:hover,
 	.back-link:focus,
