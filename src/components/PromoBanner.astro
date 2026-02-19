@@ -1,0 +1,111 @@
+---
+import type { PromotionBanner } from '../config/ads';
+
+interface Props {
+  banner?: PromotionBanner;
+}
+
+const { banner } = Astro.props as Props;
+---
+
+{
+  banner && (
+    <aside class="promo-banner" aria-label="Promotion">
+      <a class="promo-banner__link wrapper" href={banner.linkHref}>
+        {banner.imageSrc && (
+          <img
+            class="promo-banner__image"
+            src={banner.imageSrc}
+            alt={banner.imageAlt ?? ''}
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+        <div class="promo-banner__content">
+          <p class="promo-banner__title">{banner.title}</p>
+          {banner.description && <p class="promo-banner__description">{banner.description}</p>}
+        </div>
+        <span class="promo-banner__cta">{banner.linkLabel ?? 'Read more'}</span>
+      </a>
+    </aside>
+  )
+}
+
+<style>
+  .promo-banner {
+    background: var(--gradient-accent-orange);
+    color: var(--accent-text-over);
+  }
+
+  .promo-banner__link {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 0.75rem;
+    color: inherit;
+    text-decoration: none;
+    padding-block: 0.875rem;
+  }
+
+  .promo-banner__image {
+    width: 100%;
+    max-height: 6rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+
+  .promo-banner__content {
+    display: grid;
+    gap: 0.2rem;
+  }
+
+  .promo-banner__title {
+    color: inherit;
+    font-size: var(--text-base);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .promo-banner__description {
+    color: inherit;
+    font-size: var(--text-sm);
+    opacity: 0.95;
+  }
+
+  .promo-banner__cta {
+    display: inline-flex;
+    width: fit-content;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: inherit;
+    border-bottom: 1px solid currentColor;
+  }
+
+  .promo-banner__link:hover .promo-banner__cta,
+  .promo-banner__link:focus-visible .promo-banner__cta {
+    border-bottom-color: transparent;
+  }
+
+  @media (min-width: 50em) {
+    .promo-banner__link {
+      grid-template-columns: auto 1fr auto;
+      gap: 1rem;
+      padding-block: 0.75rem;
+    }
+
+    .promo-banner__image {
+      width: 9rem;
+      max-height: 4rem;
+      margin-right: 0.25rem;
+    }
+
+    .promo-banner__title {
+      font-size: var(--text-md);
+    }
+
+    .promo-banner__description,
+    .promo-banner__cta {
+      font-size: var(--text-base);
+    }
+  }
+</style>
