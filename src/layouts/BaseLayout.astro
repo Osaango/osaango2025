@@ -6,6 +6,8 @@ import Footer from '../components/Footer.astro';
 // Component Imports
 import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav.astro';
+import PromoBanner from '../components/PromoBanner.astro';
+import { getActiveBanner } from '../config/ads';
 
 interface Props {
         title?: string | undefined;
@@ -16,6 +18,7 @@ interface Props {
 }
 
 const { title, description, image, isHome = false, structuredData = [] } = Astro.props as Props;
+const activeBanner = getActiveBanner(Astro.url.pathname);
 ---
 
 <html lang="en">
@@ -32,6 +35,7 @@ const { title, description, image, isHome = false, structuredData = [] } = Astro
 	<body>
 
 		<div class="stack backgrounds">
+			<PromoBanner banner={activeBanner} />
 			<Nav />
 			<slot />
 			<Footer />
