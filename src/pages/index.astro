@@ -206,11 +206,13 @@ const posts = (await getCollection('blog'))
 </BaseLayout>
 
 <style>
+
 	.hero {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 2rem;
+                
 	}
 
 	.roles {
@@ -283,14 +285,14 @@ const posts = (await getCollection('blog'))
 
 	.section-header {
 		justify-self: center;
-		text-align: center;
+		text-align: left;
 		max-width: 50ch;
 		font-size: var(--text-md);
 		color: var(--gray-300);
 	}
 
         .section-header h3 {
-                font-size: var(--text-2xl);
+/*                 font-size: var(--text-2xl); */
         }
 
 
@@ -333,13 +335,13 @@ const posts = (await getCollection('blog'))
     width: 100%;
     aspect-ratio: 16 / 9;
     background: radial-gradient(circle at 20% 20%, var(--gray-700), var(--gray-900)), var(--gradient-subtle);
-    border-radius: 1rem;
+    border-radius: var(--rounded-sm);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--gray-400);
-    border: 1px solid var(--gray-700);
-    box-shadow: var(--shadow-lg);
+/*     border: 1px solid var(--gray-700);
+    box-shadow: var(--shadow-lg); */
     gap: 0.75rem;
     padding: 0rem 0rem 0rem 0rem;
     text-align: left;
@@ -348,7 +350,7 @@ const posts = (await getCollection('blog'))
   .service-image img {
     width: 100%;
     height: auto;
-    border-radius: 1rem;
+    border-radius: var(--rounded-sm);
     object-fit: cover;
   }
 
@@ -437,7 +439,7 @@ const posts = (await getCollection('blog'))
 		align-items: center;
 		text-align: center;
 		border: 1px solid var(--gray-800);
-		border-radius: 1.5rem;
+		border-radius: var(--rounded-sm);
 		color: var(--gray-300);
 		background: var(--gradient-subtle);
 		box-shadow: var(--shadow-sm);
@@ -445,7 +447,7 @@ const posts = (await getCollection('blog'))
 
 	@media (min-width: 50em) {
 		.mention-card {
-			border-radius: 1.5rem;
+			border-radius: var(--rounded-sm);
 			height: 9.5rem;
 		}
 	}

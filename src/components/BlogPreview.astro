@@ -25,7 +25,7 @@ const { post } = Astro.props;
                 gap: 0.5rem;
                 padding: 1.5rem;
                 border: 1px solid var(--gray-800);
-                border-radius: 0.75rem;
+                border-radius: var(--rounded-sm);
                 background: var(--gradient-subtle);
                 box-shadow: var(--shadow-sm);
                 transition: transform 200ms ease, box-shadow var(--theme-transition);
@@ -42,7 +42,7 @@ const { post } = Astro.props;
                 width: 100%;
                 aspect-ratio: 16 / 9;
                 object-fit: cover;
-                border-radius: 0.5rem;
+    		border-radius: var(--rounded-sm);
         }
 
         .card h4 {
@@ -62,7 +62,7 @@ const { post } = Astro.props;
 
         @media (min-width: 50em) {
                 .card {
-                        border-radius: 1.5rem;
+                        border-radius: var(--rounded-sm);
                 }
         }
 </style>

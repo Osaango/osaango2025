@@ -19,11 +19,12 @@ const { href } = Astro.props;
 		color: var(--accent-text-over);
 		text-decoration: none;
 		line-height: 1.1;
-		border-radius: 999rem;
+		border-radius: var(--rounded-sm);
 		overflow: hidden;
-		background: var(--gradient-accent-orange);
+		background: var(--accent-dark);
 		box-shadow: var(--shadow-md);
 		white-space: nowrap;
+		box-shadow: 0 12px 28px var(--accent-overlay);
 	}
 
 	@media (min-width: 20em) {

@@ -2,24 +2,24 @@
 :root {
 	/* Colors */
 	--gray-0: #090b11;
-	--gray-50: #141925;
+	--gray-50: #111111;;
 	--gray-100: #283044;
-	--gray-200: #3d4663;
-	--gray-300: #505d84;
-	--gray-400: #6474a2;
+	--gray-200: #444444;
+	--gray-300: #39425e;
+	--gray-400: #5B6676;
 	--gray-500: #8490b5;
 	--gray-600: #a3acc8;
 	--gray-700: #c3cadb;
-	--gray-800: #e3e6ee;
+	--gray-800: rgba(11,18,32,0.10);
 	--gray-900: #f3f4f7;
 	--gray-999-basis: 0, 0%, 100%;
 	--gray-999_40: hsla(var(--gray-999-basis), 0.4);
-	--gray-999: #F6F8F9;
+	--gray-999: #ffffff;
 
 	--accent-light: #A7C3D1;
-	--accent-regular: #0F6A63;
-	--accent-dark: #0F6A63;
-	--accent-overlay: hsl(193, 100%, 67%, 33%);
+	--accent-regular: #0F5D52;
+	--accent-dark: #0A3A33;
+	--accent-overlay: hsla(193, 81%, 67%, 33%);
 	--accent-subtle-overlay: var(--accent-overlay);
 	--accent-text-over: var(--gray-999);
 
@@ -29,7 +29,7 @@
 	--gradient-stop-1: var(--accent-light);
 	--gradient-stop-2: var(--accent-regular);
 	--gradient-stop-3: var(--accent-dark);
-	--gradient-subtle: linear-gradient(150deg, var(--gray-900) 19%, var(--gray-999) 150%);
+	--gradient-subtle: linear-gradient(150deg, var(--gray-900) 19%, var(--gray-999) 60%);
 	--gradient-accent: linear-gradient(
 		150deg,
 		var(--gradient-stop-1),
@@ -75,6 +75,9 @@
 
 	/* Transitions */
 	--theme-transition: 0.2s ease-in-out;
+
+	/* Rounded corners */
+	--rounded-sm: 0.2rem;
 }
 
 :root.theme-dark {
@@ -101,7 +104,7 @@
 	--link-color: var(--accent-dark);
 
 	--gradient-stop-1: #a7e1f9;
-	--gradient-subtle: linear-gradient(150deg, var(--gray-900) 19%, var(--gray-999) 81%);
+	--gradient-subtle: linear-gradient(150deg, var(--gray-900) 81%, var(--gray-999) 100%);
 	--gradient-accent-orange: linear-gradient(
 		150deg,
 		#0F6A63,
@@ -163,7 +166,7 @@ h5 {
 }
 
 h1 {
-	font-size: var(--text-4xl);
+	font-size: var(--text-4xl) !important;
 }
 
 h2 {

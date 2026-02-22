@@ -1,0 +1,162 @@
+---
+import type { PromotionBanner } from '../config/ads';
+
+interface Props {
+  banner?: PromotionBanner;
+}
+
+const { banner } = Astro.props as Props;
+---
+
+{
+  banner && (
+    <aside class="promo-banner" aria-label="Promotion">
+      <a class="promo-banner__link wrapper" href={banner.linkHref}>
+        {banner.imageSrc && (
+          <img
+            class="promo-banner__image"
+            src={banner.imageSrc}
+            alt={banner.imageAlt ?? ''}
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+        <div class="promo-banner__content">
+          <p class="promo-banner__title">{banner.title}</p>
+          {banner.description && <p class="promo-banner__description">{banner.description}</p>}
+        </div>
+        <span class="promo-banner__cta promo-banner__arrow">{banner.linkLabel ?? 'Read more'} →</span>
+        </a>
+    </aside>
+  )
+}
+
+<style>
+
+/*   .promo-banner {
+     color: var(--accent-text-over);
+    padding: 14px 24px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+     background:
+    radial-gradient(
+      circle at 18% 45%,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.06) 20%,
+      transparent 45%
+    ),
+    linear-gradient(
+      90deg,
+      #0b2e2a 0%,
+      #081377 45%,
+      #0a2421 100%
+    );
+  } */
+
+  .promo-banner {
+  position: relative;
+  color: var(--gray-50);
+
+  /* premium deep gradient + soft spotlight */
+  background: var(--accent-light);
+
+  /* separation from page */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    inset 0 -1px 0 rgba(255,255,255,0.08),
+    0 10px 24px rgba(0,0,0,0.10);
+
+  padding: 3px 12px;
+}
+
+  .promo-banner__link {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 0.75rem;
+    color: inherit;
+    text-decoration: none;
+    padding-block: 0.875rem;
+  }
+
+  .promo-banner__image {
+    width: 100%;
+    max-height: 50px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.22);
+  }
+
+  .promo-banner__content {
+    display: grid;
+    gap: 0.2rem; 
+  }
+
+  .promo-banner__title {
+    color: inherit;
+    font-size: var(--text-base);
+    font-weight: 700;
+    line-height: 1.25;
+      font-size: 14px; 
+  }
+
+  .promo-banner__description {
+    color: inherit;
+    font-size: var(--text-sm);
+    opacity: 0.95;
+  }
+  
+  .promo-banner__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 18px;
+    border-radius: 999px;
+
+    width: fit-content;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.2px;
+
+    background: rgba(255, 255, 255, 0.14);
+    color: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .promo-banner__link:hover .promo-banner__cta,
+  .promo-banner__link:focus-visible .promo-banner__cta {
+    background: #ffffff;
+    color: #0e3b35;
+  }
+
+
+  @media (min-width: 50em) {
+    .promo-banner__link {
+      grid-template-columns: auto 1fr auto;
+      gap: 1rem;
+      padding-block: 0.75rem;
+    }
+
+    .promo-banner__image {
+      width: 9rem;
+      max-height: 4rem;
+      margin-right: 0.25rem;
+    }
+
+    .promo-banner__title {
+      /*font-size: var(--text-md);*/
+      text-transform: uppercase;
+    }
+
+    .promo-banner__description,
+    .promo-banner__cta {
+      font-size: var(--text-base);
+    }
+  }
+</style>

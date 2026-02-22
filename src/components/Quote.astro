@@ -25,8 +25,8 @@ const { quote, author, role } = Astro.props as Props;
     display: grid;
     gap: 1rem;
     padding: 1.5rem;
-    border-radius: 1.25rem;
-    background: linear-gradient(135deg, rgba(151, 71, 255, 0.08), rgba(255, 255, 255, 0.05)), var(--gray-999);
+		border-radius: var(--rounded-sm);
+    background: rgba(20, 122, 108, 0.06);
     border: 1px solid var(--gray-800);
     box-shadow: var(--shadow-md);
     isolation: isolate;
@@ -38,7 +38,7 @@ const { quote, author, role } = Astro.props as Props;
     inset: 0.35rem;
     border-radius: 1rem;
     background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1), transparent 40%),
-      radial-gradient(circle at 80% 0%, rgba(151, 71, 255, 0.15), transparent 45%);
+      radial-gradient(circle at 80% 0%, var(--gray-800), transparent 45%);
     opacity: 0.85;
     z-index: -1;
   }
