@@ -25,14 +25,14 @@ const { quote, author, role } = Astro.props as Props;
     display: grid;
     gap: 1rem;
     padding: 1.5rem;
-		border-radius: var(--rounded-sm);
-    background: rgba(20, 122, 108, 0.06);
-    border: 1px solid var(--gray-800);
-    box-shadow: var(--shadow-md);
+    border-radius: var(--rounded-sm);
+    /* background: rgba(20, 122, 108, 0.06); */
+    border-left: 0.5rem solid var(--accent-regular);
+    /* box-shadow: var(--shadow-md); */
     isolation: isolate;
   }
 
-  .quote-card::before {
+/*   .quote-card::before {
     content: '';
     position: absolute;
     inset: 0.35rem;
@@ -41,7 +41,7 @@ const { quote, author, role } = Astro.props as Props;
       radial-gradient(circle at 80% 0%, var(--gray-800), transparent 45%);
     opacity: 0.85;
     z-index: -1;
-  }
+  } */
 
   .quote-mark {
     font-size: clamp(2rem, 4vw, 3rem);
