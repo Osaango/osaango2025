@@ -26,11 +26,10 @@ export const ads: PromotionBanner[] = [
     enabled: true,
     audience: 'categories',
     categories: ['services'],
-    title: 'Promotion: Team up with our Agile collaboration games workshop.',
+    title: 'Team up with our Agile collaboration games workshop.',
     description: 'A hands-on format for improving cross-functional delivery and communication.',
     linkHref: '/services/agile-collaboration-games',
     linkLabel: 'Book a workshop',
-    imageSrc: '/src/assets/service-images/Osaango_Agile_Games.png',
     imageAlt: 'Facilitated workshop participants in a collaborative game setup.',
   },
   {
