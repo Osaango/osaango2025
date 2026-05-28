@@ -2,35 +2,51 @@
 import Icon from './Icon.astro';
 ---
 
-
 <section class="box skills">
 	<div class="stack gap-2 lg:gap-4">
 		<Icon icon="terminal-window" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>API Strategy & Governance</h2>
-		<p>Define the APIs, roles and governance your organisation needs to support products, partners and platforms.</p>
+		<h2>AI, API & Integration Governance</h2>
+		<p>Define practical governance models for APIs, integrations, AI-enabled services and shared platform capabilities.</p>
 		<ul>
-			<li>Clarify which APIs and integrations matter most for your business model.</li>
-			<li>Set principles for reuse, quality and compliance.</li>
-			<li>Establish a practical operating model for ownership, decision-making and lifecycle management using the APIOps Cycles method.</li>
+			<li>Clarify which APIs, integrations and data capabilities matter most for your business.</li>
+			<li>Establish governance for lifecycle management, reuse, ownership and quality.</li>
+			<li>Align integration and API decisions with enterprise architecture and target architecture principles.</li>
+			<li>Create scalable operating models across teams, vendors and platforms.</li>
 		</ul>
 	</div>
 	<div class="stack gap-2 lg:gap-4">
 		<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Product & Platform Management</h2>
-		<p>Align product, platform and integration work around a shared roadmap and clear responsibilities.</p>
+		<h2>AI-Driven Product & Platform Strategy</h2>
+		<p>Design platform and product strategies that combine APIs, integrations, AI and data into reusable business capabilities and scalable customer value.</p>
 		<ul>
-			<li>Map how APIs, data and integrations support your products and services.</li>
-			<li>Shape platform capabilities that partners and internal teams can actually build on.</li>
-			<li>Support product and platform leaders in prioritising and sequencing change.</li>
+			<li>Define platform product vision aligned with business strategy and target architecture.</li>
+			<li>Identify where AI-enabled features, automation and data capabilities create real customer value.</li>
+			<li>Shape reusable APIs and platform capabilities teams and partners can build on.</li>
+			<li>Align product roadmaps, architecture and governance around measurable outcomes.</li>
+			<li>Support platform and product leaders in prioritising transformation initiatives.</li>
 		</ul>
 	</div>
 	<div class="stack gap-2 lg:gap-4">
 		<Icon icon="heart" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Agile Coaching & Operating Models</h2>
-		<p>Help teams and vendors deliver better together with clearer structures, practices and feedback loops.</p>
-		<ul><li>Design cross-team ways of working that fit your organisation—not someone else’s playbook.</li>
-			<li>Facilitate retros, workshops and coaching to evolve habits, not just processes.</li>
-			<li>Connect delivery practices to architectural and integration goals.</li></ul>
+		<h2>Architecture Renewal & Modernisation</h2>
+		<p>Modernise legacy integration and platform architectures toward scalable, API-first and AI-ready environments.</p>
+		<ul>
+			<li>Renew fragmented integration landscapes and outdated delivery models.</li>
+			<li>Use AI-assisted analysis and agents to accelerate legacy system understanding.</li>
+			<li>Design integration architectures aligned with strategic architecture principles and target architecture.</li>
+			<li>Improve scalability, reuse and governance without slowing delivery.</li>
+		</ul>
+	</div>
+	<div class="stack gap-2 lg:gap-4">
+		<Icon icon="pencil-line" color="var(--accent-regular)" size="2.5rem" gradient />
+		<h2>Operating Models & Delivery Enablement</h2>
+		<p>Improve collaboration between architecture, platform, product and delivery teams.</p>
+		<ul>
+			<li>Design practical cross-team ways of working.</li>
+			<li>Connect delivery practices with architecture and integration goals.</li>
+			<li>Facilitate workshops, retrospectives and transformation initiatives.</li>
+			<li>Help organisations evolve ways of working without unnecessary process overhead.</li>
+		</ul>
 	</div>
 </section>
 
@@ -57,6 +73,13 @@ import Icon from './Icon.astro';
 		color: var(--gray-400);
 	}
 
+	.skills ul {
+		display: grid;
+		gap: 0.5rem;
+		padding-left: 1.1rem;
+		color: var(--gray-300);
+	}
+
 	@media (min-width: 50em) {
 		.box {
 			border-radius: var(--rounded-sm);
@@ -65,8 +88,8 @@ import Icon from './Icon.astro';
 
 		.skills {
 			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: 5rem;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 3rem;
 		}
 
 		.skills h2 {

@@ -1,158 +1,134 @@
 ---
 import { getCollection } from 'astro:content';
-// Component Imports
 import CallToAction from '../components/CallToAction.astro';
-// Page section components
 import ContactCTA from '../components/ContactCTA.astro';
 import Grid from '../components/Grid.astro';
 import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
-import Pill from '../components/Pill.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Skills from '../components/Skills.astro';
 import BlogPreview from '../components/BlogPreview.astro';
 import Quote from '../components/Quote.astro';
-// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import apiopsCyclesWS from '../assets/service-images/accelerate-your-apis-with-apiops-cycles.jpg';
-import AgileGames from '../assets/service-images/Osaango_Agile_Games.png';
 import agilePeopleInt from '../assets/osaango_makes_people_and_integrations_more_agile.png';
 
-// Content Fetching: List four most recent work projects
 const projects = (await getCollection('work'))
-        .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-        .slice(0, 4);
+	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+	.slice(0, 4);
 
 const posts = (await getCollection('blog'))
-        .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-        .slice(0, 3);
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+	.slice(0, 3);
 ---
 
 <BaseLayout isHome={true}>
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
-                        <header class="hero">
-                                <Hero
-                                        title="Make people and integrations more Agile for real growth."
-                                        tagline="We help organisations remove architectural bottlenecks, improve delivery across teams and vendors, and build the practices needed for sustainable growth — through better operating models, integration strategy and API design."
-                                        align="start"
+			<header class="hero">
+				<Hero
+					title="Help teams, platforms and integrations evolve for AI-driven growth."
+					tagline="We help organisations modernise APIs, integrations, platforms and operating models - so teams can deliver AI-enabled products, scalable architectures and better customer experiences without losing governance or control."
+					align="start"
 				>
-                                <CallToAction href="https://calendly.com/marjukka-niinioja/meet-with-marjukka">
-                                        Book a strategy call
-                                        <Icon icon="paper-plane-tilt" size="1.2em" />
-                                </CallToAction>
-<!-- 	                        <div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Consulting APIs and Agile</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Guidelines and Marketing messages</Pill>
-					</div> -->
+					<CallToAction href="https://calendly.com/marjukka-niinioja/meet-with-marjukka">
+						Book a strategy call
+						<Icon icon="paper-plane-tilt" size="1.2em" />
+					</CallToAction>
 				</Hero>
-                                <Image
-                                        src={agilePeopleInt}
-                                        alt="digital tree made of people and integration icons"
-                                        width={480}
-                                        height={480}
-                                        sizes="(max-width: 50em) 75vw, 480px"
-                                        widths={[260, 360, 480, 600]}
-                                        format="webp"
-                                        loading="eager"
-                                        fetchpriority="high"
-                                        class=""
-                                />
+				<Image
+					src={agilePeopleInt}
+					alt="digital tree made of people and integration icons"
+					width={480}
+					height={480}
+					sizes="(max-width: 50em) 75vw, 480px"
+					widths={[260, 360, 480, 600]}
+					format="webp"
+					loading="eager"
+					fetchpriority="high"
+				/>
+			</header>
 
-                        </header>
+			<Quote
+				quote="Working together has clarified our customer and market insights and given a stronger direction of integration capabilities for our US expansion. Our strategies are grounded in deep customer understanding. I am now confident in the road ahead. A truly valuable collaboration."
+				author="Chief Product Officer"
+				role="Global SaaS Company"
+			/>
 
-                        <Quote
-                                quote="Working together has clarified our customer and market insights and given a stronger direction of integration capabilities for our US expansion. Our strategies are grounded in deep customer understanding. I’m now confident in the road ahead. A truly valuable collaboration."
-                                author="Chief Product Officer"
-                                role="Global SaaS Company"
-                        />
+			<section class="positioning">
+				<div class="positioning-content stack gap-4">
+					<h2>Architecture, APIs and AI - connected in practice</h2>
+					<p>Most organisations do not struggle with a lack of tools. They struggle with fragmented architectures, disconnected teams, legacy integrations and unclear ownership.</p>
+					<p>Osaango helps organisations align APIs, integrations, platform strategy and operating models into practical capabilities that support long-term growth, customer value and AI readiness.</p>
+				</div>
+				<ul class="capability-list">
+					<li>API and integration strategy</li>
+					<li>Architecture renewal</li>
+					<li>Platform product strategy</li>
+					<li>Governance and operating models</li>
+					<li>AI-enabled service and capability orchestration</li>
+				</ul>
+			</section>
 
-                        <Skills />
-                </div>
+			<Skills />
+		</div>
 
-                <main class="wrapper stack gap-20 lg:gap-48">
-                                        <section class="intro">
-                                                <div class="promo-content">
-                                                        <div class="text stack gap-4">
-                                                                <header class="section-header stack gap-2 lg:gap-4">
-                                                                        <h3>Start with an APIOps Cycles workshop</h3>
-                                                                        <p class="">A practical, collaborative way to unblock your current situation and build a shared view of what “good” looks like for APIs and integrations in your organisation</p>
-                                                                        <p class ="games-list">
-                                                                                <p><strong>Understand your current API and integration landscape—from business, technical and team perspectives.</strong></p>
-                                                                                <p><strong>Identify the most critical customer, partner or internal journeys where APIs matter.</strong></p>
-                                                                                <p><strong>Use APIOps Cycles canvases to agree on priorities, roles and next steps across teams and vendors.</strong></p>
-                                                                        </ul>
-                                                                </header>
-                                                                <div class="cta">
-                                                                        <CallToAction href="/services/accelerate-your-apis-with-apiops-cycles/">
-                                                                                View workshop details
-                                                                                <Icon icon="arrow-right" size="1.2em" />
-                                                                        </CallToAction>
-                                                                </div>
-                                                        </div>
-                                                        <div class="promo-image">
-                                                                <Image
-                                                                        src={apiopsCyclesWS}
-                                                                        alt="business people looking at the APIOps Cycles metro map"
-                                                                        width={1200}
-                                                                        height={675}
-                                                                        widths={[280, 360, 480, 600, 660]}
-                                                                        sizes="(max-width: 50em) 70vw, 660px"
-                                                                        format="webp"
-                                                                        loading="eager"
-                                                                        fetchpriority="high"
-                                                                        class="service-image"
-                                                                />
-                                                        </div>
-                                                </div>
-                                        </section>
+		<main class="wrapper stack gap-20 lg:gap-48">
+			<section class="intro">
+				<div class="promo-content">
+					<div class="text stack gap-4">
+						<header class="section-header stack gap-2 lg:gap-4">
+							<h3>Design APIs and platforms that work for humans and AI</h3>
+							<p>Modern APIs and integration architectures are no longer built only for applications and developers. They increasingly support AI agents, automation and intelligent workflows.</p>
+							<p>Osaango helps organisations design architectures and platform capabilities that are reusable, discoverable, governed, scalable and AI-ready.</p>
+							<p>We support both strategic planning and practical implementation across platform ecosystems, integrations, reusable services and digital product ecosystems.</p>
+						</header>
+						<div class="cta">
+							<CallToAction href="/work/">
+								Explore our work
+								<Icon icon="arrow-right" size="1.2em" />
+							</CallToAction>
+						</div>
+					</div>
+					<div class="promo-image">
+						<Image
+							src={apiopsCyclesWS}
+							alt="business people looking at the APIOps Cycles metro map"
+							width={1200}
+							height={675}
+							widths={[280, 360, 480, 600, 660]}
+							sizes="(max-width: 50em) 70vw, 660px"
+							format="webp"
+							loading="eager"
+							fetchpriority="high"
+							class="service-image"
+						/>
+					</div>
+				</div>
+			</section>
 
-                                        <section class="intro">
-                                                <div class="promo-content promo-content--games">
-                                                        <div class="promo-image stack gap-2 lg:gap-4">
-                                                                <Image
-                                                                                src={AgileGames}
-                                                                                alt="Osaango Agile Sprint Challenge and Retro Card games"
-                                                                                width={1200}
-                                                                                height={630}
-                                                                                widths={[280, 360, 480, 600, 660]}
-                                                                                sizes="(max-width: 50em) 70vw, 660px"
-                                                                                format="webp"
-                                                                                loading="eager"
-                                                                                fetchpriority="high"
-                                                                                class="service-image"
-                                                                        />
-                                                        </div>                                                        
-                                                        <div class="text stack gap-4">
-                                                                <header class="section-header stack gap-2 lg:gap-4">
-                                                                        <h3>Make Agile easier to talk about and practice</h3>
-                                                                        <p class="">Our Agile games turn abstract concepts into shared experiences. Use them in retrospectives, onboarding, coaching sessions or workshops to spark better conversations and decisions.</p>
-                                                                        <p class="games-list">
-                                                                                <p><strong>Sprint Challenge</strong> – Explore flow, prioritisation and dependencies in a safe, playful setting.</p>
-                                                                                <p><strong>Retro Game</strong>Help teams reflect, recognise patterns and commit to concrete changes.</p>
-                                                                                <p>Both games are available as physical sets and digital boards, with guidance so any facilitator can run them with confidence.</p>
-                                                                        </p>
-                                                                </header>
+			<section class="product-thinking">
+				<div class="product-thinking-content stack gap-4">
+					<h3>Platform products, not isolated projects</h3>
+					<p>Modern organisations increasingly rely on reusable digital capabilities instead of disconnected projects and siloed systems.</p>
+					<p>Osaango helps organisations treat APIs, integrations and platforms as long-term products and business capabilities that support customer experience, partner ecosystems, AI-enabled services, operational scalability and faster innovation.</p>
+					<p>We support product and platform leaders in aligning business priorities, architecture and delivery into practical transformation roadmaps.</p>
+				</div>
+				<ul class="capability-list">
+					<li>Platform product vision</li>
+					<li>Reusable business capabilities</li>
+					<li>Customer value alignment</li>
+					<li>Roadmap prioritisation</li>
+					<li>Digital product ecosystems</li>
+				</ul>
+			</section>
 
-                                                                <div class="cta">
-                                                                        <CallToAction href="/services/agile-collaboration-games/">
-                                                                                Explore the Agile games
-                                                                                <Icon icon="arrow-right" size="1.2em" />
-                                                                        </CallToAction>
-                                                                </div>
-                                                        </div>
-                                                </div>
-                                        </section>
-
-                        <section class="section with-background with-cta">
-                                <header class="section-header stack gap-2 lg:gap-4">
-                                        <h3>Selected Work</h3>
-                                        <p>We work with organisations in finance, SaaS, media, manufacturing and the public sector. Here are a few anonymised examples of impact.</p>
-                                </header>
+			<section class="section with-background with-cta">
+				<header class="section-header stack gap-2 lg:gap-4">
+					<h3>Selected Work</h3>
+					<p>Anonymised examples of architecture renewal, integration governance, platform product strategy, AI-enabled services and AI-ready API work.</p>
+				</header>
 
 				<div class="gallery">
 					<Grid variant="offset">
@@ -174,81 +150,148 @@ const posts = (await getCollection('blog'))
 				</div>
 			</section>
 
+			<section class="intro">
+				<div class="promo-content">
+					<div class="text stack gap-4">
+						<header class="section-header stack gap-2 lg:gap-4">
+							<h3>APIOps Cycles as a transformation capability</h3>
+							<p>APIOps Cycles helps organisations align APIs, integrations, architecture, governance and delivery into a shared transformation model.</p>
+							<p>It combines business strategy, platform product thinking, architecture, governance, delivery practices and API lifecycle management into one practical operational framework.</p>
+						</header>
+						<div class="cta">
+							<CallToAction href="/services/accelerate-your-apis-with-apiops-cycles/">
+								View APIOps Cycles workshop
+								<Icon icon="arrow-right" size="1.2em" />
+							</CallToAction>
+						</div>
+					</div>
+					<div class="promo-image">
+						<Image
+							src={apiopsCyclesWS}
+							alt="business people looking at the APIOps Cycles metro map"
+							width={1200}
+							height={675}
+							widths={[280, 360, 480, 600, 660]}
+							sizes="(max-width: 50em) 70vw, 660px"
+							format="webp"
+							loading="lazy"
+							class="service-image"
+						/>
+					</div>
+				</div>
+			</section>
 
+			<section class="section with-background with-cta">
+				<header class="section-header stack gap-2 lg:gap-4">
+					<h3>Latest Insights</h3>
+					<p>Practical writing on AI-ready APIs, agentic architectures, platform capability design, integration governance, API operating models, architecture modernisation, capability orchestration and AI-driven product strategy.</p>
+					<div class="topic-list">
+						<span>AI-ready APIs</span>
+						<span>Agentic architectures</span>
+						<span>Platform capabilities</span>
+						<span>Integration governance</span>
+						<span>Capability orchestration</span>
+					</div>
+				</header>
 
-                        <section class="section with-background with-cta">
-                                <header class="section-header stack gap-2 lg:gap-4">
-                                        <h3>Latest Articles</h3>
-                                        <p>Read our most recent blog posts.</p>
-                                </header>
+				<div class="gallery">
+					<Grid variant="small">
+						{
+							posts.map((post) => (
+								<li>
+									<BlogPreview post={post} />
+								</li>
+							))
+						}
+					</Grid>
+				</div>
 
-                                <div class="gallery">
-                                        <Grid variant="small">
-                                                {posts.map((post) => (
-                                                        <li>
-                                                                <BlogPreview post={post} />
-                                                        </li>
-                                                ))}
-                                        </Grid>
-                                </div>
+				<div class="cta">
+					<CallToAction href="/blog/">
+						View All
+						<Icon icon="arrow-right" size="1.2em" />
+					</CallToAction>
+				</div>
+			</section>
+		</main>
 
-                                <div class="cta">
-                                        <CallToAction href="/blog/">
-                                                View All
-                                                <Icon icon="arrow-right" size="1.2em" />
-                                        </CallToAction>
-                                </div>
-                        </section>
-                </main>
-
-                <ContactCTA />
-        </div>
+		<ContactCTA />
+	</div>
 </BaseLayout>
 
 <style>
-
 	.hero {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 2rem;
-                
 	}
 
-	.roles {
-		display: none;
+	.hero img {
+		object-fit: cover;
+		object-position: center;
+		border: 0;
 	}
 
-        .hero img {
-                object-fit: cover;
-                object-position: center;
-                border: 0;
-        }
+	.positioning,
+	.product-thinking {
+		display: grid;
+		gap: 1.5rem;
+		padding: 1.5rem;
+		border: 1px solid var(--gray-800);
+		border-radius: var(--rounded-sm);
+		background: var(--gradient-subtle);
+		box-shadow: var(--shadow-sm);
+	}
 
+	.positioning-content,
+	.product-thinking-content {
+		max-width: 65ch;
+	}
 
-        @media (min-width: 50em) {
-                .hero {
-                        display: grid;
-                        grid-template-columns: 6fr 4fr;
-                        padding-inline: 2.5rem;
-			gap: 4.75rem;
-		}
+	.positioning-content p,
+	.product-thinking-content p {
+		color: var(--gray-300);
+		font-size: var(--text-md);
+	}
 
-		.roles {
-			margin-top: 0.5rem;
-			display: flex;
-			gap: 0.5rem;
-		}
+	.capability-list,
+	.topic-list {
+		list-style: none;
+		padding: 0;
+	}
 
-                .hero img {
-                        aspect-ratio: 1/1;
-                        border-radius: 4.5rem;
-                        object-fit: cover;
-                }
-        }
+	.capability-list {
+		display: grid;
+		gap: 0.75rem;
+		align-content: start;
+	}
 
+	.capability-list li {
+		padding: 0.75rem 1rem;
+		border: 1px solid var(--gray-800);
+		border-radius: var(--rounded-sm);
+		background-color: var(--gray-999_40);
+		color: var(--gray-200);
+		font-weight: 700;
+	}
 
-        /* ====================================================== */
+	.topic-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: 0.5rem;
+	}
+
+	.topic-list span {
+		padding: 0.45rem 0.7rem;
+		border: 1px solid var(--gray-800);
+		border-radius: var(--rounded-sm);
+		color: var(--gray-200);
+		background-color: var(--gray-999_40);
+		font-size: var(--text-sm);
+		font-weight: 700;
+	}
 
 	.section {
 		display: grid;
@@ -279,127 +322,101 @@ const posts = (await getCollection('blog'))
 		z-index: -1;
 	}
 
-	.with-background.bg-variant::before {
-		--hero-bg: var(--bg-image-subtle-1);
-	}
-
 	.section-header {
 		justify-self: center;
 		text-align: left;
 		max-width: 50ch;
 		font-size: var(--text-md);
 		color: var(--gray-300);
+		min-width: 0;
+		overflow-wrap: anywhere;
 	}
 
-        .section-header h3 {
-/*                 font-size: var(--text-2xl); */
-        }
+	.intro {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
 
+	.promo-content {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			'image'
+			'text';
+		gap: 2rem;
+		align-items: center;
+	}
 
-  .service {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-  }
+	.promo-content .text {
+		grid-area: text;
+		min-width: 0;
+	}
 
-  .intro {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
+	.promo-content .promo-image {
+		grid-area: image;
+		min-width: 0;
+	}
 
-  .tagline {
-    font-size: var(--text-lg);
-    color: var(--gray-300);
-  }
+	.service-image {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		background: radial-gradient(circle at 20% 20%, var(--gray-700), var(--gray-900)), var(--gradient-subtle);
+		border-radius: var(--rounded-sm);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--gray-400);
+		gap: 0.75rem;
+		text-align: left;
+	}
 
-  .promo-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      'image'
-      'text';
-    gap: 2rem;
-    align-items: center;
-  }
+	.service-image img {
+		width: 100%;
+		height: auto;
+		border-radius: var(--rounded-sm);
+		object-fit: cover;
+	}
 
-  .promo-content .text {
-    grid-area: text;
-  }
+	.cta {
+		max-width: 100%;
+	}
 
-  .promo-content .promo-image {
-    grid-area: image;
-  }
+	.cta :global(a) {
+		max-width: 100%;
+		white-space: normal;
+	}
 
-  .service-image {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: radial-gradient(circle at 20% 20%, var(--gray-700), var(--gray-900)), var(--gradient-subtle);
-    border-radius: var(--rounded-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--gray-400);
-/*     border: 1px solid var(--gray-700);
-    box-shadow: var(--shadow-lg); */
-    gap: 0.75rem;
-    padding: 0rem 0rem 0rem 0rem;
-    text-align: left;
-  }
+	@media (min-width: 50em) {
+		.hero {
+			display: grid;
+			grid-template-columns: 6fr 4fr;
+			padding-inline: 2.5rem;
+			gap: 4.75rem;
+		}
 
-  .service-image img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--rounded-sm);
-    object-fit: cover;
-  }
+		.hero img {
+			aspect-ratio: 1/1;
+			border-radius: 4.5rem;
+			object-fit: cover;
+		}
 
-  .pitch {
-    font-size: var(--text-md);
-  }
+		.positioning,
+		.product-thinking {
+			grid-template-columns: minmax(0, 3fr) minmax(18rem, 2fr);
+			padding: 2.5rem;
+			gap: 3rem;
+			align-items: start;
+		}
 
-  .promo-content--games {
-    align-items: stretch;
-  }
+		.promo-content {
+			grid-template-columns: 1fr 1fr;
+			grid-template-areas: 'text image';
+		}
 
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 999px;
-    background: var(--gray-0);
-    color: var(--gray-900);
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: var(--text-xs);
-    letter-spacing: 0.05em;
-  }
-
-  .games-list {
-    display: grid;
-    gap: 0.35rem;
-    font-size: var(--text-md);
-    color: var(--gray-0);
-  }
-
-  .games-list p {
-    margin: 0;
-  }
-
-        @media (min-width: 50em) {
-                .promo-content {
-                        grid-template-columns: 1fr 1fr;
-                        grid-template-areas: 'text image';
-                }
-
-                .promo-content--games {
-                        grid-template-areas: 'image text';
-                }
-
-                .section {
-                        grid-template-columns: repeat(4, 1fr);
-                        grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
+		.section {
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
 			gap: 5rem;
 		}
 
@@ -427,28 +444,6 @@ const posts = (await getCollection('blog'))
 
 		.cta {
 			grid-area: cta;
-		}
-	}
-
-	/* ====================================================== */
-
-	.mention-card {
-		display: flex;
-		height: 7rem;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		border: 1px solid var(--gray-800);
-		border-radius: var(--rounded-sm);
-		color: var(--gray-300);
-		background: var(--gradient-subtle);
-		box-shadow: var(--shadow-sm);
-	}
-
-	@media (min-width: 50em) {
-		.mention-card {
-			border-radius: var(--rounded-sm);
-			height: 9.5rem;
 		}
 	}
 </style>
