@@ -26,11 +26,12 @@ export const ads: PromotionBanner[] = [
     enabled: true,
     audience: 'categories',
     categories: ['services'],
-    title: 'Team up with our Agile collaboration games workshop.',
-    description: 'A hands-on format for improving cross-functional delivery and communication.',
+    title: 'Team up with our delivery and platform enablement games workshop.',
+    description: 'A hands-on format for improving cross-functional delivery, platform collaboration and communication.',
     linkHref: '/services/agile-collaboration-games',
     linkLabel: 'Book a workshop',
     imageAlt: 'Facilitated workshop participants in a collaborative game setup.',
+    excludePaths: ['/services/accelerate-your-apis-with-apiops-cycles'],
   },
   {
     id: 'apiops-cycles-promo',
@@ -40,6 +41,7 @@ export const ads: PromotionBanner[] = [
     description: 'Biggest API event of the year in Finland is coming!',
     linkHref: 'https://helsinki.apiops.info/',
     linkLabel: 'Learn more',
+    excludePaths: ['/', '/services/accelerate-your-apis-with-apiops-cycles'],
   },
 ];
 

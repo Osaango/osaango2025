@@ -22,7 +22,7 @@ const caseStudies = (await getCollection('work'))
 
 <BaseLayout
   title="Accelerate Your APIs with APIOps Cycles Workshop | Osaango"
-  description="Your first practical step toward scalable, business-aligned APIs."
+  description="Your first practical step toward scalable, business-aligned APIs, integration architectures and capability orchestration."
   image={apiopsCyclesWS}
 >
   <div class="stack gap-20">
@@ -30,7 +30,7 @@ const caseStudies = (await getCollection('work'))
       <section class="intro">
         <header class="section-header stack gap-2 lg:gap-4">
                                                                         <h3>Start with an APIOps Cycles workshop</h3>
-                                                                        <p class="">A practical, collaborative way to unblock your current situation and build a shared view of what “good” looks like for APIs and integrations in your organisation</p>
+                                                                        <p class="">A practical, collaborative way to unblock your current situation and build a shared view of what good looks like for APIs, integrations and capability orchestration in your organisation.</p>
 
         </header>
         <div class="promo-content">
@@ -49,11 +49,11 @@ const caseStudies = (await getCollection('work'))
            />
           </div>
           <div class="text stack gap-4">
-            <p class="pitch">A compact, high-impact <strong>2-hour online or onsite workshop</strong> for API product owners, architects, platform teams, and IT leaders. Discover if the APIOps Cycles method fits your needs and what it takes to roll it out.</p>
+            <p class="pitch">A compact, high-impact <strong>2-hour online or onsite workshop</strong> for API product owners, architects, platform teams, and IT leaders. Discover how APIOps Cycles supports capability orchestration and what it takes to roll it out.</p>
                                                                                     <ul class ="games-list">
                                                                                 <li><strong>Understand your current API and integration landscape—from business, technical and team perspectives.</strong></li>
                                                                                 <li><strong>Identify the most critical customer, partner or internal journeys where APIs matter.</strong></li>
-                                                                                <li><strong>Use APIOps Cycles canvases to agree on priorities, roles and next steps across teams and vendors.</strong></li>
+                                                                                <li><strong>Use APIOps Cycles canvases to agree on priorities, roles, capability orchestration and next steps across teams and vendors.</strong></li>
                                                                                 </ul>
               <CallToAction href="https://www.osaango.academy/products/live_events/apiops-cycles-workshop">
                 Book Now at Osaango Academy
@@ -69,7 +69,7 @@ const caseStudies = (await getCollection('work'))
             <ul>
               <li>What the APIOps Cycles method is and why it works</li>
               <li>How to avoid common API delivery wastes and misalignments</li>
-              <li>Where to focus first with a capability audit</li>
+              <li>Where to focus first with a capability orchestration audit</li>
               <li>How to engage teams and stakeholders across roles</li>
             </ul>
           </InfoCard>
@@ -100,7 +100,7 @@ const caseStudies = (await getCollection('work'))
           </InfoCard>
 
           <InfoCard icon="heart" title="Bonus">
-            <p>Attendees receive a <strong>discount voucher</strong> for future APIOps training, consulting, or a follow-up capability audit.</p>
+            <p>Attendees receive a <strong>discount voucher</strong> for future APIOps training, consulting, or a follow-up capability orchestration audit.</p>
           </InfoCard>
 
           <InfoCard icon="rocket-launch" title="Best Fit">
@@ -131,7 +131,7 @@ const caseStudies = (await getCollection('work'))
       <section class="case-studies section with-background">
         <header class="section-header stack gap-2 lg:gap-4">
           <h3>Related case studies</h3>
-          <p>See how we unblock integration delivery, align teams, and scale API practices in complex organisations.</p>
+          <p>See how we unblock integration delivery, align teams, support capability orchestration, and scale API practices in complex organisations.</p>
         </header>
         <Grid variant="offset">
           {caseStudies.map((project) => (
@@ -144,7 +144,7 @@ const caseStudies = (await getCollection('work'))
       <section class="section with-background with-cta">
           <header class="section-header stack gap-2 lg:gap-4">
             <h3>Ready to Accelerate Your APIs?</h3>
-            <p>Book your workshop now and take the first step towards scalable, business-aligned APIs.</p>
+            <p>Book your workshop now and take the first step towards scalable, business-aligned APIs and capability orchestration.</p>
           </header>
     			<div class="bottom-cta">
               <CallToAction href="https://calendar.app.google/u7sf4kTpiQGc1tr18">
@@ -161,13 +161,13 @@ const caseStudies = (await getCollection('work'))
   .service {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 5.5rem;
   }
 
   .intro {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.75rem;
   }
 
   .tagline {
@@ -181,12 +181,13 @@ const caseStudies = (await getCollection('work'))
     grid-template-areas:
       'image'
       'text';
-    gap: 2rem;
-    align-items: center;
+    gap: 2.5rem;
+    align-items: start;
   }
 
   .promo-content .text {
     grid-area: text;
+    max-width: 58ch;
   }
 
   .promo-content .promo-image {
@@ -218,6 +219,25 @@ const caseStudies = (await getCollection('work'))
 
   .pitch {
     font-size: var(--text-md);
+    line-height: 1.65;
+    color: var(--gray-300);
+  }
+
+  .games-list {
+    display: grid;
+    gap: 0.85rem;
+    padding-left: 1.25rem;
+    color: var(--gray-300);
+  }
+
+  .games-list li {
+    padding-left: 0.25rem;
+    line-height: 1.45;
+  }
+
+  .text :global(a) {
+    align-self: flex-start;
+    min-width: min(100%, 22rem);
   }
 
   .cards {
@@ -283,9 +303,31 @@ const caseStudies = (await getCollection('work'))
   }
 
   @media (min-width: 50em) {
+    .service {
+      gap: 6.5rem;
+    }
+
+    .intro {
+      gap: 3rem;
+    }
+
     .promo-content {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 0.92fr) minmax(24rem, 1.08fr);
       grid-template-areas: 'text image';
+      gap: clamp(3rem, 5vw, 5.5rem);
+    }
+
+    .intro .section-header {
+      max-width: 76ch;
+    }
+
+    .intro .section-header h3 {
+      font-size: var(--text-3xl);
+    }
+
+    .intro .section-header p {
+      font-size: var(--text-md);
+      line-height: 1.65;
     }
 
     .case-studies .section-header h3 {

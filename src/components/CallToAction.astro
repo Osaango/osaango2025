@@ -1,35 +1,52 @@
 ---
 interface Props {
 	href: string;
+	variant?: 'primary' | 'secondary';
 }
 
-const { href } = Astro.props;
+const { href, variant = 'primary' } = Astro.props;
 ---
 
-<a href={href}><slot /></a>
+<a class:list={[variant]} href={href}><slot /></a>
 
 <style>
 	a {
 		position: relative;
 		display: flex;
+		align-items: center;
 		place-content: center;
 		text-align: center;
-		padding: 0.56em 2em;
+		padding: 0.9rem 1.6rem;
 		gap: 0.8em;
 		color: var(--accent-text-over);
 		text-decoration: none;
 		line-height: 1.1;
-		border-radius: var(--rounded-sm);
+		border: 1px solid var(--accent-dark);
+		border-radius: 0.45rem;
 		overflow: hidden;
 		background: var(--accent-dark);
 		box-shadow: var(--shadow-md);
 		white-space: nowrap;
-		box-shadow: 0 12px 28px var(--accent-overlay);
+		font-family: var(--font-brand);
+		font-weight: 600;
+		box-shadow: 0 14px 28px rgba(15, 93, 82, 0.18);
+		transition:
+			background-color var(--theme-transition),
+			border-color var(--theme-transition),
+			color var(--theme-transition),
+			box-shadow var(--theme-transition);
+	}
+
+	a.secondary {
+		color: var(--gray-0);
+		border-color: rgba(63, 143, 210, 0.45);
+		background: rgba(255, 255, 255, 0.68);
+		box-shadow: none;
 	}
 
 	@media (min-width: 20em) {
 		a {
-			font-size: var(--text-lg);
+			font-size: var(--text-base);
 		}
 	}
 
@@ -48,10 +65,17 @@ const { href } = Astro.props;
 		background-color: hsla(var(--gray-999-basis), 0.3);
 	}
 
+	a.secondary:focus,
+	a.secondary:hover {
+		border-color: var(--accent-regular);
+		color: var(--accent-regular);
+	}
+
 	@media (min-width: 50em) {
 		a {
-			padding: 1.125rem 2.5rem;
-			font-size: var(--text-xl);
+			min-height: 3.5rem;
+			padding: 1rem 2.35rem;
+			font-size: var(--text-md);
 		}
 	}
 </style>

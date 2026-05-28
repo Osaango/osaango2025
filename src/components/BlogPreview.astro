@@ -48,6 +48,20 @@ const { post } = Astro.props;
         .card h4 {
                 margin: 0;
                 font-size: var(--text-lg);
+                line-height: 1.12;
+        }
+
+        .card h4 a {
+                color: var(--gray-0);
+                text-decoration: none;
+                transition: color var(--theme-transition);
+        }
+
+        .card h4 a:hover,
+        .card h4 a:focus {
+                color: var(--accent-regular);
+                text-decoration: underline;
+                text-underline-offset: 0.16em;
         }
 
         .publish-date {

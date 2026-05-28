@@ -12,7 +12,7 @@ import Quote from '../components/Quote.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import apiopsCyclesWS from '../assets/service-images/accelerate-your-apis-with-apiops-cycles.jpg';
-import agilePeopleInt from '../assets/osaango_makes_people_and_integrations_more_agile.png';
+import agilePeopleInt from '../assets/osaango-platform-growth.png';
 
 const projects = (await getCollection('work'))
 	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
@@ -28,22 +28,30 @@ const posts = (await getCollection('blog'))
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
 				<Hero
-					title="Help teams, platforms and integrations evolve for AI-driven growth."
-					tagline="We help organisations modernise APIs, integrations, platforms and operating models - so teams can deliver AI-enabled products, scalable architectures and better customer experiences without losing governance or control."
+					tagline="We help organisations modernise APIs, integrations and platforms - so teams can deliver AI-enabled products, scalable architectures and better customer experiences without losing governance or control."
 					align="start"
 				>
-					<CallToAction href="https://calendly.com/marjukka-niinioja/meet-with-marjukka">
-						Book a strategy call
-						<Icon icon="paper-plane-tilt" size="1.2em" />
-					</CallToAction>
+					<Fragment slot="title">
+						Modernise APIs, integrations and platforms for the <span class="highlight">AI era.</span>
+					</Fragment>
+					<div class="hero-actions">
+						<CallToAction href="https://calendly.com/marjukka-niinioja/meet-with-marjukka">
+							Book a strategy call
+							<Icon icon="paper-plane-tilt" size="1.2em" />
+						</CallToAction>
+						<CallToAction href="/work/" variant="secondary">
+							Explore our work
+							<Icon icon="arrow-right" size="1.2em" />
+						</CallToAction>
+					</div>
 				</Hero>
 				<Image
 					src={agilePeopleInt}
 					alt="digital tree made of people and integration icons"
-					width={480}
-					height={480}
-					sizes="(max-width: 50em) 75vw, 480px"
-					widths={[260, 360, 480, 600]}
+					width={1536}
+					height={1024}
+					sizes="(max-width: 50em) 90vw, min(56vw, 46rem)"
+					widths={[480, 720, 960, 1200, 1536]}
 					format="webp"
 					loading="eager"
 					fetchpriority="high"
@@ -67,7 +75,7 @@ const posts = (await getCollection('blog'))
 					<li>Architecture renewal</li>
 					<li>Platform product strategy</li>
 					<li>Governance and operating models</li>
-					<li>AI-enabled service and capability orchestration</li>
+					<li>Capability orchestration for AI-enabled services</li>
 				</ul>
 			</section>
 
@@ -79,10 +87,10 @@ const posts = (await getCollection('blog'))
 				<div class="promo-content">
 					<div class="text stack gap-4">
 						<header class="section-header stack gap-2 lg:gap-4">
-							<h3>Design APIs and platforms that work for humans and AI</h3>
-							<p>Modern APIs and integration architectures are no longer built only for applications and developers. They increasingly support AI agents, automation and intelligent workflows.</p>
-							<p>Osaango helps organisations design architectures and platform capabilities that are reusable, discoverable, governed, scalable and AI-ready.</p>
-							<p>We support both strategic planning and practical implementation across platform ecosystems, integrations, reusable services and digital product ecosystems.</p>
+							<h3>AI-ready APIs and integration architectures</h3>
+							<p>Modern AI systems increasingly rely on APIs, integrations and reusable platform capabilities.</p>
+							<p>Osaango helps organisations design architectures that support AI-enabled products, intelligent automation, reusable business capabilities, governed platform ecosystems and scalable integration landscapes.</p>
+							<p>We connect enterprise architecture, integration strategy and capability orchestration so AI opportunities can move from experiments into reliable digital services.</p>
 						</header>
 						<div class="cta">
 							<CallToAction href="/work/">
@@ -110,17 +118,32 @@ const posts = (await getCollection('blog'))
 
 			<section class="product-thinking">
 				<div class="product-thinking-content stack gap-4">
-					<h3>Platform products, not isolated projects</h3>
-					<p>Modern organisations increasingly rely on reusable digital capabilities instead of disconnected projects and siloed systems.</p>
-					<p>Osaango helps organisations treat APIs, integrations and platforms as long-term products and business capabilities that support customer experience, partner ecosystems, AI-enabled services, operational scalability and faster innovation.</p>
-					<p>We support product and platform leaders in aligning business priorities, architecture and delivery into practical transformation roadmaps.</p>
+					<h3>Platforms are products</h3>
+					<p>APIs, integrations and shared services are not just technical assets. They are reusable business capabilities that shape customer experience, scalability and innovation.</p>
+					<p>Osaango helps organisations align platform strategy, product ownership, architecture, governance, AI opportunities and delivery capabilities into practical transformation roadmaps.</p>
+					<p>We support platform and product leaders in turning capability orchestration into operating models, roadmaps and measurable customer value.</p>
 				</div>
 				<ul class="capability-list">
-					<li>Platform product vision</li>
+					<li>Platform strategy and product ownership</li>
 					<li>Reusable business capabilities</li>
-					<li>Customer value alignment</li>
-					<li>Roadmap prioritisation</li>
-					<li>Digital product ecosystems</li>
+					<li>Architecture and governance</li>
+					<li>AI opportunity alignment</li>
+					<li>Delivery capability roadmaps</li>
+				</ul>
+			</section>
+
+			<section class="positioning">
+				<div class="positioning-content stack gap-4">
+					<h3>Capability orchestration as a transformation lens</h3>
+					<p>Capability orchestration connects business goals, platform capabilities, APIs, integrations, data and AI-enabled workflows into a coherent architecture and delivery model.</p>
+					<p>It helps leaders see which capabilities should be reused, governed, exposed through platforms or APIs, and evolved into intelligent products and services.</p>
+				</div>
+				<ul class="capability-list">
+					<li>Enterprise capability mapping</li>
+					<li>API and platform portfolio decisions</li>
+					<li>AI-compatible architecture choices</li>
+					<li>Business and technology alignment</li>
+					<li>Transformation roadmap design</li>
 				</ul>
 			</section>
 
@@ -224,13 +247,25 @@ const posts = (await getCollection('blog'))
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 2rem;
+		gap: 2.25rem;
 	}
 
 	.hero img {
-		object-fit: cover;
+		object-fit: contain;
 		object-position: center;
 		border: 0;
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		width: 100%;
+	}
+
+	.hero-actions :global(a) {
+		flex: 1 1 13rem;
+		max-width: 100%;
 	}
 
 	.positioning,
@@ -271,7 +306,7 @@ const posts = (await getCollection('blog'))
 		padding: 0.75rem 1rem;
 		border: 1px solid var(--gray-800);
 		border-radius: var(--rounded-sm);
-		background-color: var(--gray-999_40);
+		background-color: rgba(255, 255, 255, 0.68);
 		color: var(--gray-200);
 		font-weight: 700;
 	}
@@ -288,7 +323,7 @@ const posts = (await getCollection('blog'))
 		border: 1px solid var(--gray-800);
 		border-radius: var(--rounded-sm);
 		color: var(--gray-200);
-		background-color: var(--gray-999_40);
+		background-color: rgba(255, 255, 255, 0.68);
 		font-size: var(--text-sm);
 		font-weight: 700;
 	}
@@ -390,15 +425,27 @@ const posts = (await getCollection('blog'))
 	@media (min-width: 50em) {
 		.hero {
 			display: grid;
-			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
-			gap: 4.75rem;
+			grid-template-columns: minmax(0, 0.88fr) minmax(28rem, 1.12fr);
+			padding-inline: clamp(0rem, 1.5vw, 2rem);
+			gap: clamp(2.5rem, 5vw, 5.75rem);
+			align-items: center;
 		}
 
 		.hero img {
-			aspect-ratio: 1/1;
-			border-radius: 4.5rem;
-			object-fit: cover;
+			width: min(100%, 46rem);
+			justify-self: end;
+			aspect-ratio: auto;
+			border-radius: 0;
+			object-fit: contain;
+		}
+
+		.hero-actions {
+			flex-wrap: nowrap;
+			width: auto;
+		}
+
+		.hero-actions :global(a) {
+			flex: 0 0 auto;
 		}
 
 		.positioning,
