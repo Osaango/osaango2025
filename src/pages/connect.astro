@@ -1,0 +1,1010 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CallToAction from '../components/CallToAction.astro';
+import Icon from '../components/Icon.astro';
+
+const pageTitle = 'Some people grow tomatoes. We grow connections. | Osaango';
+const pageDescription =
+	'Find your next APIOps Cycles station and discover where your API program should focus next.';
+
+const growthAreas = [
+	{
+		title: 'Soil',
+		icon: 'soil',
+		text: 'Operating model and governance provide the conditions for API products to grow.',
+	},
+	{
+		title: 'Support structure',
+		icon: 'support',
+		text: 'Platform architecture, consumer experience and adoption keep APIs growing in the right direction.',
+	},
+	{
+		title: 'Connections',
+		icon: 'connection',
+		text: 'API products connect people, systems, data, AI and business capabilities.',
+	},
+	{
+		title: 'Tomatoes',
+		icon: 'tomato',
+		text: 'Business opportunities are the outcome: reusable capabilities, faster delivery, better adoption and trusted digital ecosystems.',
+	},
+];
+
+const problems = [
+	'APIs exist, but consumers cannot find or use them',
+	'Integrations multiply faster than governance',
+	'Teams rebuild instead of reuse',
+	'Delivery is slow because ownership is unclear',
+	'Platforms exist, but adoption does not follow',
+	'Metrics exist, but learning does not happen',
+];
+
+const iconPaths = {
+	soil: `<path d="M34 76h60m-48 0c4 14 16 22 28 22s24-8 28-22" /><path d="M44 62c10-16 24-24 42-24 9 0 18 2 26 7" /><path d="M74 76c0-20 8-36 26-48" />`,
+	support: `<circle cx="64" cy="64" r="42" /><path d="M64 22v84M22 64h84" /><path d="M24 108h80" />`,
+	connection: `<path d="M24 42c28-18 48 46 76 28" /><path d="M28 92c22-20 44-12 60 16" /><circle cx="24" cy="42" r="8" /><circle cx="100" cy="70" r="8" /><circle cx="88" cy="108" r="8" />`,
+	tomato: `<path d="M64 38c28 0 46 18 46 42 0 26-19 48-46 48S18 106 18 80c0-24 18-42 46-42Z" /><path d="M64 38c-4-10-14-14-26-13 10 6 16 12 18 20" /><path d="M64 38c5-11 16-16 30-14-10 6-18 14-20 22" /><path d="M64 38V22" />`,
+};
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+	<main class="connect-page">
+		<section class="connect-hero">
+			<div class="wrapper hero-grid">
+				<div class="hero-copy">
+					<p class="eyebrow">APIdays booth follow-up</p>
+					<h1>Some people grow tomatoes.<br />We grow connections.</h1>
+					<p class="hero-subtitle">
+						API products connect strategy and execution. APIOps Cycles helps you find where
+						your API program should grow next.
+					</p>
+					<div class="hero-actions">
+						<CallToAction href="#diagnostic">
+							Find your next station
+							<Icon icon="arrow-right" size="1.2em" />
+						</CallToAction>
+					</div>
+					<p class="helper-text">Takes about 3 minutes. No generic maturity score.</p>
+				</div>
+				<div class="hero-visual" aria-hidden="true">
+					<div class="metro-line metro-line-a"></div>
+					<div class="metro-line metro-line-b"></div>
+					<div class="tomato-stand">
+						<div class="cords"></div>
+						<div class="plant">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+						<div class="tomato tomato-one"></div>
+						<div class="tomato tomato-two"></div>
+						<div class="tomato tomato-three"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="diagnostic" class="diagnostic-band">
+			<div class="wrapper diagnostic-grid">
+				<div class="section-intro">
+					<p class="eyebrow">APIOps Cycles diagnostic</p>
+					<h2>Find your next APIOps station</h2>
+					<p>
+						Answer six practical questions. The page calculates your strongest APIOps Cycles
+						station immediately in your browser and sends nothing anywhere.
+					</p>
+				</div>
+				<div class="diagnostic-card" data-diagnostic-root>
+					<noscript>
+						<p>This diagnostic needs JavaScript enabled because all scoring happens in your browser.</p>
+					</noscript>
+				</div>
+			</div>
+		</section>
+
+		<section class="wrapper section-block">
+			<div class="section-intro">
+				<p class="eyebrow">What is growing here?</p>
+				<h2>API programs grow when the system around APIs works.</h2>
+			</div>
+			<div class="metaphor-grid">
+				{
+					growthAreas.map((area) => (
+						<article class="metaphor-card reveal-on-scroll">
+							<svg viewBox="0 0 128 128" aria-hidden="true" set:html={iconPaths[area.icon]} />
+							<h3>{area.title}</h3>
+							<p>{area.text}</p>
+						</article>
+					))
+				}
+			</div>
+		</section>
+
+		<section class="problem-band">
+			<div class="wrapper problem-grid">
+				<div class="section-intro">
+					<p class="eyebrow">Common API growth problems</p>
+					<h2>Weak connections show up as practical delivery problems.</h2>
+					<p>
+						Most API programs do not fail because teams lack APIs. They struggle because
+						the connections around APIs are weak.
+					</p>
+				</div>
+				<ul class="problem-list">
+					{problems.map((problem) => <li>{problem}</li>)}
+				</ul>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
+
+<script>
+	const stationPriority = [
+		'productStrategy',
+		'consumerExperience',
+		'design',
+		'platformArchitecture',
+		'delivery',
+		'audit',
+		'publishing',
+		'monitoringImproving',
+	];
+
+	const stations = {
+		productStrategy: {
+			label: 'API Product Strategy',
+			tagline: 'Create Value',
+			headline: 'Your next station: API Product Strategy',
+			text: 'You may need clearer choices about which API products matter, who they serve and what value they should create.',
+			focus: ['API product goals', 'target consumers', 'value proposition', 'prioritization', 'ownership'],
+		},
+		design: {
+			label: 'API Design',
+			tagline: 'Avoid Spaghetti',
+			headline: 'Your next station: API Design',
+			text: 'Your APIs may need more consistency, clearer contracts and better consumer-oriented design before they can scale.',
+			focus: [
+				'API design guidelines',
+				'reusable patterns',
+				'OpenAPI quality',
+				'consumer feedback',
+				'reducing design variation',
+			],
+		},
+		platformArchitecture: {
+			label: 'API Platform Architecture',
+			tagline: 'Enable Reuse',
+			headline: 'Your next station: API Platform Architecture',
+			text: 'You may have capabilities that could be reused more effectively, but the platform architecture does not yet make that easy.',
+			focus: [
+				'reusable platform capabilities',
+				'API management',
+				'integration patterns',
+				'governance automation',
+				'shared tooling',
+			],
+		},
+		delivery: {
+			label: 'API Delivery',
+			tagline: 'Ship Faster',
+			headline: 'Your next station: API Delivery',
+			text: 'The bottleneck may be flow: how API ideas move from need to design, implementation, testing and production.',
+			focus: ['delivery process', 'CI/CD', 'testing', 'release readiness', 'handovers and dependencies'],
+		},
+		audit: {
+			label: 'API Audit',
+			tagline: 'Build Trust',
+			headline: 'Your next station: API Audit',
+			text: 'You may need stronger confidence that APIs are secure, reliable, compliant and ready for adoption.',
+			focus: [
+				'API quality checks',
+				'security review',
+				'governance criteria',
+				'documentation readiness',
+				'lifecycle controls',
+			],
+		},
+		publishing: {
+			label: 'API Publishing',
+			tagline: 'Be Discoverable',
+			headline: 'Your next station: API Publishing',
+			text: 'Your APIs may exist, but consumers cannot easily find, understand or evaluate them.',
+			focus: ['developer portal', 'API catalogue', 'documentation', 'examples', 'publishing workflow'],
+		},
+		consumerExperience: {
+			label: 'API Consumer Experience',
+			tagline: 'Reduce Friction',
+			headline: 'Your next station: API Consumer Experience',
+			text: 'Your biggest opportunity may be making it easier for people and teams to succeed with your APIs.',
+			focus: [
+				'onboarding',
+				'documentation clarity',
+				'support model',
+				'consumer journeys',
+				'feedback loops',
+			],
+		},
+		monitoringImproving: {
+			label: 'Monitoring & Improving',
+			tagline: 'Learn. Adapt. Improve.',
+			headline: 'Your next station: Monitoring & Improving',
+			text: 'You may collect signals, but not yet turn them into systematic API improvement.',
+			focus: [
+				'usage metrics',
+				'performance signals',
+				'consumer feedback',
+				'adoption data',
+				'improvement backlog',
+			],
+		},
+	};
+
+	const questions = [
+		{
+			text: 'What is your biggest API-related pain right now?',
+			answers: [
+				{ label: 'We have APIs, but unclear business value', scores: { productStrategy: 2 } },
+				{ label: 'API designs are inconsistent or hard to consume', scores: { design: 2 } },
+				{ label: 'Teams keep rebuilding similar capabilities', scores: { platformArchitecture: 2 } },
+				{ label: 'It takes too long to get APIs into production', scores: { delivery: 2 } },
+				{ label: 'Security, quality or governance confidence is weak', scores: { audit: 2 } },
+				{ label: 'Consumers cannot find or understand APIs', scores: { publishing: 2 } },
+				{ label: 'API consumers need too much handholding', scores: { consumerExperience: 2 } },
+				{ label: 'We do not use feedback or metrics well enough', scores: { monitoringImproving: 2 } },
+			],
+		},
+		{
+			text: 'Which sentence sounds most familiar?',
+			answers: [
+				{
+					label: 'We need APIs to support business goals, but priorities are unclear',
+					scores: { productStrategy: 2 },
+				},
+				{ label: 'Different teams design APIs in different ways', scores: { design: 2 } },
+				{ label: 'Our platform exists, but reuse is still limited', scores: { platformArchitecture: 2 } },
+				{ label: 'Delivery depends too much on manual work or heroics', scores: { delivery: 2 } },
+				{ label: 'We are not sure which APIs are production-ready', scores: { audit: 2 } },
+				{ label: 'People ask around instead of finding APIs themselves', scores: { publishing: 2 } },
+				{
+					label: 'Consumers struggle with onboarding, documentation or support',
+					scores: { consumerExperience: 2 },
+				},
+				{
+					label: 'We monitor things, but do not improve based on what we learn',
+					scores: { monitoringImproving: 2 },
+				},
+			],
+		},
+		{
+			text: 'What would create the most value in the next 3 months?',
+			answers: [
+				{ label: 'Prioritizing the right API products', scores: { productStrategy: 2 } },
+				{ label: 'Improving API consistency and usability', scores: { design: 2 } },
+				{ label: 'Increasing reuse across teams', scores: { platformArchitecture: 2 } },
+				{ label: 'Shortening lead time from idea to release', scores: { delivery: 2 } },
+				{ label: 'Improving API quality, security and governance checks', scores: { audit: 2 } },
+				{ label: 'Making APIs easier to discover and evaluate', scores: { publishing: 2 } },
+				{ label: 'Making consumers more successful', scores: { consumerExperience: 2 } },
+				{
+					label: 'Learning from usage, feedback and performance data',
+					scores: { monitoringImproving: 2 },
+				},
+			],
+		},
+		{
+			text: 'Where do API initiatives most often get stuck?',
+			answers: [
+				{ label: 'Before anyone agrees what should be built', scores: { productStrategy: 2 } },
+				{ label: 'During design discussions', scores: { design: 2 } },
+				{
+					label: 'When trying to align with platforms and architecture',
+					scores: { platformArchitecture: 2 },
+				},
+				{ label: 'During delivery and release', scores: { delivery: 2 } },
+				{ label: 'During reviews, approvals or compliance checks', scores: { audit: 2 } },
+				{ label: 'After release, because nobody knows it exists', scores: { publishing: 2 } },
+				{ label: 'When consumers try to actually use the API', scores: { consumerExperience: 2 } },
+				{
+					label: 'After launch, because improvement is not systematic',
+					scores: { monitoringImproving: 2 },
+				},
+			],
+		},
+		{
+			text: 'Which giveaway tag did you pick?',
+			answers: [
+				{ label: 'Create Value', scores: { productStrategy: 1 } },
+				{ label: 'Avoid Spaghetti', scores: { design: 1 } },
+				{ label: 'Enable Reuse', scores: { platformArchitecture: 1 } },
+				{ label: 'Ship Faster', scores: { delivery: 1 } },
+				{ label: 'Build Trust', scores: { audit: 1 } },
+				{ label: 'Be Discoverable', scores: { publishing: 1 } },
+				{ label: 'Reduce Friction', scores: { consumerExperience: 1 } },
+				{ label: 'Learn. Adapt. Improve.', scores: { monitoringImproving: 1 } },
+				{ label: "I did not pick one / I don't remember", scores: {} },
+			],
+		},
+		{
+			text: 'What kind of role best describes you?',
+			answers: [
+				{ label: 'Business / product leader', scores: {} },
+				{ label: 'Enterprise architect', scores: {} },
+				{ label: 'API / integration manager', scores: {} },
+				{ label: 'Platform owner', scores: {} },
+				{ label: 'Developer / technical lead', scores: {} },
+				{ label: 'Consultant', scores: {} },
+				{ label: 'Other', scores: {} },
+			],
+		},
+	];
+
+	const root = document.querySelector('[data-diagnostic-root]');
+	let currentQuestion = 0;
+	let answers = Array(questions.length).fill(null);
+
+	const escapeHtml = (value) =>
+		value
+			.replaceAll('&', '&amp;')
+			.replaceAll('<', '&lt;')
+			.replaceAll('>', '&gt;')
+			.replaceAll('"', '&quot;')
+			.replaceAll("'", '&#039;');
+
+	const calculateScores = () => {
+		const scores = Object.fromEntries(stationPriority.map((key) => [key, 0]));
+
+		answers.forEach((answerIndex, questionIndex) => {
+			if (answerIndex === null) return;
+			const answerScores = questions[questionIndex].answers[answerIndex].scores;
+			Object.entries(answerScores).forEach(([stationKey, value]) => {
+				scores[stationKey] += value;
+			});
+		});
+
+		const winner = stationPriority.reduce((bestKey, key) => {
+			if (scores[key] > scores[bestKey]) return key;
+			return bestKey;
+		}, stationPriority[0]);
+
+		return { scores, winner };
+	};
+
+	const renderScoreSummary = (scores, winner) =>
+		stationPriority
+			.map((key) => {
+				const station = stations[key];
+				const isWinner = key === winner;
+				return `
+					<li class="${isWinner ? 'is-winner' : ''}">
+						<span>${escapeHtml(station.label)}</span>
+						<strong>${scores[key]}</strong>
+					</li>
+				`;
+			})
+			.join('');
+
+	const renderQuestion = () => {
+		const question = questions[currentQuestion];
+		const selectedAnswer = answers[currentQuestion];
+		const progress = currentQuestion + 1;
+		const percent = (progress / questions.length) * 100;
+
+		root.innerHTML = `
+			<form class="diagnostic-form" novalidate>
+				<div class="progress-row" aria-live="polite">
+					<p>Question ${progress} of ${questions.length}</p>
+					<div class="progress-track" aria-hidden="true"><span style="width: ${percent}%"></span></div>
+				</div>
+				<fieldset>
+					<legend>${escapeHtml(question.text)}</legend>
+					<div class="answer-list">
+						${question.answers
+							.map(
+								(answer, answerIndex) => `
+									<label class="answer-option">
+										<input
+											type="radio"
+											name="question-${currentQuestion}"
+											value="${answerIndex}"
+											${selectedAnswer === answerIndex ? 'checked' : ''}
+										/>
+										<span>${escapeHtml(answer.label)}</span>
+									</label>
+								`,
+							)
+							.join('')}
+					</div>
+				</fieldset>
+				<div class="diagnostic-actions">
+					<button type="button" class="secondary-action" data-action="back" ${currentQuestion === 0 ? 'disabled' : ''}>
+						Back
+					</button>
+					<button type="button" class="primary-action" data-action="next" ${selectedAnswer === null ? 'disabled' : ''}>
+						${currentQuestion === questions.length - 1 ? 'Show my station' : 'Next'}
+					</button>
+				</div>
+			</form>
+		`;
+	};
+
+	const renderResult = () => {
+		const { scores, winner } = calculateScores();
+		const station = stations[winner];
+
+		root.innerHTML = `
+			<section class="result-panel" aria-live="polite" tabindex="-1">
+				<p class="result-kicker">${escapeHtml(station.label)} - ${escapeHtml(station.tagline)}</p>
+				<h3>${escapeHtml(station.headline)}</h3>
+				<p>${escapeHtml(station.text)}</p>
+				<div class="result-focus">
+					<h4>Focus next on:</h4>
+					<ul>
+						${station.focus.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+					</ul>
+				</div>
+				<div class="score-summary">
+					<h4>Compact score summary</h4>
+					<p>This is a useful signal, not a formal maturity assessment.</p>
+					<ul>${renderScoreSummary(scores, winner)}</ul>
+				</div>
+				<p class="result-note">Want to talk about your result? Mention your station when you contact us.</p>
+				<div class="result-actions">
+					<a class="primary-action" href="https://calendly.com/marjukka-niinioja/meet-with-marjukka">Book a short conversation</a>
+					<a class="secondary-action" href="https://www.apiopscycles.com">Explore APIOps Cycles</a>
+					<button type="button" class="text-action" data-action="restart">Restart</button>
+				</div>
+			</section>
+		`;
+
+		root.querySelector('.result-panel')?.focus();
+	};
+
+	root?.addEventListener('change', (event) => {
+		const target = event.target;
+		if (!(target instanceof HTMLInputElement) || target.type !== 'radio') return;
+
+		answers[currentQuestion] = Number(target.value);
+		root.querySelector('[data-action="next"]')?.removeAttribute('disabled');
+	});
+
+	root?.addEventListener('click', (event) => {
+		const target = event.target;
+		if (!(target instanceof HTMLElement)) return;
+		const action = target.dataset.action;
+
+		if (action === 'back' && currentQuestion > 0) {
+			currentQuestion -= 1;
+			renderQuestion();
+		}
+
+		if (action === 'next' && answers[currentQuestion] !== null) {
+			if (currentQuestion === questions.length - 1) {
+				renderResult();
+			} else {
+				currentQuestion += 1;
+				renderQuestion();
+			}
+		}
+
+		if (action === 'restart') {
+			currentQuestion = 0;
+			answers = Array(questions.length).fill(null);
+			renderQuestion();
+		}
+	});
+
+	if (root) renderQuestion();
+</script>
+
+<style is:global>
+	.connect-page {
+		--connect-navy: #102436;
+		--connect-teal: #08786f;
+		--connect-teal-dark: #064f46;
+		--connect-mint: #e7f7f2;
+		--connect-sage: #dcebd6;
+		--connect-blue: #3f8fd2;
+		--connect-yellow: #f2c94c;
+		--connect-tomato: #d94c3d;
+		--connect-ink: #314153;
+		--connect-border: rgba(8, 79, 70, 0.16);
+
+		background:
+			linear-gradient(180deg, rgba(231, 247, 242, 0.9) 0, #ffffff 24rem),
+			#ffffff;
+		color: var(--connect-ink);
+	}
+
+	.connect-page a {
+		white-space: normal;
+	}
+
+	.connect-hero {
+		padding: clamp(2rem, 6vw, 5rem) 0 clamp(3.5rem, 7vw, 6rem);
+	}
+
+	.hero-grid,
+	.diagnostic-grid,
+	.problem-grid {
+		display: grid;
+		gap: 2rem;
+	}
+
+	.hero-copy {
+		display: grid;
+		gap: 1.35rem;
+		align-content: center;
+		max-width: 46rem;
+	}
+
+	.eyebrow {
+		color: var(--connect-teal-dark);
+		font-family: var(--font-brand);
+		font-size: var(--text-sm);
+		font-weight: 700;
+		letter-spacing: 0;
+		text-transform: uppercase;
+	}
+
+	.connect-page h1,
+	.connect-page h2,
+	.connect-page h3,
+	.connect-page h4 {
+		color: var(--connect-navy);
+	}
+
+	.connect-page h1 {
+		max-width: 10ch;
+		font-size: clamp(2.8rem, 8vw, 5rem) !important;
+	}
+
+	.hero-subtitle {
+		max-width: 42rem;
+		color: var(--connect-ink);
+		font-size: clamp(1.15rem, 2vw, 1.45rem);
+		line-height: 1.55;
+	}
+
+	.hero-actions,
+	.result-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.85rem;
+	}
+
+	.helper-text {
+		color: #506171;
+		font-size: var(--text-sm);
+		font-weight: 700;
+	}
+
+	.hero-visual {
+		position: relative;
+		min-height: 23rem;
+		overflow: hidden;
+		border: 1px solid var(--connect-border);
+		border-radius: var(--rounded-sm);
+		background:
+			linear-gradient(135deg, rgba(231, 247, 242, 0.9), rgba(255, 255, 255, 0.94)),
+			repeating-linear-gradient(90deg, rgba(16, 36, 54, 0.04) 0 1px, transparent 1px 4.25rem);
+		box-shadow: var(--shadow-md);
+	}
+
+	.metro-line,
+	.cords {
+		position: absolute;
+		border-radius: 999rem;
+	}
+
+	.metro-line-a {
+		inset: auto -8rem 4rem 3rem;
+		height: 0.55rem;
+		background: var(--connect-blue);
+		transform: rotate(-8deg);
+	}
+
+	.metro-line-b {
+		inset: 5rem -6rem auto 4rem;
+		height: 0.55rem;
+		background: var(--connect-yellow);
+		transform: rotate(12deg);
+	}
+
+	.tomato-stand {
+		position: absolute;
+		inset: 3rem 2rem 2rem;
+		border: 0.18rem solid rgba(16, 36, 54, 0.72);
+		border-bottom-width: 0.35rem;
+		border-radius: 0.2rem;
+	}
+
+	.cords {
+		inset: 0.7rem 1.4rem auto;
+		height: 8rem;
+		background:
+			linear-gradient(100deg, transparent 0 18%, var(--connect-teal) 18% 21%, transparent 21% 40%, var(--connect-teal) 40% 43%, transparent 43% 64%, var(--connect-teal) 64% 67%, transparent 67%),
+			linear-gradient(80deg, transparent 0 30%, rgba(16, 36, 54, 0.28) 30% 32%, transparent 32% 58%, rgba(16, 36, 54, 0.28) 58% 60%, transparent 60%);
+	}
+
+	.plant {
+		position: absolute;
+		left: 50%;
+		bottom: 2.2rem;
+		width: 0.28rem;
+		height: 11rem;
+		background: var(--connect-teal-dark);
+		transform: translateX(-50%);
+	}
+
+	.plant span {
+		position: absolute;
+		width: 5rem;
+		height: 2.1rem;
+		border: 1px solid rgba(8, 79, 70, 0.2);
+		border-radius: 999rem 999rem 0 999rem;
+		background: var(--connect-sage);
+	}
+
+	.plant span:nth-child(1) {
+		top: 2.4rem;
+		right: 0;
+		transform: rotate(22deg);
+	}
+
+	.plant span:nth-child(2) {
+		top: 5rem;
+		left: 0;
+		transform: rotate(155deg);
+	}
+
+	.plant span:nth-child(3) {
+		top: 7.6rem;
+		right: 0;
+		transform: rotate(18deg);
+	}
+
+	.tomato {
+		position: absolute;
+		width: 2.5rem;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background: var(--connect-tomato);
+		box-shadow: inset -0.35rem -0.45rem 0 rgba(115, 26, 20, 0.18);
+	}
+
+	.tomato::before {
+		content: '';
+		position: absolute;
+		top: -0.25rem;
+		left: 50%;
+		width: 1.2rem;
+		height: 0.55rem;
+		background: var(--connect-teal-dark);
+		clip-path: polygon(50% 0, 62% 42%, 100% 28%, 70% 65%, 86% 100%, 50% 76%, 14% 100%, 30% 65%, 0 28%, 38% 42%);
+		transform: translateX(-50%);
+	}
+
+	.tomato-one {
+		left: 38%;
+		bottom: 6.5rem;
+	}
+
+	.tomato-two {
+		left: 55%;
+		bottom: 8.5rem;
+	}
+
+	.tomato-three {
+		left: 50%;
+		bottom: 3.7rem;
+	}
+
+	.section-block,
+	.problem-band,
+	.diagnostic-band {
+		padding-block: clamp(3.5rem, 7vw, 6rem);
+	}
+
+	.section-intro {
+		display: grid;
+		gap: 0.9rem;
+		max-width: 45rem;
+	}
+
+	.section-intro p:not(.eyebrow) {
+		color: var(--connect-ink);
+		font-size: var(--text-md);
+	}
+
+	.diagnostic-band,
+	.problem-band {
+		border-block: 1px solid var(--connect-border);
+		background:
+			linear-gradient(90deg, rgba(220, 235, 214, 0.7), rgba(216, 236, 251, 0.5)),
+			#f8fbfb;
+	}
+
+	.diagnostic-card {
+		min-width: 0;
+		padding: clamp(1rem, 3vw, 1.5rem);
+		border: 1px solid var(--connect-border);
+		border-radius: var(--rounded-sm);
+		background: rgba(255, 255, 255, 0.92);
+		box-shadow: var(--shadow-md);
+	}
+
+	.diagnostic-form,
+	.result-panel {
+		display: grid;
+		gap: 1.25rem;
+	}
+
+	.progress-row {
+		display: grid;
+		gap: 0.55rem;
+		color: var(--connect-teal-dark);
+		font-family: var(--font-brand);
+		font-size: var(--text-sm);
+		font-weight: 800;
+	}
+
+	.progress-track {
+		height: 0.5rem;
+		overflow: hidden;
+		border-radius: 999rem;
+		background: rgba(8, 79, 70, 0.12);
+	}
+
+	.progress-track span {
+		display: block;
+		height: 100%;
+		border-radius: inherit;
+		background: var(--connect-teal);
+	}
+
+	.diagnostic-form fieldset {
+		min-width: 0;
+		padding: 0;
+		border: 0;
+	}
+
+	.diagnostic-form legend {
+		margin-bottom: 1rem;
+		color: var(--connect-navy);
+		font-family: var(--font-brand);
+		font-size: var(--text-xl);
+		font-weight: 600;
+		line-height: 1.15;
+	}
+
+	.answer-list {
+		display: grid;
+		gap: 0.65rem;
+	}
+
+	.answer-option {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 0.75rem;
+		align-items: start;
+		padding: 0.85rem;
+		border: 1px solid var(--connect-border);
+		border-radius: var(--rounded-sm);
+		background: #ffffff;
+		color: var(--connect-navy);
+		font-weight: 700;
+		cursor: pointer;
+	}
+
+	.answer-option:has(input:checked) {
+		border-color: var(--connect-teal);
+		background: var(--connect-mint);
+	}
+
+	.answer-option input {
+		width: 1.1rem;
+		height: 1.1rem;
+		margin-top: 0.2rem;
+		accent-color: var(--connect-teal);
+	}
+
+	.diagnostic-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		justify-content: space-between;
+	}
+
+	.primary-action,
+	.secondary-action,
+	.text-action {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 3rem;
+		padding: 0.85rem 1.2rem;
+		border-radius: 0.45rem;
+		font-family: var(--font-brand);
+		font-size: var(--text-base);
+		font-weight: 700;
+		line-height: 1.1;
+		text-align: center;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	.primary-action {
+		border: 1px solid var(--connect-teal-dark);
+		background: var(--connect-teal-dark);
+		color: #ffffff;
+		box-shadow: 0 14px 28px rgba(15, 93, 82, 0.18);
+	}
+
+	.secondary-action {
+		border: 1px solid rgba(63, 143, 210, 0.45);
+		background: rgba(255, 255, 255, 0.82);
+		color: var(--connect-navy);
+	}
+
+	.text-action {
+		border: 0;
+		background: transparent;
+		color: var(--connect-teal-dark);
+	}
+
+	.primary-action:disabled,
+	.secondary-action:disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+
+	.result-panel:focus {
+		outline: 3px solid rgba(8, 120, 111, 0.32);
+		outline-offset: 0.4rem;
+	}
+
+	.result-kicker {
+		width: fit-content;
+		padding: 0.45rem 0.7rem;
+		border-radius: var(--rounded-sm);
+		background: var(--connect-mint);
+		color: var(--connect-teal-dark);
+		font-family: var(--font-brand);
+		font-size: var(--text-sm);
+		font-weight: 800;
+	}
+
+	.result-panel > p:not(.result-kicker):not(.result-note) {
+		font-size: var(--text-md);
+	}
+
+	.result-focus,
+	.score-summary {
+		display: grid;
+		gap: 0.65rem;
+		padding: 1rem;
+		border: 1px solid var(--connect-border);
+		border-radius: var(--rounded-sm);
+		background: #ffffff;
+	}
+
+	.result-focus ul,
+	.score-summary ul {
+		display: grid;
+		gap: 0.45rem;
+		padding-left: 1.2rem;
+	}
+
+	.score-summary > p,
+	.result-note {
+		color: #506171;
+		font-size: var(--text-sm);
+		font-weight: 700;
+	}
+
+	.score-summary ul {
+		padding-left: 0;
+		list-style: none;
+	}
+
+	.score-summary li {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 1rem;
+		align-items: center;
+		padding: 0.5rem 0;
+		border-bottom: 1px solid rgba(8, 79, 70, 0.1);
+	}
+
+	.score-summary li:last-child {
+		border-bottom: 0;
+	}
+
+	.score-summary li.is-winner {
+		color: var(--connect-teal-dark);
+		font-weight: 800;
+	}
+
+	.metaphor-grid {
+		display: grid;
+		gap: 1rem;
+		margin-top: 2rem;
+	}
+
+	.metaphor-card {
+		display: grid;
+		gap: 0.85rem;
+		padding: 1.25rem;
+		border: 1px solid var(--connect-border);
+		border-radius: var(--rounded-sm);
+		background: rgba(255, 255, 255, 0.88);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.metaphor-card svg {
+		width: 3rem;
+		height: 3rem;
+		color: var(--connect-teal);
+		fill: none;
+		stroke: currentColor;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-width: 6;
+	}
+
+	.problem-list {
+		display: grid;
+		gap: 0.75rem;
+		padding: 0;
+		list-style: none;
+	}
+
+	.problem-list li {
+		position: relative;
+		padding: 0.9rem 1rem 0.9rem 2.55rem;
+		border: 1px solid var(--connect-border);
+		border-radius: var(--rounded-sm);
+		background: #ffffff;
+		color: var(--connect-navy);
+		font-weight: 700;
+	}
+
+	.problem-list li::before {
+		content: '';
+		position: absolute;
+		left: 1rem;
+		top: 1.25rem;
+		width: 0.75rem;
+		aspect-ratio: 1;
+		border: 0.18rem solid var(--connect-teal);
+		border-radius: 50%;
+		background: #ffffff;
+	}
+
+	@media (min-width: 40em) {
+		.metaphor-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (min-width: 50em) {
+		.hero-grid,
+		.diagnostic-grid,
+		.problem-grid {
+			grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.9fr);
+			align-items: center;
+		}
+
+		.connect-page h1 {
+			max-width: 11ch;
+		}
+
+		.hero-visual {
+			min-height: 30rem;
+		}
+
+		.metaphor-grid {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+		}
+	}
+</style>
