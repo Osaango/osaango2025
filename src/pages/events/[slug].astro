@@ -254,15 +254,17 @@ const eventStructuredData = [
 
         .event-main {
                 display: grid;
-                gap: 4rem;
+                gap: 3rem;
         }
 
         .event-media img {
                 width: 100%;
+                max-height: 18rem;
                 border: 1px solid var(--gray-800);
                 border-radius: var(--rounded-sm);
                 box-shadow: var(--shadow-md);
                 object-fit: cover;
+                object-position: center;
         }
 
         .content {
@@ -321,6 +323,10 @@ const eventStructuredData = [
                 .event-body {
                         grid-template-columns: minmax(0, 1fr) minmax(18rem, 26rem);
                         align-items: start;
+                }
+
+                .event-media img {
+                        max-height: 22rem;
                 }
 
                 .registration-cta {
