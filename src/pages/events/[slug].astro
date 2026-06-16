@@ -1,0 +1,331 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+
+import CallToAction from '../../components/CallToAction.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import Pill from '../../components/Pill.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+interface Props {
+        entry: CollectionEntry<'events'>;
+}
+
+export async function getStaticPaths() {
+        const events = await getCollection('events');
+        return events.map((entry) => ({
+                params: { slug: entry.id },
+                props: { entry },
+        }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const siteUrl = Astro.site?.href ?? 'https://www.osaango.com/';
+const canonicalUrl = new URL(Astro.url?.pathname ?? `/events/${entry.id}/`, siteUrl).toString();
+const featureImage = entry.data.img;
+const eventDate = new Intl.DateTimeFormat('en', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        timeZone: 'Asia/Kolkata',
+}).format(entry.data.startDate);
+
+const eventStructuredData = [
+        {
+                '@context': 'https://schema.org',
+                '@type': 'Event',
+                name: entry.data.title,
+                description: entry.data.description,
+                startDate: entry.data.startDate.toISOString(),
+                endDate: entry.data.endDate.toISOString(),
+                eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+                eventStatus: 'https://schema.org/EventScheduled',
+                image: featureImage
+                        ? new URL(typeof featureImage === 'string' ? featureImage : featureImage.src, siteUrl).toString()
+                        : undefined,
+                url: canonicalUrl,
+                location: {
+                        '@type': 'Place',
+                        name: entry.data.eventName,
+                        address: entry.data.location,
+                },
+                offers: {
+                        '@type': 'Offer',
+                        url: entry.data.registrationUrl,
+                        priceCurrency: 'INR',
+                        price: '5000',
+                        availability: 'https://schema.org/InStock',
+                },
+                performer: {
+                        '@type': 'Person',
+                        name: entry.data.speaker.name,
+                        jobTitle: entry.data.speaker.title,
+                        worksFor: entry.data.speaker.organization,
+                },
+        },
+];
+---
+
+<BaseLayout
+        title={`${entry.data.title} | ${entry.data.eventName}`}
+        description={entry.data.description}
+        image={featureImage}
+        structuredData={eventStructuredData}
+>
+        <div class="stack gap-20">
+                <header class="event-hero">
+                        <div class="wrapper event-hero__grid">
+                                <div class="event-hero__content stack gap-8">
+                                        <a class="back-link" href="/events/"><Icon icon="arrow-left" /> Events</a>
+                                        <Hero
+                                                title={entry.data.title}
+                                                tagline={entry.data.description}
+                                                align="start"
+                                        >
+                                                <div class="tags">
+                                                        {entry.data.tags.map((tag) => <Pill>{tag}</Pill>)}
+                                                </div>
+                                                <div class="hero-actions">
+                                                        <CallToAction href={entry.data.registrationUrl}>
+                                                                Register
+                                                                <Icon icon="arrow-right" size="1.2em" />
+                                                        </CallToAction>
+                                                </div>
+                                        </Hero>
+                                </div>
+
+                                <aside class="event-summary" aria-label="Event details">
+                                        <p class="eyebrow">{entry.data.eventName}</p>
+                                        <dl>
+                                                <div>
+                                                        <dt>Date</dt>
+                                                        <dd>{eventDate}</dd>
+                                                </div>
+                                                <div>
+                                                        <dt>Timing</dt>
+                                                        <dd>{entry.data.duration}</dd>
+                                                </div>
+                                                <div>
+                                                        <dt>Format</dt>
+                                                        <dd>{entry.data.format}</dd>
+                                                </div>
+                                                <div>
+                                                        <dt>Location</dt>
+                                                        <dd>{entry.data.location}</dd>
+                                                </div>
+                                                <div>
+                                                        <dt>Fee</dt>
+                                                        <dd>{entry.data.fee}</dd>
+                                                </div>
+                                        </dl>
+                                </aside>
+                        </div>
+                </header>
+
+                <main class="wrapper event-main">
+                        <section class="event-media">
+                                {featureImage && (
+                                        <Image
+                                                src={featureImage}
+                                                alt={entry.data.img_alt || ''}
+                                                width={1100}
+                                                format="webp"
+                                                loading="eager"
+                                                fetchpriority="high"
+                                        />
+                                )}
+                        </section>
+
+                        <div class="event-body">
+                                <article class="content">
+                                        <Content />
+                                </article>
+
+                                <aside class="speaker-panel" aria-labelledby="speaker-heading">
+                                        <p class="eyebrow">Speaker</p>
+                                        <h2 id="speaker-heading">{entry.data.speaker.name}</h2>
+                                        <p class="speaker-title">
+                                                {entry.data.speaker.title}<br />
+                                                {entry.data.speaker.organization}
+                                        </p>
+                                        <p class="speaker-location">{entry.data.speaker.location}</p>
+                                        <p>{entry.data.speaker.bio}</p>
+                                        {entry.data.speaker.profileUrl && (
+                                                <a class="profile-link" href={entry.data.speaker.profileUrl}>
+                                                        LinkedIn profile
+                                                </a>
+                                        )}
+                                </aside>
+                        </div>
+
+                        <section class="registration-cta">
+                                <div>
+                                        <p class="eyebrow">{entry.data.eventName}</p>
+                                        <h2>Ready to join the workshop?</h2>
+                                        <p>Reserve your place through the official APIdays India 2026 registration page.</p>
+                                </div>
+                                <CallToAction href={entry.data.registrationUrl}>
+                                        Register now
+                                        <Icon icon="arrow-right" size="1.2em" />
+                                </CallToAction>
+                        </section>
+                </main>
+
+                <ContactCTA />
+        </div>
+</BaseLayout>
+
+<style>
+        .event-hero {
+                padding-bottom: 2.5rem;
+                border-bottom: 1px solid var(--gray-800);
+        }
+
+        .event-hero__grid,
+        .event-body,
+        .registration-cta {
+                display: grid;
+                gap: 2rem;
+        }
+
+        .back-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: var(--link-color);
+                font-weight: 700;
+                text-decoration: 1px solid underline transparent;
+                text-underline-offset: 0.25em;
+        }
+
+        .back-link:hover,
+        .back-link:focus {
+                text-decoration-color: currentColor;
+        }
+
+        .tags,
+        .hero-actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+        }
+
+        .event-summary,
+        .speaker-panel,
+        .registration-cta {
+                border: 1px solid var(--gray-800);
+                border-radius: var(--rounded-sm);
+                background: var(--gradient-subtle);
+                box-shadow: var(--shadow-sm);
+        }
+
+        .event-summary,
+        .speaker-panel {
+                padding: 1.5rem;
+        }
+
+        .eyebrow {
+                color: var(--accent-regular);
+                font-size: var(--text-sm);
+                font-weight: 700;
+                text-transform: uppercase;
+        }
+
+        dl {
+                display: grid;
+                gap: 1rem;
+                margin-top: 1.25rem;
+        }
+
+        dt {
+                color: var(--gray-400);
+                font-size: var(--text-sm);
+                font-weight: 700;
+        }
+
+        dd {
+                color: var(--gray-50);
+                font-size: var(--text-md);
+                font-weight: 700;
+        }
+
+        .event-main {
+                display: grid;
+                gap: 4rem;
+        }
+
+        .event-media img {
+                width: 100%;
+                border: 1px solid var(--gray-800);
+                border-radius: var(--rounded-sm);
+                box-shadow: var(--shadow-md);
+                object-fit: cover;
+        }
+
+        .content {
+                max-width: 68ch;
+        }
+
+        .content :global(* + *) {
+                margin-top: 1rem;
+        }
+
+        .content :global(h2) {
+                margin-top: 2rem;
+        }
+
+        .content :global(ul) {
+                padding-left: 1.25rem;
+        }
+
+        .content :global(li + li) {
+                margin-top: 0.55rem;
+        }
+
+        .speaker-panel {
+                align-self: start;
+                display: grid;
+                gap: 1rem;
+        }
+
+        .speaker-title,
+        .speaker-location {
+                color: var(--gray-300);
+                font-weight: 700;
+        }
+
+        .profile-link {
+                font-weight: 700;
+                text-underline-offset: 0.25em;
+        }
+
+        .registration-cta {
+                align-items: center;
+                padding: 1.5rem;
+        }
+
+        .registration-cta p:not(.eyebrow) {
+                color: var(--gray-300);
+                font-size: var(--text-md);
+        }
+
+        @media (min-width: 50em) {
+                .event-hero__grid {
+                        grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
+                        align-items: center;
+                }
+
+                .event-body {
+                        grid-template-columns: minmax(0, 1fr) minmax(18rem, 26rem);
+                        align-items: start;
+                }
+
+                .registration-cta {
+                        grid-template-columns: minmax(0, 1fr) auto;
+                        padding: 2rem;
+                }
+        }
+</style>

@@ -1,0 +1,151 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+import CallToAction from '../../components/CallToAction.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import Pill from '../../components/Pill.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const events = (await getCollection('events')).sort(
+        (a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf(),
+);
+
+const formatDate = (date: Date) =>
+        new Intl.DateTimeFormat('en', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric',
+                timeZone: 'Asia/Kolkata',
+        }).format(date);
+---
+
+<BaseLayout
+        title="Events and Workshops | Osaango"
+        description="Upcoming events and workshops hosted by or featuring Osaango."
+>
+        <div class="stack gap-20">
+                <header class="wrapper">
+                        <Hero
+                                title="Events and workshops"
+                                tagline="Upcoming sessions where Osaango hosts, teaches, and contributes practical API, integration, and operating model expertise."
+                                align="start"
+                        />
+                </header>
+
+                <main class="wrapper events-list">
+                        {
+                                events.map((event) => (
+                                        <article class="event-card">
+                                                {event.data.img && (
+                                                        <a class="event-card__image" href={`/events/${event.id}/`} aria-label={event.data.title}>
+                                                                <Image
+                                                                        src={event.data.img}
+                                                                        alt={event.data.img_alt || ''}
+                                                                        width={480}
+                                                                        format="webp"
+                                                                        loading="lazy"
+                                                                />
+                                                        </a>
+                                                )}
+                                                <div class="event-card__content">
+                                                        <p class="eyebrow">
+                                                                {event.data.eventName} · {formatDate(event.data.startDate)}
+                                                        </p>
+                                                        <h2>
+                                                                <a href={`/events/${event.id}/`}>{event.data.title}</a>
+                                                        </h2>
+                                                        <p>{event.data.description}</p>
+                                                        <div class="tags">
+                                                                {event.data.tags.slice(0, 4).map((tag) => <Pill>{tag}</Pill>)}
+                                                        </div>
+                                                        <div class="actions">
+                                                                <CallToAction href={`/events/${event.id}/`}>
+                                                                        View event
+                                                                        <Icon icon="arrow-right" size="1.2em" />
+                                                                </CallToAction>
+                                                        </div>
+                                                </div>
+                                        </article>
+                                ))
+                        }
+                </main>
+
+                <ContactCTA />
+        </div>
+</BaseLayout>
+
+<style>
+        .events-list {
+                display: grid;
+                gap: 2rem;
+        }
+
+        .event-card {
+                display: grid;
+                gap: 1.5rem;
+                padding: 1.5rem;
+                border: 1px solid var(--gray-800);
+                border-radius: var(--rounded-sm);
+                background: var(--gradient-subtle);
+                box-shadow: var(--shadow-sm);
+        }
+
+        .event-card__image img {
+                width: 100%;
+                aspect-ratio: 16 / 9;
+                object-fit: cover;
+                border-radius: var(--rounded-sm);
+        }
+
+        .event-card__content {
+                display: grid;
+                gap: 1rem;
+                align-content: start;
+        }
+
+        .event-card h2 {
+                font-size: var(--text-2xl);
+        }
+
+        .event-card h2 a {
+                color: var(--gray-50);
+                text-decoration: none;
+        }
+
+        .event-card h2 a:hover,
+        .event-card h2 a:focus {
+                color: var(--accent-regular);
+                text-decoration: underline;
+                text-underline-offset: 0.18em;
+        }
+
+        .event-card p:not(.eyebrow) {
+                color: var(--gray-300);
+                font-size: var(--text-md);
+        }
+
+        .eyebrow {
+                color: var(--accent-regular);
+                font-size: var(--text-sm);
+                font-weight: 700;
+                text-transform: uppercase;
+        }
+
+        .tags,
+        .actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+        }
+
+        @media (min-width: 50em) {
+                .event-card {
+                        grid-template-columns: minmax(16rem, 30rem) minmax(0, 1fr);
+                        gap: 2rem;
+                        padding: 2rem;
+                }
+        }
+</style>

@@ -266,6 +266,8 @@ Organizations that continue starting digital transformation from:
 
 If you are interested to learn more, or see how the framework could benefit your organization, book a strategy call from the link at the bottom of the footer, or  [connect with me in LinkedIn](https://www.linkedin.com/in/marjukkaniinioja/)
 
+The full thesis can be found here: Niinioja, M. (2026). *Digital capability ownership in hybrid professional services: An integrated framework*. https://urn.fi/URN:NBN:fi:amk-2026052818525
+
 ---
 
 # References

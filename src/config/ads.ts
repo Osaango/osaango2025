@@ -34,14 +34,14 @@ export const ads: PromotionBanner[] = [
     excludePaths: ['/services/accelerate-your-apis-with-apiops-cycles'],
   },
   {
-    id: 'apiops-cycles-promo',
+    id: 'apiops-cycles-apidays-india-2026',
     enabled: true,
     audience: 'all',
-    title: 'APIOps Helsinki 2026 2-3 June 2026',
-    description: 'Biggest API event of the year in Finland is coming!',
-    linkHref: 'https://helsinki.apiops.info/',
-    linkLabel: 'Learn more',
-    excludePaths: ['/', '/services/accelerate-your-apis-with-apiops-cycles'],
+    title: 'APIdays India 2026 workshop: Fix API delivery bottlenecks with APIOps Cycles',
+    description: 'Join Marjukka Niinioja for a full-day hands-on workshop on 21 Aug 2026.',
+    linkHref: '/events/fixing-api-delivery-at-scale-apiops-cycles/',
+    linkLabel: 'View event',
+    excludePaths: ['/events/fixing-api-delivery-at-scale-apiops-cycles/', '/services/accelerate-your-apis-with-apiops-cycles'],
   },
 ];
 
