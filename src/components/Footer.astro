@@ -2,6 +2,10 @@
 ---
 
 <footer>
+        <div class="footer-brand">
+                <strong>Make change flow.</strong>
+                <p>Strategy, architecture and ways of working for organisations building what comes next.</p>
+        </div>
         <div class="columns">
                 <div>Osaango Oy is a private limited company registered in Finland.</div>
                 <div>
@@ -18,7 +22,7 @@
                         DUNS: 368558872
                 </div>
         </div>
-        <p class="copyright">&copy; 2025 Osaango. All rights reserved.</p>
+        <p class="copyright">&copy; 2026 Osaango. All rights reserved. <a href="/privacy-policy/">Privacy</a></p>
 </footer>
 
 <style>
@@ -31,7 +35,15 @@
                 text-align: center;
                 color: var(--gray-400);
                 font-size: var(--text-sm);
+                background: var(--color-neutral-graphite);
+                color: #cbd5e1;
+                text-align: left;
         }
+
+        .footer-brand { display: grid; gap: .5rem; max-width: 38rem; }
+        .footer-brand strong { color: white; font: 600 clamp(1.8rem, 4vw, 3.2rem)/1 var(--font-display); }
+        .footer-brand p { font-size: var(--text-md); }
+        footer a { color: white; }
 
         .columns {
                 display: grid;

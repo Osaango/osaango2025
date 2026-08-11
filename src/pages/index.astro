@@ -1,496 +1,116 @@
 ---
 import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import CallToAction from '../components/CallToAction.astro';
 import ContactCTA from '../components/ContactCTA.astro';
-import Grid from '../components/Grid.astro';
-import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
-import Skills from '../components/Skills.astro';
-import BlogPreview from '../components/BlogPreview.astro';
-import Quote from '../components/Quote.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
-import apiopsCyclesWS from '../assets/service-images/accelerate-your-apis-with-apiops-cycles.jpg';
-import agilePeopleInt from '../assets/osaango-platform-growth.png';
 
 const projects = (await getCollection('work'))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 4);
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
 
-const posts = (await getCollection('blog'))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 3);
+const services = [
+  { number: '01', title: 'Find the direction', text: 'Turn business ambition into a practical API, integration and platform strategy.' },
+  { number: '02', title: 'Design the system', text: 'Shape scalable architecture, governance and ownership around real customer value.' },
+  { number: '03', title: 'Make change flow', text: 'Give teams the operating model, methods and confidence to deliver continuously.' },
+];
 ---
 
 <BaseLayout isHome={true}>
-	<div class="stack gap-20 lg:gap-48">
-		<div class="wrapper stack gap-8 lg:gap-20">
-			<header class="hero">
-				<Hero
-					tagline="We help organisations modernise APIs, integrations and platforms - so teams can deliver AI-enabled products, scalable architectures and better customer experiences without losing governance or control."
-					align="start"
-				>
-					<Fragment slot="title">
-						Modernise APIs, integrations and platforms for the <span class="highlight">AI era.</span>
-					</Fragment>
-					<div class="hero-actions">
-						<CallToAction href="https://calendly.com/marjukka-niinioja/meet-with-marjukka">
-							Book a strategy call
-							<Icon icon="paper-plane-tilt" size="1.2em" />
-						</CallToAction>
-						<CallToAction href="/work/" variant="secondary">
-							Explore our work
-							<Icon icon="arrow-right" size="1.2em" />
-						</CallToAction>
-					</div>
-				</Hero>
-				<Image
-					src={agilePeopleInt}
-					alt="digital tree made of people and integration icons"
-					width={1536}
-					height={1024}
-					sizes="(max-width: 50em) 90vw, min(56vw, 46rem)"
-					widths={[480, 720, 960, 1200, 1536]}
-					format="webp"
-					loading="eager"
-					fetchpriority="high"
-				/>
-			</header>
+  <main>
+    <section class="hero-shell wrapper">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Strategy · Architecture · Change</p>
+        <h1>Make complex change <em>flow.</em></h1>
+        <p class="lead">We help organisations connect strategy, APIs, integrations and people—so ambitious digital change becomes clear, governable and ready to deliver.</p>
+        <div class="actions">
+          <CallToAction href="https://calendly.com/marjukka-niinioja/meet-with-marjukka">Start a conversation <Icon icon="arrow-right" /></CallToAction>
+          <CallToAction href="/work/" variant="secondary">See our work</CallToAction>
+        </div>
+      </div>
+      <div class="hero-system" aria-label="From strategy to customer value">
+        <div class="route route-a"></div><div class="route route-b"></div>
+        <span class="station s1"></span><span class="station s2"></span><span class="station s3"></span><span class="station s4"></span>
+        <div class="system-card card-strategy"><small>START WITH</small><strong>Strategy</strong></div>
+        <div class="system-card card-capability"><small>ORCHESTRATE</small><strong>Capabilities</strong></div>
+        <div class="system-card card-value"><small>ARRIVE AT</small><strong>Customer value</strong></div>
+        <img src="/design-system/humans/pose-with-scarf-pointing.svg" alt="APIOps character pointing toward a path to customer value" />
+      </div>
+    </section>
 
-			<Quote
-				quote="Working together has clarified our customer and market insights and given a stronger direction of integration capabilities for our US expansion. Our strategies are grounded in deep customer understanding. I am now confident in the road ahead. A truly valuable collaboration."
-				author="Chief Product Officer"
-				role="Global SaaS Company"
-			/>
+    <section class="signal-bar">
+      <div class="wrapper signal-inner">
+        <p>For leaders navigating</p>
+        <ul><li>AI readiness</li><li>Platform strategy</li><li>Architecture renewal</li><li>API governance</li></ul>
+      </div>
+    </section>
 
-			<section class="positioning">
-				<div class="positioning-content stack gap-4">
-					<h2>Architecture, APIs and AI - connected in practice</h2>
-					<p>Most organisations do not struggle with a lack of tools. They struggle with fragmented architectures, disconnected teams, legacy integrations and unclear ownership.</p>
-					<p>Osaango helps organisations align APIs, integrations, platform strategy and operating models into practical capabilities that support long-term growth, customer value and AI readiness.</p>
-				</div>
-				<ul class="capability-list">
-					<li>API and integration strategy</li>
-					<li>Architecture renewal</li>
-					<li>Platform product strategy</li>
-					<li>Governance and operating models</li>
-					<li>Capability orchestration for AI-enabled services</li>
-				</ul>
-			</section>
+    <section class="wrapper section-block approach">
+      <div class="section-intro">
+        <p class="eyebrow"><span></span> How we help</p>
+        <h2>Clarity across the whole system.</h2>
+        <p>Technology transformation works when business goals, architecture and ways of working move together. Osaango brings those perspectives into one shared view.</p>
+      </div>
+      <ol class="service-grid">
+        {services.map((service) => <li><span>{service.number}</span><h3>{service.title}</h3><p>{service.text}</p></li>)}
+      </ol>
+    </section>
 
-			<Skills />
-		</div>
+    <section class="dark-panel">
+      <div class="wrapper dark-grid">
+        <div>
+          <p class="eyebrow light"><span></span> Our perspective</p>
+          <h2>AI-ready starts long before the AI.</h2>
+        </div>
+        <div class="dark-copy">
+          <p>Reliable AI-enabled products depend on reusable capabilities, well-designed APIs, intentional integration architecture and clear ownership.</p>
+          <p>We connect those foundations—helping you move from isolated experiments to digital services that scale.</p>
+          <a href="/about/">How we think <Icon icon="arrow-right" /></a>
+        </div>
+      </div>
+    </section>
 
-		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="intro">
-				<div class="promo-content">
-					<div class="text stack gap-4">
-						<header class="section-header stack gap-2 lg:gap-4">
-							<h3>AI-ready APIs and integration architectures</h3>
-							<p>Modern AI systems increasingly rely on APIs, integrations and reusable platform capabilities.</p>
-							<p>Osaango helps organisations design architectures that support AI-enabled products, intelligent automation, reusable business capabilities, governed platform ecosystems and scalable integration landscapes.</p>
-							<p>We connect enterprise architecture, integration strategy and capability orchestration so AI opportunities can move from experiments into reliable digital services.</p>
-						</header>
-						<div class="cta">
-							<CallToAction href="/work/">
-								Explore our work
-								<Icon icon="arrow-right" size="1.2em" />
-							</CallToAction>
-						</div>
-					</div>
-					<div class="promo-image">
-						<Image
-							src={apiopsCyclesWS}
-							alt="business people looking at the APIOps Cycles metro map"
-							width={1200}
-							height={675}
-							widths={[280, 360, 480, 600, 660]}
-							sizes="(max-width: 50em) 70vw, 660px"
-							format="webp"
-							loading="eager"
-							fetchpriority="high"
-							class="service-image"
-						/>
-					</div>
-				</div>
-			</section>
-
-			<section class="product-thinking">
-				<div class="product-thinking-content stack gap-4">
-					<h3>Platforms are products</h3>
-					<p>APIs, integrations and shared services are not just technical assets. They are reusable business capabilities that shape customer experience, scalability and innovation.</p>
-					<p>Osaango helps organisations align platform strategy, product ownership, architecture, governance, AI opportunities and delivery capabilities into practical transformation roadmaps.</p>
-					<p>We support platform and product leaders in turning capability orchestration into operating models, roadmaps and measurable customer value.</p>
-				</div>
-				<ul class="capability-list">
-					<li>Platform strategy and product ownership</li>
-					<li>Reusable business capabilities</li>
-					<li>Architecture and governance</li>
-					<li>AI opportunity alignment</li>
-					<li>Delivery capability roadmaps</li>
-				</ul>
-			</section>
-
-			<section class="positioning">
-				<div class="positioning-content stack gap-4">
-					<h3>Capability orchestration as a transformation lens</h3>
-					<p>Capability orchestration connects business goals, platform capabilities, APIs, integrations, data and AI-enabled workflows into a coherent architecture and delivery model.</p>
-					<p>It helps leaders see which capabilities should be reused, governed, exposed through platforms or APIs, and evolved into intelligent products and services.</p>
-				</div>
-				<ul class="capability-list">
-					<li>Enterprise capability mapping</li>
-					<li>API and platform portfolio decisions</li>
-					<li>AI-compatible architecture choices</li>
-					<li>Business and technology alignment</li>
-					<li>Transformation roadmap design</li>
-				</ul>
-			</section>
-
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p>Anonymised examples of architecture renewal, integration governance, platform product strategy, AI-enabled services and AI-ready API work.</p>
-				</header>
-
-				<div class="gallery">
-					<Grid variant="offset">
-						{
-							projects.map((project) => (
-								<li>
-									<PortfolioPreview project={project} />
-								</li>
-							))
-						}
-					</Grid>
-				</div>
-
-				<div class="cta">
-					<CallToAction href="/work/">
-						View All
-						<Icon icon="arrow-right" size="1.2em" />
-					</CallToAction>
-				</div>
-			</section>
-
-			<section class="intro">
-				<div class="promo-content">
-					<div class="text stack gap-4">
-						<header class="section-header stack gap-2 lg:gap-4">
-							<h3>APIOps Cycles as a transformation capability</h3>
-							<p>APIOps Cycles helps organisations align APIs, integrations, architecture, governance and delivery into a shared transformation model.</p>
-							<p>It combines business strategy, platform product thinking, architecture, governance, delivery practices and API lifecycle management into one practical operational framework.</p>
-						</header>
-						<div class="cta">
-							<CallToAction href="/services/accelerate-your-apis-with-apiops-cycles/">
-								View APIOps Cycles workshop
-								<Icon icon="arrow-right" size="1.2em" />
-							</CallToAction>
-						</div>
-					</div>
-					<div class="promo-image">
-						<Image
-							src={apiopsCyclesWS}
-							alt="business people looking at the APIOps Cycles metro map"
-							width={1200}
-							height={675}
-							widths={[280, 360, 480, 600, 660]}
-							sizes="(max-width: 50em) 70vw, 660px"
-							format="webp"
-							loading="lazy"
-							class="service-image"
-						/>
-					</div>
-				</div>
-			</section>
-
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Latest Insights</h3>
-					<p>Practical writing on AI-ready APIs, agentic architectures, platform capability design, integration governance, API operating models, architecture modernisation, capability orchestration and AI-driven product strategy.</p>
-					<div class="topic-list">
-						<span>AI-ready APIs</span>
-						<span>Agentic architectures</span>
-						<span>Platform capabilities</span>
-						<span>Integration governance</span>
-						<span>Capability orchestration</span>
-					</div>
-				</header>
-
-				<div class="gallery">
-					<Grid variant="small">
-						{
-							posts.map((post) => (
-								<li>
-									<BlogPreview post={post} />
-								</li>
-							))
-						}
-					</Grid>
-				</div>
-
-				<div class="cta">
-					<CallToAction href="/blog/">
-						View All
-						<Icon icon="arrow-right" size="1.2em" />
-					</CallToAction>
-				</div>
-			</section>
-		</main>
-
-		<ContactCTA />
-	</div>
+    <section class="wrapper section-block work-section">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span></span> Selected work</p><h2>Change, made tangible.</h2></div>
+        <a href="/work/">View all work <Icon icon="arrow-right" /></a>
+      </div>
+      <ul class="work-grid">{projects.map((project) => <li><PortfolioPreview project={project} /></li>)}</ul>
+    </section>
+  </main>
+  <ContactCTA />
 </BaseLayout>
 
 <style>
-	.hero {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2.25rem;
-	}
-
-	.hero img {
-		object-fit: contain;
-		object-position: center;
-		border: 0;
-	}
-
-	.hero-actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1rem;
-		width: 100%;
-	}
-
-	.hero-actions :global(a) {
-		flex: 1 1 13rem;
-		max-width: 100%;
-	}
-
-	.positioning,
-	.product-thinking {
-		display: grid;
-		gap: 1.5rem;
-		padding: 1.5rem;
-		border: 1px solid var(--gray-800);
-		border-radius: var(--rounded-sm);
-		background: var(--gradient-subtle);
-		box-shadow: var(--shadow-sm);
-	}
-
-	.positioning-content,
-	.product-thinking-content {
-		max-width: 65ch;
-	}
-
-	.positioning-content p,
-	.product-thinking-content p {
-		color: var(--gray-300);
-		font-size: var(--text-md);
-	}
-
-	.capability-list,
-	.topic-list {
-		list-style: none;
-		padding: 0;
-	}
-
-	.capability-list {
-		display: grid;
-		gap: 0.75rem;
-		align-content: start;
-	}
-
-	.capability-list li {
-		padding: 0.75rem 1rem;
-		border: 1px solid var(--gray-800);
-		border-radius: var(--rounded-sm);
-		background-color: rgba(255, 255, 255, 0.68);
-		color: var(--gray-200);
-		font-weight: 700;
-	}
-
-	.topic-list {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-		margin-top: 0.5rem;
-	}
-
-	.topic-list span {
-		padding: 0.45rem 0.7rem;
-		border: 1px solid var(--gray-800);
-		border-radius: var(--rounded-sm);
-		color: var(--gray-200);
-		background-color: rgba(255, 255, 255, 0.68);
-		font-size: var(--text-sm);
-		font-weight: 700;
-	}
-
-	.section {
-		display: grid;
-		gap: 2rem;
-	}
-
-	.with-background {
-		position: relative;
-	}
-
-	.with-background::before {
-		--hero-bg: var(--bg-image-subtle-2);
-
-		content: '';
-		position: absolute;
-		pointer-events: none;
-		left: 50%;
-		width: 100vw;
-		aspect-ratio: calc(2.25 / var(--bg-scale));
-		top: 0;
-		transform: translateY(-75%) translateX(-50%);
-		background:
-			url('/assets/backgrounds/noise.png') top center/220px repeat,
-			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
-			var(--gray-999);
-		background-blend-mode: overlay, normal, normal, normal;
-		mix-blend-mode: var(--bg-blend-mode);
-		z-index: -1;
-	}
-
-	.section-header {
-		justify-self: center;
-		text-align: left;
-		max-width: 50ch;
-		font-size: var(--text-md);
-		color: var(--gray-300);
-		min-width: 0;
-		overflow-wrap: anywhere;
-	}
-
-	.intro {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-	}
-
-	.promo-content {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-template-areas:
-			'image'
-			'text';
-		gap: 2rem;
-		align-items: center;
-	}
-
-	.promo-content .text {
-		grid-area: text;
-		min-width: 0;
-	}
-
-	.promo-content .promo-image {
-		grid-area: image;
-		min-width: 0;
-	}
-
-	.service-image {
-		width: 100%;
-		aspect-ratio: 16 / 9;
-		background: radial-gradient(circle at 20% 20%, var(--gray-700), var(--gray-900)), var(--gradient-subtle);
-		border-radius: var(--rounded-sm);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: var(--gray-400);
-		gap: 0.75rem;
-		text-align: left;
-	}
-
-	.service-image img {
-		width: 100%;
-		height: auto;
-		border-radius: var(--rounded-sm);
-		object-fit: cover;
-	}
-
-	.cta {
-		max-width: 100%;
-	}
-
-	.cta :global(a) {
-		max-width: 100%;
-		white-space: normal;
-	}
-
-	@media (min-width: 50em) {
-		.hero {
-			display: grid;
-			grid-template-columns: minmax(0, 0.88fr) minmax(28rem, 1.12fr);
-			padding-inline: clamp(0rem, 1.5vw, 2rem);
-			gap: clamp(2.5rem, 5vw, 5.75rem);
-			align-items: center;
-		}
-
-		.hero img {
-			width: min(100%, 46rem);
-			justify-self: end;
-			aspect-ratio: auto;
-			border-radius: 0;
-			object-fit: contain;
-		}
-
-		.hero-actions {
-			flex-wrap: nowrap;
-			width: auto;
-		}
-
-		.hero-actions :global(a) {
-			flex: 0 0 auto;
-		}
-
-		.positioning,
-		.product-thinking {
-			grid-template-columns: minmax(0, 3fr) minmax(18rem, 2fr);
-			padding: 2.5rem;
-			gap: 3rem;
-			align-items: start;
-		}
-
-		.promo-content {
-			grid-template-columns: 1fr 1fr;
-			grid-template-areas: 'text image';
-		}
-
-		.section {
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
-			gap: 5rem;
-		}
-
-		.section.with-cta {
-			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
-		}
-
-		.section-header {
-			grid-area: header;
-			font-size: var(--text-lg);
-		}
-
-		.section-header h3 {
-			font-size: var(--text-4xl);
-		}
-
-		.with-cta .section-header {
-			justify-self: flex-start;
-			text-align: left;
-		}
-
-		.gallery {
-			grid-area: gallery;
-		}
-
-		.cta {
-			grid-area: cta;
-		}
-	}
+  .hero-shell { display:grid; gap:3rem; min-height:clamp(42rem,78vh,54rem); align-items:center; padding-block:4rem 7rem; }
+  .hero-copy { max-width:43rem; position:relative; z-index:2; }
+  .eyebrow { display:flex; align-items:center; gap:.7rem; color:var(--apiops-accent-community); font-size:.76rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; margin-bottom:1.4rem; }
+  .eyebrow span { width:2rem; height:3px; background:var(--color-cycle-capability); }
+  h1 { font-size:clamp(3.6rem,8vw,7.2rem)!important; line-height:.91; letter-spacing:-.065em; max-width:9ch; }
+  h1 em { color:var(--apiops-accent-community); font-style:normal; }
+  .lead { max-width:39rem; margin-top:2rem; font-size:clamp(1.1rem,2vw,1.35rem); color:var(--color-neutral-stone); }
+  .actions { display:flex; flex-wrap:wrap; gap:.8rem; margin-top:2rem; }
+  .hero-system { min-height:29rem; position:relative; background:linear-gradient(145deg,#fff,#f6f9fe); border:1px solid var(--panel-border); border-radius:24px; overflow:hidden; box-shadow:var(--panel-shadow-soft); }
+  .hero-system::before { content:''; position:absolute; inset:0; background-image:radial-gradient(#cbd5e1 1px,transparent 1px); background-size:22px 22px; opacity:.45; }
+  .hero-system img { position:absolute; width:12rem; bottom:-.5rem; left:7%; z-index:2; }
+  .route { position:absolute; height:8px; border-radius:9px; transform-origin:left center; }
+  .route-a { width:76%; left:14%; top:62%; background:var(--color-line-operating-model); transform:rotate(-25deg); }
+  .route-b { width:55%; left:42%; top:43%; background:var(--color-cycle-capability); transform:rotate(22deg); }
+  .station { position:absolute; width:22px; height:22px; border:6px solid white; border-radius:50%; background:var(--color-line-operating-model); box-shadow:0 0 0 3px var(--color-line-operating-model); z-index:1; }
+  .s1{left:15%;top:57%}.s2{left:43%;top:43%}.s3{left:66%;top:31%;background:var(--color-cycle-capability);box-shadow:0 0 0 3px var(--color-cycle-capability)}.s4{right:8%;top:51%;background:var(--color-cycle-capability);box-shadow:0 0 0 3px var(--color-cycle-capability)}
+  .system-card { position:absolute; display:grid; gap:.15rem; background:#fff; border:1px solid var(--panel-border); border-radius:10px; padding:.75rem 1rem; box-shadow:var(--shadow-sm); z-index:3; }
+  .system-card small{font-size:.58rem;letter-spacing:.1em;color:var(--muted);font-weight:800}.system-card strong{color:var(--foreground)}
+  .card-strategy{left:7%;top:12%}.card-capability{left:44%;top:13%}.card-value{right:5%;bottom:11%}
+  .signal-bar { background:var(--color-neutral-cloud); border-block:1px solid var(--panel-border); }
+  .signal-inner { display:grid; gap:1rem; padding-block:1.4rem; align-items:center; }
+  .signal-inner>p{font-weight:800;color:var(--foreground)}.signal-inner ul{display:flex;flex-wrap:wrap;gap:.7rem 1.7rem;list-style:none;padding:0;color:var(--muted)}.signal-inner li::before{content:'●';color:var(--color-cycle-capability);font-size:.55rem;margin-right:.7rem}
+  .section-block { padding-block:clamp(6rem,11vw,10rem); }
+  .section-intro { max-width:48rem; }.section-intro h2,.section-heading h2,.dark-panel h2{font-size:clamp(2.6rem,5vw,4.7rem);letter-spacing:-.04em}.section-intro>p:last-child{font-size:1.2rem;max-width:42rem;margin-top:1.5rem}
+  .service-grid { display:grid; list-style:none; padding:0; margin-top:4rem; border-top:1px solid var(--panel-border); }
+  .service-grid li{padding:2rem 0;border-bottom:1px solid var(--panel-border)}.service-grid span{color:var(--color-cycle-capability);font:800 .75rem var(--font-code)}.service-grid h3{font-size:1.6rem;margin:.8rem 0}.service-grid p{max-width:33ch;color:var(--muted)}
+  .dark-panel { background:var(--color-neutral-graphite); color:#cbd5e1; padding-block:clamp(6rem,10vw,9rem); position:relative; overflow:hidden; }.dark-panel::after{content:'';position:absolute;width:28rem;height:28rem;border:5rem solid rgba(16,185,129,.09);border-radius:50%;right:-9rem;top:-12rem}.dark-panel h2{color:#fff;max-width:10ch}.eyebrow.light{color:#93c5fd}.dark-grid{display:grid;gap:3rem}.dark-copy{display:grid;gap:1.5rem;font-size:1.18rem;max-width:36rem;position:relative;z-index:1}.dark-copy a,.section-heading>a{display:inline-flex;gap:.5rem;align-items:center;width:max-content;font-weight:800;text-decoration:none}.dark-copy a{color:#fff;border-bottom:2px solid var(--color-cycle-capability);padding-bottom:.35rem}
+  .section-heading{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:2rem;margin-bottom:3rem}.section-heading>a{color:var(--foreground)}.work-grid{display:grid;list-style:none;padding:0;gap:1.5rem}
+  @media(min-width:50em){.hero-shell{grid-template-columns:1.02fr .98fr}.signal-inner{grid-template-columns:auto 1fr;gap:3rem}.service-grid{grid-template-columns:repeat(3,1fr)}.service-grid li{padding:2rem;border-right:1px solid var(--panel-border)}.service-grid li:first-child{padding-left:0}.service-grid li:last-child{border-right:0}.dark-grid{grid-template-columns:1fr 1fr;gap:7rem}.work-grid{grid-template-columns:repeat(3,1fr)}.work-grid li:nth-child(2){transform:translateY(2rem)}}
+  @media(max-width:36em){.hero-system{min-height:24rem}.hero-system img{width:9rem}.system-card{padding:.55rem .65rem}.card-capability{left:52%}}
 </style>
