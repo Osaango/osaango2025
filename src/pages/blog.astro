@@ -8,12 +8,15 @@ import BlogPreview from '../components/BlogPreview.astro';
 const posts = (await getCollection('blog')).sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 ---
 
-<BaseLayout title="Blog">
+<BaseLayout
+	title="Ideas | Osaango"
+	description="Articles and thinking from Osaango on architecture, APIs, integrations, platforms, AI readiness and the organisational side of digital change."
+>
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
 			<Hero
-				title="Blog"
-				tagline="Our latest news and articles."
+				title="Ideas"
+				tagline="We write, speak and publish about the problems we encounter in our work: architecture, APIs, integrations, platforms, productization, AI readiness, operating models and the organisational side of digital change."
 				align="start"
 			/>
                                 <Grid variant="small">

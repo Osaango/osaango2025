@@ -1,21 +1,23 @@
 ---
+import CallToAction from '../components/CallToAction.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import Hero from '../components/Hero.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import atWork from '../assets/at-work.jpg';
+import Icon from '../components/Icon.astro';
 ---
 
 <BaseLayout
         title="About | Osaango"
-        description="Let’s shape the future—one API at a time."
+        description="Osaango helps organisations make difficult digital change executable where business, technology and ways of working meet."
         image={atWork}
 >
 	<div class="stack gap-20">
 		<main class="wrapper about">
 			<Hero
-				title="About"
-				tagline="Our Dream at Osaango: Tech That Connects People and Ideas."
+				title="Complex change needs more than a technology answer."
+				tagline="Osaango is a Finnish strategy and architecture consultancy working where business, technology and ways of working meet."
 			>
                                 <Image
                                         src={atWork}
@@ -29,47 +31,55 @@ import atWork from '../assets/at-work.jpg';
 			</Hero>
 
 			<section>
-				<h2 class="section-title">Our mission</h2>
+				<h2 class="section-title">What we help with</h2>
 				<div class="content">
-					<p>
-						At Osaango, we believe in the power of technology to connect people and ideas. Our mission is to
-						empower organizations to thrive in the <em>API and data economy</em> through scalable tools, insightful
-						methods, and expert coaching.
-					</p>
+					<p>We help organisations make difficult digital change executable, particularly when architecture, APIs, integrations, platforms, product thinking, governance and organisational responsibilities need to evolve together.</p>
 				</div>
 			</section>
+
 			<section>
-				<h2 class="section-title">Unique value</h2>
+				<h2 class="section-title">Why Osaango exists</h2>
 				<div class="content">
-					<p>
-						Founded by Marjukka Niinioja, Osaango combines over two decades of expertise in software development,
-						Agile methodologies, and digital transformation. We specialize in API-led service design, ecosystem
-						thinking, and practical solutions that drive long-term success.
-					</p>
+					<p>Technology problems are rarely only technology problems.</p>
+					<p>An integration problem can reveal unclear ownership. An architecture renewal can expose gaps between business strategy and platform decisions. An API programme can struggle because governance and product responsibilities have never been defined. An AI initiative can expose weaknesses that have existed in the organisation's architecture and operating model for years.</p>
+					<p>We work across those boundaries rather than treating each problem in isolation.</p>
 				</div>
 			</section>
+
 			<section>
-				<h2 class="section-title">Our approach</h2>
+				<h2 class="section-title">How we work</h2>
 				<div class="content">
-					<p>
-						Our approach is hands-on and transparent, focusing on building capabilities that last. We support
-						organizations through consulting, training, and community-driven tools, empowering them to turn
-						bottlenecks into breakthroughs.
-					</p>
+					<p>Our role is often to bring together perspectives that have become separated: business and technology, architecture and delivery, platforms and their consumers, governance and autonomy, and strategy and day-to-day decisions.</p>
+					<p>We combine strategy, architecture and product thinking with practical experience of how organisations actually make and deliver technology decisions. We aim to leave behind more than recommendations: clearer decisions, stronger ownership, workable practices and an organisation that is better able to continue the change itself.</p>
 				</div>
 			</section>
-						<section>
-				<h2 class="section-title">The open methods</h2>
-				<div class="content">
-					<p>We believe that APIs are more than just technology—they’re enablers of <em>new business models</em>, <em>faster innovation</em>, and <em>better collaboration</em> across teams and ecosystems. Our open <em>APIOps Cycles™ method</em> bridges the gap between strategy,
-					   design, and delivery, helping clients from diverse industries—from energy and manufacturing 
-					   to legal tech—mature their API practices step-by-step.</p>	
-				</div>
-			</section>
+
 			<section>
-				<h2 class="section-title">We are glocal</h2>
+				<h2 class="section-title">Ways to work with us</h2>
 				<div class="content">
-					<p>Founded in Finland and operating globally, Osaango combines over two decades of expertise with a hands-on, transparent approach. We support organizations through <em>consulting</em>, <em>training</em>, and <em>community-driven tools</em>, empowering them to build capabilities that last.</p>
+					<p>We work through consulting and advisory engagements, coaching, training and workshops, and conference or company speaking.</p>
+					<p>The form of the engagement depends on the problem. Sometimes a focused workshop or outside perspective is enough to unblock a decision. In other situations, we work alongside leaders and teams over a longer period while architecture, governance and ways of working evolve.</p>
+					<CallToAction href="/how-we-help/" variant="secondary">Explore how we can work together <Icon icon="arrow-right" /></CallToAction>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="section-title">APIOps and open methods</h2>
+				<div class="content">
+					<p>Osaango is also closely involved in developing APIOps Cycles and growing the global APIOps Community.</p>
+					<p>APIOps Cycles provides a practical method for working through uncertainty around capabilities, APIs, integrations and automation. The wider APIOps Community brings practitioners together through meetups, events and shared learning.</p>
+					<p>We believe useful methods should not remain locked inside consulting engagements. Publishing, teaching, speaking and community work allow ideas developed through practice to be tested, challenged and used more widely.</p>
+					<div class="link-row">
+						<a href="/events/fixing-api-delivery-at-scale-apiops-cycles/">Explore APIOps Cycles <Icon icon="arrow-right" /></a>
+						<a href="https://apiops.info/">Visit the APIOps Community <Icon icon="arrow-right" /></a>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="section-title">Based in Finland, working internationally</h2>
+				<div class="content">
+					<p>Osaango is based in Finland and works internationally with organisations, communities and conference audiences. Our work combines client engagements with training, speaking, publishing and the development of practical methods for digital change.</p>
 				</div>
 			</section>
 		</main>
@@ -94,7 +104,7 @@ import atWork from '../assets/at-work.jpg';
 	section {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: 0.75rem;
 		color: var(--gray-200);
 	}
 
@@ -105,18 +115,28 @@ import atWork from '../assets/at-work.jpg';
 	}
 
 	.content {
+		display: grid;
+		gap: 1rem;
 		grid-column: 2 / 4;
 	}
 
 	.content :global(a) {
-		text-decoration: 1px solid underline transparent;
-		text-underline-offset: 0.25em;
-		transition: text-decoration-color var(--theme-transition);
+		text-decoration: none;
 	}
 
-	.content :global(a:hover),
-	.content :global(a:focus) {
-		text-decoration-color: currentColor;
+	.link-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem 1.5rem;
+	}
+
+	.link-row a {
+		display: inline-flex;
+		align-items: center;
+		gap: .5rem;
+		width: max-content;
+		font-weight: 800;
+		color: var(--foreground);
 	}
 
 	@media (min-width: 50em) {

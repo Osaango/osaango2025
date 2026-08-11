@@ -13,15 +13,19 @@ const projects = (await getCollection('work')).sort(
 
 <BaseLayout
 	title="Our Work | Osaango"
-	description="Learn about Osaango's most recent projects"
+	description="Selected work from Osaango across strategy, architecture, technology and ways of working."
 >
 	<div class="stack gap-20">
-		<main class="wrapper stack gap-8">
+		<main class="wrapper stack gap-8 work-page">
 			<Hero
 				title="Selected work"
-				tagline="We work with organisations in finance, SaaS, media, manufacturing and the public sector. Here are a few anonymised examples of impact."
+				tagline="We work with organisations in finance, SaaS, media, manufacturing and the public sector on problems that cross strategy, architecture, technology and ways of working."
 				align="start"
 			/>
+			<section class="work-intro">
+				<p>The situations vary, but there is often a common pattern: an important change needs to move forward, while the existing architecture, ownership, governance or operating model no longer supports what the organisation needs to do.</p>
+				<p>The examples below show some of the ways we have helped organisations understand the problem, make difficult decisions and turn those decisions into practical change.</p>
+			</section>
 			<Grid variant="offset">
 				{
 					projects.map((project) => (
@@ -31,7 +35,48 @@ const projects = (await getCollection('work')).sort(
 					))
 				}
 			</Grid>
+			<section class="work-cta">
+				<h2>Facing a similar kind of challenge?</h2>
+				<p>Your situation will not be identical to one of these examples. But if strategy, architecture, technology and organisational responsibilities are getting tangled together, we can help you work out where to start.</p>
+				<a href="https://calendly.com/marjukka-niinioja/meet-with-marjukka">Start a conversation</a>
+			</section>
 		</main>
 		<ContactCTA />
 	</div>
 </BaseLayout>
+
+<style>
+	.work-intro,
+	.work-cta {
+		max-width: 52rem;
+		color: var(--muted);
+		font-size: var(--text-lg);
+	}
+
+	.work-intro {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.work-cta {
+		display: grid;
+		gap: 1rem;
+		padding: 2rem;
+		border: 1px solid var(--panel-border);
+		border-radius: var(--rounded-sm);
+		background: var(--gradient-subtle);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.work-cta h2 {
+		font-size: var(--text-2xl);
+	}
+
+	.work-cta a {
+		display: inline-flex;
+		width: max-content;
+		color: var(--foreground);
+		font-weight: 800;
+		text-decoration: none;
+	}
+</style>
