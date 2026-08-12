@@ -2,19 +2,89 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CallToAction from '../components/CallToAction.astro';
 import Icon from '../components/Icon.astro';
+import beyondApiEconomyCover from '../assets/book-covers/Beyond-the-API-economy-cover.png';
+
+const pageTitle = 'Beyond the API Economy | Osaango';
+const pageDescription =
+  'Preview Beyond the API Economy by Marjukka Niinioja, a practical field guide to productizing digital capabilities with APIOps Cycles.';
+const siteUrl = Astro.site?.href ?? 'https://www.osaango.com/';
+const bookCoverUrl = new URL(beyondApiEconomyCover.src, siteUrl).toString();
+
+const bookStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Book',
+    name: 'Beyond the API Economy',
+    alternateName: 'Beyond the API Economy: Productizing Digital Capabilities with APIOps Cycles',
+    author: {
+      '@type': 'Person',
+      name: 'Marjukka Niinioja',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Osaango',
+      url: 'https://www.osaango.com/',
+    },
+    image: bookCoverUrl,
+    description: pageDescription,
+    bookFormat: ['https://schema.org/EBook', 'https://schema.org/Paperback'],
+    offers: [
+      {
+        '@type': 'Offer',
+        availability: 'https://schema.org/InStock',
+        url: 'https://www.osaango.academy/products/digital_downloads/beyond-api-economy',
+        itemOffered: {
+          '@type': 'Book',
+          bookFormat: 'https://schema.org/EBook',
+        },
+      },
+      {
+        '@type': 'Offer',
+        availability: 'https://schema.org/InStock',
+        url: 'https://books.apple.com/us/book/beyond-api-economy-productizing-digital-capabilities/id6800067843',
+        itemOffered: {
+          '@type': 'Book',
+          bookFormat: 'https://schema.org/EBook',
+        },
+      },
+      {
+        '@type': 'Offer',
+        availability: 'https://schema.org/InStock',
+        url: 'https://www.shroffpublishers.com/books/9789368081685/',
+        itemOffered: {
+          '@type': 'Book',
+          bookFormat: 'https://schema.org/Paperback',
+        },
+      },
+      {
+        '@type': 'Offer',
+        availability: 'https://schema.org/InStock',
+        url: 'https://kirjakauppa.bod.fi/beyond-the-api-economy-marjukka-niinioja-9789528089179',
+        itemOffered: {
+          '@type': 'Book',
+          bookFormat: 'https://schema.org/Paperback',
+        },
+      },
+    ],
+  },
+];
 ---
 
 <BaseLayout
-  title="Books and thought leadership from Osaango"
-  description="Books and thinking from Osaango on capability-centered API, integration, platform and architecture work."
+  title={pageTitle}
+  description={pageDescription}
+  image={beyondApiEconomyCover}
+  structuredData={bookStructuredData}
 >
   <main>
     <section class="wrapper books-hero">
-      <div class="book-cover" aria-hidden="true">
-        <span>Beyond</span>
-        <span>the API</span>
-        <span>Economy</span>
-      </div>
+      <img
+        class="book-cover"
+        src={beyondApiEconomyCover.src}
+        width={beyondApiEconomyCover.width}
+        height={beyondApiEconomyCover.height}
+        alt="Beyond the API Economy book cover"
+      />
       <div class="book-copy">
         <p class="eyebrow"><span></span> Book</p>
         <h1>Beyond the API Economy</h1>
@@ -22,8 +92,25 @@ import Icon from '../components/Icon.astro';
         <p><em>Beyond the API Economy</em> looks at digital change through the capabilities that people and organisations need. It explores how those capabilities can be productized and how APIs, integrations, automation and other means can be used to provide and consume them.</p>
         <p>The book also introduces the four current APIOps Cycles and the thinking behind the method.</p>
         <div class="actions">
-          <CallToAction href="/events/fixing-api-delivery-at-scale-apiops-cycles/">Explore APIOps Cycles <Icon icon="arrow-right" /></CallToAction>
-          <CallToAction href="/blog/" variant="secondary">Browse Osaango's books and free resources</CallToAction>
+          <CallToAction href="/assets/files/Beyond-the-API-Economy-final_global_v4_preview.pdf">Preview the book <Icon icon="arrow-right" /></CallToAction>
+          <CallToAction href="/events/fixing-api-delivery-at-scale-apiops-cycles/" variant="secondary">Explore APIOps Cycles</CallToAction>
+        </div>
+        <div class="availability" aria-labelledby="availability-title">
+          <h2 id="availability-title">Available as e-book, paperback and from libraries</h2>
+          <p>
+            Get the e-book from
+            <a href="https://www.osaango.academy/products/digital_downloads/beyond-api-economy">Osaango Academy</a>,
+            <a href="https://books.apple.com/us/book/beyond-api-economy-productizing-digital-capabilities/id6800067843">Apple Books</a>
+            and other e-book sellers.
+          </p>
+          <p>
+            Order the paperback from
+            <a href="https://www.shroffpublishers.com/books/9789368081685/">Shroff Publishers</a>
+            for the Indian subcontinent, or from
+            <a href="https://kirjakauppa.bod.fi/beyond-the-api-economy-marjukka-niinioja-9789528089179">BoD</a>
+            for Finland and Europe.
+          </p>
+          <p>For bulk orders, or orders elsewhere, <a href="#contact">contact us at Osaango</a>.</p>
         </div>
       </div>
     </section>
@@ -40,16 +127,10 @@ import Icon from '../components/Icon.astro';
   }
 
   .book-cover {
-    display: grid;
-    align-content: end;
-    gap: .2rem;
-    min-height: 26rem;
-    padding: 2rem;
+    width: min(100%, 23rem);
+    justify-self: center;
     border-radius: .55rem;
-    background: linear-gradient(145deg, var(--color-neutral-graphite), #12469b);
-    color: #fff;
     box-shadow: var(--shadow-lg);
-    font: 800 clamp(2rem, 5vw, 4rem)/1.02 var(--font-brand);
   }
 
   .book-copy {
@@ -89,6 +170,27 @@ import Icon from '../components/Icon.astro';
     display: flex;
     flex-wrap: wrap;
     gap: .8rem;
+  }
+
+  .availability {
+    display: grid;
+    gap: .75rem;
+    padding-block-start: .5rem;
+  }
+
+  .availability h2 {
+    max-width: 34rem;
+    font-size: clamp(1.35rem, 3vw, 2rem);
+    line-height: 1.12;
+  }
+
+  .availability p {
+    font-size: var(--text-base);
+  }
+
+  .availability a {
+    color: var(--accent-regular);
+    font-weight: 700;
   }
 
   @media (min-width: 50em) {

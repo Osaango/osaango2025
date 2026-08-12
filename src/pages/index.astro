@@ -7,6 +7,7 @@ import ContactCTA from '../components/ContactCTA.astro';
 import Icon from '../components/Icon.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
 import agilePeopleInt from '../assets/osaango-platform-growth.png';
+import beyondApiEconomyCover from '../assets/book-covers/Beyond-the-API-economy-cover.png';
 
 const selectedProjectIds = [
   'integration-architecture-design-for-strategic-transformation',
@@ -233,11 +234,15 @@ const waysToWork = [
         <a href="/blog/">Explore our thinking <Icon icon="arrow-right" /></a>
       </div>
       <div class="thinking-card">
-        <div class="book-cover" aria-hidden="true">
-          <span>Beyond</span>
-          <span>the API</span>
-          <span>Economy</span>
-        </div>
+        <Image
+          class="book-cover"
+          src={beyondApiEconomyCover}
+          alt="Beyond the API Economy book cover"
+          width={320}
+          sizes="(max-width: 50em) 12rem, 14rem"
+          format="webp"
+          loading="lazy"
+        />
         <div class="book-copy">
           <strong>Beyond the API Economy</strong>
           <p>What if the API, integration or AI solution is not the right place to start?</p>
@@ -305,7 +310,7 @@ const waysToWork = [
   .method-copy a { display:inline-flex; align-items:center; gap:.5rem; width:max-content; font-weight:800; text-decoration:none; color:var(--foreground); }
   .thinking-section { padding-top:clamp(5rem,8vw,8rem); }
   .thinking-card { display:grid; gap:1.5rem; max-width:58rem; padding:2rem; border:1px solid var(--panel-border); border-radius:var(--rounded-sm); background:var(--gradient-subtle); box-shadow:var(--shadow-sm); }
-  .book-cover { display:grid; align-content:end; gap:.15rem; min-height:15rem; padding:1.25rem; border-radius:.45rem; background:linear-gradient(145deg,var(--color-neutral-graphite),#12469b); color:#fff; box-shadow:var(--shadow-md); font:800 1.45rem/1.05 var(--font-brand); }
+  .book-cover { width:min(100%,14rem); height:auto; align-self:start; justify-self:center; border-radius:.45rem; box-shadow:var(--shadow-md); }
   .book-copy { display:grid; gap:.75rem; align-content:center; }
   .thinking-card strong { color:var(--foreground); font:700 clamp(1.5rem,3vw,2rem)/1.1 var(--font-brand); }
   .thinking-card p { color:var(--muted); font-size:1.05rem; }

@@ -9,6 +9,7 @@ const textLinks: { label: string; href: string }[] = [
         { label: 'How we help', href: '/how-we-help/' },
         { label: 'Work', href: '/work/' },
         { label: 'Speaking', href: '/speaking/' },
+        { label: 'Books', href: '/books/' },
         { label: 'Blog', href: '/blog/' },
         { label: 'About', href: '/about/' },
 ];
@@ -328,6 +329,7 @@ const isCurrentPage = (href: string) => {
 			/*border-radius: 999rem; */
 			border: 0;
 			padding: 0.5rem 0.5625rem;
+			background-color: transparent;
 	/*		background: radial-gradient(var(--gray-999), var(--gray-900) 150%);
  			box-shadow: var(--shadow-md); */
 		}
@@ -373,7 +375,7 @@ const isCurrentPage = (href: string) => {
 
 		.nav-cta {
 			display: inline-flex;
-			min-width: 15.25rem;
+			min-width: 13.5rem;
 			min-height: 3.25rem;
 			padding-inline: 1.5rem;
 			font-size: var(--text-base);
@@ -390,11 +392,11 @@ const isCurrentPage = (href: string) => {
 
 	@media (min-width: 60em) {
 		.nav-items {
-			gap: 0.8rem;
+			gap: 0.55rem;
 		}
 
 		.link {
-			padding-inline: 1rem;
+			padding-inline: 0.85rem;
 		}
 
 		.socials {

@@ -3,20 +3,42 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CallToAction from '../components/CallToAction.astro';
 import Icon from '../components/Icon.astro';
 
-const pageTitle = 'Some people grow tomatoes. We grow connections. | Osaango';
+const pageTitle = 'APIOps Cycles Diagnostic | Osaango';
 const pageDescription =
-	'Find your next APIOps Cycles station and discover where your API program should focus next.';
+	"Use Osaango's browser-based APIOps Cycles diagnostic to find where your API, integration or digital capability work should focus next.";
 
-const growthAreas = [
+const diagnosticStructuredData = [
 	{
-		title: 'Soil',
+		'@context': 'https://schema.org',
+		'@type': 'WebApplication',
+		name: 'APIOps Cycles Diagnostic',
+		applicationCategory: 'BusinessApplication',
+		operatingSystem: 'Any',
+		url: 'https://www.osaango.com/connect/',
+		description: pageDescription,
+		provider: {
+			'@type': 'Organization',
+			name: 'Osaango',
+			url: 'https://www.osaango.com/',
+		},
+		offers: {
+			'@type': 'Offer',
+			price: '0',
+			priceCurrency: 'EUR',
+		},
+	},
+];
+
+const focusAreas = [
+	{
+		title: 'Foundations',
 		icon: 'soil',
-		text: 'Operating model and governance provide the conditions for API products to grow.',
+		text: 'Operating model, ownership and governance give digital capabilities a clear base.',
 	},
 	{
 		title: 'Support structure',
 		icon: 'support',
-		text: 'Platform architecture, consumer experience and adoption keep APIs growing in the right direction.',
+		text: 'Platform architecture, consumer experience and adoption help teams move in the right direction.',
 	},
 	{
 		title: 'Connections',
@@ -24,9 +46,9 @@ const growthAreas = [
 		text: 'API products connect people, systems, data, AI and business capabilities.',
 	},
 	{
-		title: 'Tomatoes',
-		icon: 'tomato',
-		text: 'Business opportunities are the outcome: reusable capabilities, faster delivery, better adoption and trusted digital ecosystems.',
+		title: 'Outcomes',
+		icon: 'outcome',
+		text: 'Reusable capabilities, faster delivery, better adoption and trusted digital ecosystems are the outcome.',
 	},
 ];
 
@@ -43,20 +65,20 @@ const iconPaths = {
 	soil: `<path d="M34 76h60m-48 0c4 14 16 22 28 22s24-8 28-22" /><path d="M44 62c10-16 24-24 42-24 9 0 18 2 26 7" /><path d="M74 76c0-20 8-36 26-48" />`,
 	support: `<circle cx="64" cy="64" r="42" /><path d="M64 22v84M22 64h84" /><path d="M24 108h80" />`,
 	connection: `<path d="M24 42c28-18 48 46 76 28" /><path d="M28 92c22-20 44-12 60 16" /><circle cx="24" cy="42" r="8" /><circle cx="100" cy="70" r="8" /><circle cx="88" cy="108" r="8" />`,
-	tomato: `<path d="M64 38c28 0 46 18 46 42 0 26-19 48-46 48S18 106 18 80c0-24 18-42 46-42Z" /><path d="M64 38c-4-10-14-14-26-13 10 6 16 12 18 20" /><path d="M64 38c5-11 16-16 30-14-10 6-18 14-20 22" /><path d="M64 38V22" />`,
+	outcome: `<path d="M24 68l22 22 58-58" /><circle cx="64" cy="64" r="48" />`,
 };
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription}>
+<BaseLayout title={pageTitle} description={pageDescription} structuredData={diagnosticStructuredData}>
 	<main class="connect-page">
 		<section class="connect-hero">
 			<div class="wrapper hero-grid">
 				<div class="hero-copy">
-					<p class="eyebrow">APIdays booth follow-up</p>
-					<h1>Some people grow tomatoes.<br />We grow connections.</h1>
+					<p class="eyebrow">APIOps Cycles diagnostic</p>
+					<h1>Find your next APIOps station.</h1>
 					<p class="hero-subtitle">
 						API products connect strategy and execution. APIOps Cycles helps you find where
-						your API program should grow next.
+						your API, integration or digital capability work should focus next.
 					</p>
 					<div class="hero-actions">
 						<CallToAction href="#diagnostic">
@@ -66,20 +88,13 @@ const iconPaths = {
 					</div>
 					<p class="helper-text">Takes about 3 minutes. No generic maturity score.</p>
 				</div>
-				<div class="hero-visual" aria-hidden="true">
-					<div class="metro-line metro-line-a"></div>
-					<div class="metro-line metro-line-b"></div>
-					<div class="tomato-stand">
-						<div class="cords"></div>
-						<div class="plant">
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-						<div class="tomato tomato-one"></div>
-						<div class="tomato tomato-two"></div>
-						<div class="tomato tomato-three"></div>
-					</div>
+				<div class="hero-visual">
+					<img
+						class="metro-map-image"
+						src="/design-system/glyphs/apiops-flow-en-text.svg"
+						alt="APIOps flow from real needs identified to value realized"
+						loading="eager"
+					/>
 				</div>
 			</div>
 		</section>
@@ -104,12 +119,12 @@ const iconPaths = {
 
 		<section class="wrapper section-block">
 			<div class="section-intro">
-				<p class="eyebrow">What is growing here?</p>
-				<h2>API programs grow when the system around APIs works.</h2>
+				<p class="eyebrow">What this checks</p>
+				<h2>API programs move when the system around APIs works.</h2>
 			</div>
 			<div class="metaphor-grid">
 				{
-					growthAreas.map((area) => (
+					focusAreas.map((area) => (
 						<article class="metaphor-card reveal-on-scroll">
 							<svg viewBox="0 0 128 128" aria-hidden="true" set:html={iconPaths[area.icon]} />
 							<h3>{area.title}</h3>
@@ -123,7 +138,7 @@ const iconPaths = {
 		<section class="problem-band">
 			<div class="wrapper problem-grid">
 				<div class="section-intro">
-					<p class="eyebrow">Common API growth problems</p>
+					<p class="eyebrow">Common API delivery problems</p>
 					<h2>Weak connections show up as practical delivery problems.</h2>
 					<p>
 						Most API programs do not fail because teams lack APIs. They struggle because
@@ -311,7 +326,7 @@ const iconPaths = {
 			],
 		},
 		{
-			text: 'Which giveaway tag did you pick?',
+			text: 'Which APIOps Cycles theme feels most relevant now?',
 			answers: [
 				{ label: 'Create Value', scores: { productStrategy: 1 } },
 				{ label: 'Avoid Spaghetti', scores: { design: 1 } },
@@ -321,7 +336,7 @@ const iconPaths = {
 				{ label: 'Be Discoverable', scores: { publishing: 1 } },
 				{ label: 'Reduce Friction', scores: { consumerExperience: 1 } },
 				{ label: 'Learn. Adapt. Improve.', scores: { monitoringImproving: 1 } },
-				{ label: "I did not pick one / I don't remember", scores: {} },
+				{ label: "I am not sure yet", scores: {} },
 			],
 		},
 		{
@@ -501,18 +516,43 @@ const iconPaths = {
 		--connect-navy: #102436;
 		--connect-teal: #08786f;
 		--connect-teal-dark: #064f46;
-		--connect-mint: #e7f7f2;
-		--connect-sage: #dcebd6;
-		--connect-blue: #3f8fd2;
-		--connect-yellow: #f2c94c;
-		--connect-tomato: #d94c3d;
+		--connect-mint: #f3faf8;
 		--connect-ink: #314153;
-		--connect-border: rgba(8, 79, 70, 0.16);
+		--connect-border: rgba(49, 65, 83, 0.14);
 
-		background:
-			linear-gradient(180deg, rgba(231, 247, 242, 0.9) 0, #ffffff 24rem),
-			#ffffff;
+		background: #ffffff;
 		color: var(--connect-ink);
+	}
+
+	body:has(.connect-page) {
+		background-color: #ffffff;
+		background-image: none;
+		color: #314153;
+	}
+
+	body:has(.connect-page) nav .logo {
+		fill: #102436;
+	}
+
+	body:has(.connect-page) nav .link {
+		color: #314153;
+	}
+
+	body:has(.connect-page) nav .link:hover,
+	body:has(.connect-page) nav .link:focus {
+		color: #102436;
+		background-color: rgba(8, 120, 111, 0.08);
+	}
+
+	body:has(.connect-page) nav .nav-items,
+	body:has(.connect-page) nav .menu-footer {
+		background-color: #ffffff;
+	}
+
+	body:has(.connect-page) nav .nav-cta {
+		border-color: rgba(49, 65, 83, 0.28);
+		color: #102436;
+		background: rgba(255, 255, 255, 0.72);
 	}
 
 	.connect-page a {
@@ -580,123 +620,14 @@ const iconPaths = {
 
 	.hero-visual {
 		position: relative;
-		min-height: 23rem;
-		overflow: hidden;
-		border: 1px solid var(--connect-border);
-		border-radius: var(--rounded-sm);
-		background:
-			linear-gradient(135deg, rgba(231, 247, 242, 0.9), rgba(255, 255, 255, 0.94)),
-			repeating-linear-gradient(90deg, rgba(16, 36, 54, 0.04) 0 1px, transparent 1px 4.25rem);
-		box-shadow: var(--shadow-md);
+		display: grid;
+		place-items: center;
+		overflow: visible;
 	}
 
-	.metro-line,
-	.cords {
-		position: absolute;
-		border-radius: 999rem;
-	}
-
-	.metro-line-a {
-		inset: auto -8rem 4rem 3rem;
-		height: 0.55rem;
-		background: var(--connect-blue);
-		transform: rotate(-8deg);
-	}
-
-	.metro-line-b {
-		inset: 5rem -6rem auto 4rem;
-		height: 0.55rem;
-		background: var(--connect-yellow);
-		transform: rotate(12deg);
-	}
-
-	.tomato-stand {
-		position: absolute;
-		inset: 3rem 2rem 2rem;
-		border: 0.18rem solid rgba(16, 36, 54, 0.72);
-		border-bottom-width: 0.35rem;
-		border-radius: 0.2rem;
-	}
-
-	.cords {
-		inset: 0.7rem 1.4rem auto;
-		height: 8rem;
-		background:
-			linear-gradient(100deg, transparent 0 18%, var(--connect-teal) 18% 21%, transparent 21% 40%, var(--connect-teal) 40% 43%, transparent 43% 64%, var(--connect-teal) 64% 67%, transparent 67%),
-			linear-gradient(80deg, transparent 0 30%, rgba(16, 36, 54, 0.28) 30% 32%, transparent 32% 58%, rgba(16, 36, 54, 0.28) 58% 60%, transparent 60%);
-	}
-
-	.plant {
-		position: absolute;
-		left: 50%;
-		bottom: 2.2rem;
-		width: 0.28rem;
-		height: 11rem;
-		background: var(--connect-teal-dark);
-		transform: translateX(-50%);
-	}
-
-	.plant span {
-		position: absolute;
-		width: 5rem;
-		height: 2.1rem;
-		border: 1px solid rgba(8, 79, 70, 0.2);
-		border-radius: 999rem 999rem 0 999rem;
-		background: var(--connect-sage);
-	}
-
-	.plant span:nth-child(1) {
-		top: 2.4rem;
-		right: 0;
-		transform: rotate(22deg);
-	}
-
-	.plant span:nth-child(2) {
-		top: 5rem;
-		left: 0;
-		transform: rotate(155deg);
-	}
-
-	.plant span:nth-child(3) {
-		top: 7.6rem;
-		right: 0;
-		transform: rotate(18deg);
-	}
-
-	.tomato {
-		position: absolute;
-		width: 2.5rem;
-		aspect-ratio: 1;
-		border-radius: 50%;
-		background: var(--connect-tomato);
-		box-shadow: inset -0.35rem -0.45rem 0 rgba(115, 26, 20, 0.18);
-	}
-
-	.tomato::before {
-		content: '';
-		position: absolute;
-		top: -0.25rem;
-		left: 50%;
-		width: 1.2rem;
-		height: 0.55rem;
-		background: var(--connect-teal-dark);
-		clip-path: polygon(50% 0, 62% 42%, 100% 28%, 70% 65%, 86% 100%, 50% 76%, 14% 100%, 30% 65%, 0 28%, 38% 42%);
-		transform: translateX(-50%);
-	}
-
-	.tomato-one {
-		left: 38%;
-		bottom: 6.5rem;
-	}
-
-	.tomato-two {
-		left: 55%;
-		bottom: 8.5rem;
-	}
-
-	.tomato-three {
-		left: 50%;
-		bottom: 3.7rem;
+	.metro-map-image {
+		width: min(100%, 70rem);
+		height: auto;
 	}
 
 	.section-block,
@@ -720,8 +651,8 @@ const iconPaths = {
 	.problem-band {
 		border-block: 1px solid var(--connect-border);
 		background:
-			linear-gradient(90deg, rgba(220, 235, 214, 0.7), rgba(216, 236, 251, 0.5)),
-			#f8fbfb;
+			linear-gradient(90deg, rgba(248, 250, 252, 0.96), rgba(240, 247, 252, 0.74)),
+			#f8fafc;
 	}
 
 	.diagnostic-card {
@@ -988,11 +919,16 @@ const iconPaths = {
 	}
 
 	@media (min-width: 50em) {
-		.hero-grid,
 		.diagnostic-grid,
 		.problem-grid {
 			grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.9fr);
 			align-items: center;
+		}
+
+		.hero-grid {
+			grid-template-columns: minmax(0, 1fr);
+			align-items: start;
+			gap: 2.75rem;
 		}
 
 		.connect-page h1 {
@@ -1000,7 +936,7 @@ const iconPaths = {
 		}
 
 		.hero-visual {
-			min-height: 30rem;
+			justify-items: start;
 		}
 
 		.metaphor-grid {
