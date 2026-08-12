@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CallToAction from '../components/CallToAction.astro';
+import Icon from '../components/Icon.astro';
+
+const themes = [
+  {
+    title: 'Beyond the API Economy',
+    text: 'Why APIs are only one way to provide or consume digital capabilities, and what changes when organisations start from the capability and the consumer rather than the interface.',
+  },
+  {
+    title: 'APIOps Cycles',
+    text: 'A practical way to move from uncertainty to evidence-based decisions across capability, API, integration and automation work.',
+  },
+  {
+    title: 'AI-ready starts long before the AI',
+    text: 'Why useful AI depends on architecture, ownership, integrations, reusable capabilities and operating practices that often need attention before the model itself becomes the main question.',
+  },
+  {
+    title: 'Platforms, APIs and productization',
+    text: 'How shared technology becomes more useful when organisations treat it around clear consumers, ownership, lifecycle, value and product responsibilities.',
+  },
+  {
+    title: 'Governance that enables delivery',
+    text: 'How to create enough consistency and control for APIs, integrations and platforms without turning governance into another layer of approval bureaucracy.',
+  },
+];
+---
+
+<BaseLayout
+  title="Speaking | Osaango"
+  description="Talks by Marjukka Niinioja for organisations dealing with APIs, integrations, platforms, AI and real digital change."
+>
+  <main class="wrapper speaking-page">
+    <section class="hero-block">
+      <p class="eyebrow"><span></span> Speaking</p>
+      <h1>Talks for organisations dealing with real digital change.</h1>
+      <p>Marjukka Niinioja speaks at international conferences, leadership events and company sessions about the decisions and organisational changes behind APIs, integrations, platforms, AI and digital productization.</p>
+      <p>The talks are designed for audiences who want more than technology trends. They connect strategy, architecture, product thinking, operating models and practical delivery, and are grounded in work with real organisations.</p>
+    </section>
+
+    <section class="theme-section">
+      <div>
+        <p class="eyebrow"><span></span> Current themes</p>
+        <h2>Topics that connect strategy, architecture and delivery.</h2>
+      </div>
+      <div class="theme-list">
+        {themes.map((theme) => (
+          <article>
+            <h3>{theme.title}</h3>
+            <p>{theme.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="format-section">
+      <h2>Formats</h2>
+      <p>Talks can be delivered as conference keynotes, breakout sessions, leadership briefings, internal company talks or interactive workshops. Topics and examples can be adapted to the audience and the context of the event.</p>
+    </section>
+
+    <section class="contact-block">
+      <img class="speaker-photo" src="/assets/experts/marjukka-niinioja.jpg" alt="Marjukka Niinioja" loading="lazy" />
+      <div class="contact-copy">
+        <h2>Invite Marjukka to speak</h2>
+        <p>If you are organising a conference, leadership event, customer event or internal company session, contact us with the audience, format and the problem or theme you want the session to address.</p>
+      </div>
+      <CallToAction href="https://calendly.com/marjukka-niinioja/meet-with-marjukka">Discuss a speaking engagement <Icon icon="arrow-right" /></CallToAction>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .speaking-page {
+    display: grid;
+    gap: clamp(4rem, 8vw, 7rem);
+    padding-block: clamp(4rem, 8vw, 7rem);
+  }
+
+  .hero-block,
+  .format-section {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 58rem;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    color: var(--apiops-accent-community);
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow span {
+    width: 2rem;
+    height: 3px;
+    background: var(--color-cycle-capability);
+  }
+
+  h1 {
+    font-size: clamp(3rem, 6vw, 5.5rem) !important;
+    letter-spacing: -.055em;
+    max-width: 13ch;
+  }
+
+  .hero-block p,
+  .theme-list p,
+  .format-section p,
+  .contact-block p {
+    color: var(--muted);
+    font-size: var(--text-lg);
+  }
+
+  .theme-section {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .theme-section h2,
+  .format-section h2,
+  .contact-block h2 {
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+  }
+
+  .theme-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .theme-list article {
+    display: grid;
+    gap: .65rem;
+    padding: 1.35rem;
+    border: 1px solid var(--panel-border);
+    border-radius: var(--rounded-sm);
+    background: #fff;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .theme-list h3 {
+    font-size: 1.35rem;
+  }
+
+  .contact-block {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem;
+    border: 1px solid var(--panel-border);
+    border-radius: var(--rounded-sm);
+    background: var(--gradient-subtle);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .speaker-photo {
+    width: min(11rem, 45vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 5px solid #fff;
+    box-shadow: var(--shadow-md);
+  }
+
+  .contact-copy {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 50em) {
+    .theme-section {
+      grid-template-columns: .7fr 1.3fr;
+    }
+
+    .theme-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-block {
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+    }
+  }
+</style>

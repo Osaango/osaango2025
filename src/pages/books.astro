@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CallToAction from '../components/CallToAction.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<BaseLayout
+  title="Books and thought leadership from Osaango"
+  description="Books and thinking from Osaango on capability-centered API, integration, platform and architecture work."
+>
+  <main>
+    <section class="wrapper books-hero">
+      <div class="book-cover" aria-hidden="true">
+        <span>Beyond</span>
+        <span>the API</span>
+        <span>Economy</span>
+      </div>
+      <div class="book-copy">
+        <p class="eyebrow"><span></span> Book</p>
+        <h1>Beyond the API Economy</h1>
+        <p>What if the API, integration or AI solution is not the right place to start?</p>
+        <p><em>Beyond the API Economy</em> looks at digital change through the capabilities that people and organisations need. It explores how those capabilities can be productized and how APIs, integrations, automation and other means can be used to provide and consume them.</p>
+        <p>The book also introduces the four current APIOps Cycles and the thinking behind the method.</p>
+        <div class="actions">
+          <CallToAction href="/events/fixing-api-delivery-at-scale-apiops-cycles/">Explore APIOps Cycles <Icon icon="arrow-right" /></CallToAction>
+          <CallToAction href="/blog/" variant="secondary">Browse Osaango's books and free resources</CallToAction>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .books-hero {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+    min-height: clamp(36rem, 70vh, 48rem);
+    padding-block: clamp(4rem, 9vw, 8rem);
+  }
+
+  .book-cover {
+    display: grid;
+    align-content: end;
+    gap: .2rem;
+    min-height: 26rem;
+    padding: 2rem;
+    border-radius: .55rem;
+    background: linear-gradient(145deg, var(--color-neutral-graphite), #12469b);
+    color: #fff;
+    box-shadow: var(--shadow-lg);
+    font: 800 clamp(2rem, 5vw, 4rem)/1.02 var(--font-brand);
+  }
+
+  .book-copy {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 42rem;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    color: var(--apiops-accent-community);
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow span {
+    width: 2rem;
+    height: 3px;
+    background: var(--color-cycle-capability);
+  }
+
+  h1 {
+    font-size: clamp(3rem, 7vw, 6rem) !important;
+    letter-spacing: -.055em;
+  }
+
+  .book-copy p {
+    color: var(--muted);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+  }
+
+  @media (min-width: 50em) {
+    .books-hero {
+      grid-template-columns: minmax(18rem, .75fr) 1fr;
+      gap: 5rem;
+    }
+  }
+</style>

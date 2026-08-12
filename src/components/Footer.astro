@@ -2,35 +2,66 @@
 ---
 
 <footer>
-        <div class="columns">
-                <div>Osaango Oy is a private limited company registered in Finland.</div>
-                <div>
-                        Osaango Oy,<br />
-                        PO Box 10<br />
-                        11101 Riihimäki, Finland
+        <div class="footer-inner">
+                <div class="footer-brand">
+                        <strong>Make change flow.</strong>
+                        <p>Strategy, architecture and ways of working for organisations navigating difficult digital change.</p>
                 </div>
-                <div>
-                        info@osaango.com<br />
+                <div class="columns">
+                        <div>Osaango Oy is a private limited company registered in Finland.</div>
+                        <div>
+                                Osaango Oy,<br />
+                                PO Box 10<br />
+                                11101 Riihimäki, Finland
+                        </div>
+                        <div>
+                                info@osaango.com<br />
+                        </div>
+                        <div>
+                                Trade register: 2881365-2<br />
+                                VAT registration: FI28813652<br />
+                                DUNS: 368558872
+                        </div>
                 </div>
-                <div>
-                        Trade register: 2881365-2<br />
-                        VAT registration: FI28813652<br />
-                        DUNS: 368558872
-                </div>
+                <p class="copyright">&copy; 2026 Osaango. All rights reserved. <a href="/privacy-policy/">Privacy</a></p>
         </div>
-        <p class="copyright">&copy; 2025 Osaango. All rights reserved.</p>
 </footer>
 
 <style>
         footer {
-                display: flex;
-                flex-direction: column;
-                gap: 1.5rem;
                 margin-top: auto;
-                padding: 3rem 2rem 3rem;
-                text-align: center;
-                color: var(--gray-400);
+                background: var(--color-neutral-graphite);
+                color: #cbd5e1;
                 font-size: var(--text-sm);
+                text-align: left;
+        }
+
+        .footer-inner {
+                display: grid;
+                gap: 2.5rem;
+                width: 100%;
+                max-width: 83rem;
+                margin-inline: auto;
+                padding: clamp(3rem, 6vw, 5rem) 1.5rem;
+        }
+
+        .footer-brand {
+                display: grid;
+                gap: .5rem;
+                max-width: 38rem;
+        }
+
+        .footer-brand strong {
+                color: white;
+                font: 600 clamp(1.8rem, 4vw, 3.2rem)/1 var(--font-display);
+        }
+
+        .footer-brand p {
+                font-size: var(--text-md);
+        }
+
+        footer a {
+                color: white;
         }
 
         .columns {
@@ -49,19 +80,12 @@
         @media (min-width: 40em) {
                 .columns {
                         grid-template-columns: repeat(2, 1fr);
-                        text-align: left;
                 }
         }
 
         @media (min-width: 64em) {
                 .columns {
                         grid-template-columns: repeat(4, 1fr);
-                }
-        }
-
-        @media (min-width: 50em) {
-                footer {
-                        padding: 2.5rem 5rem;
                 }
         }
 </style>

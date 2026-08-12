@@ -1,496 +1,315 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import CallToAction from '../components/CallToAction.astro';
 import ContactCTA from '../components/ContactCTA.astro';
-import Grid from '../components/Grid.astro';
-import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
-import Skills from '../components/Skills.astro';
-import BlogPreview from '../components/BlogPreview.astro';
-import Quote from '../components/Quote.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
-import apiopsCyclesWS from '../assets/service-images/accelerate-your-apis-with-apiops-cycles.jpg';
 import agilePeopleInt from '../assets/osaango-platform-growth.png';
 
-const projects = (await getCollection('work'))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 4);
+const selectedProjectIds = [
+  'integration-architecture-design-for-strategic-transformation',
+  'platform-product-vision-for-ai-enabled-services',
+  'api-governance-transformation-for-scalable-growth',
+];
 
-const posts = (await getCollection('blog'))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 3);
+const projects = (await getCollection('work'))
+  .filter((project) => selectedProjectIds.includes(project.id))
+  .sort((a, b) => selectedProjectIds.indexOf(a.id) - selectedProjectIds.indexOf(b.id));
+
+const services = [
+  { number: '01', title: 'Understand what is blocking progress', text: 'We clarify what the organisation is trying to achieve, what is getting in the way, and where unclear ownership, dependencies or competing priorities are making progress difficult.' },
+  { number: '02', title: 'Design how it should work', text: 'We work out how responsibilities, architecture, platforms, governance and ways of working need to come together to support the change and the business outcomes behind it.' },
+  { number: '03', title: 'Make the change sustainable', text: 'We turn those decisions into practical operating models, reusable capabilities and ways of working that teams can apply, improve and scale as the organisation evolves.' },
+];
+
+const helpAreas = [
+  {
+    title: 'Strategy, ownership & operating models',
+    text: 'We help when responsibilities, decision-making and ways of working no longer support what the organisation is trying to achieve, or when several teams need to work together but ownership and decision rights are unclear.',
+    href: '/how-we-help/',
+  },
+  {
+    title: 'Architecture & integration modernisation',
+    text: 'We help organisations modernise when legacy systems, accumulated integrations or architecture choices are making change slower, riskier or more expensive than it needs to be.',
+    href: '/work/integration-architecture-design-for-strategic-transformation/',
+  },
+  {
+    title: 'Platforms, APIs & productization',
+    text: 'We help turn shared platforms, APIs, integrations and other reusable assets into products that have clear consumers, ownership, value, lifecycle decisions and a reason to evolve.',
+    href: '/work/platform-product-vision-for-ai-enabled-services/',
+  },
+  {
+    title: 'Governance that enables delivery',
+    text: 'We design governance that gives teams useful principles, responsibilities and guardrails without creating unnecessary approval layers or separating governance from the realities of delivery.',
+    href: '/work/api-governance-transformation-for-scalable-growth/',
+  },
+  {
+    title: 'AI & automation readiness',
+    text: 'We help organisations work out where AI and automation can create real value and whether the architecture, integrations, information, responsibilities and operating practices are ready to support them.',
+    href: '/blog/capability-orchestration-missing-layer-in-digital-strategy/',
+  },
+];
+
+const waysToWork = [
+  {
+    title: 'Consulting and advisory',
+    text: 'We work with organisations on strategy, architecture, governance, platforms, APIs, integrations and transformation challenges. Engagements can range from focused assessments and decision support to longer programmes where several parts of the organisation need to change together.',
+    href: '/how-we-help/',
+  },
+  {
+    title: 'Coaching',
+    text: 'We coach architects, product managers, technology leaders and other people who are responsible for making change happen across organisational boundaries.',
+    href: '/how-we-help/',
+  },
+  {
+    title: 'Training and workshops',
+    text: 'We provide practical training and facilitated workshops on API and integration management, product thinking, architecture, governance, AI readiness and APIOps Cycles.',
+    href: '/how-we-help/',
+  },
+  {
+    title: 'Speaking',
+    text: 'We speak at conferences, leadership events and internal company events about APIs, integrations, capability and product thinking, AI readiness, APIOps Cycles and the organisational challenges behind digital transformation.',
+    href: '/speaking/',
+  },
+  {
+    title: 'APIOps Community and partnerships',
+    text: 'Organisations and practitioners can join, host or partner with the global APIOps Community through meetups, conferences, shared methods and collaboration.',
+    href: 'https://apiops.info/',
+  },
+];
+
 ---
 
-<BaseLayout isHome={true}>
-	<div class="stack gap-20 lg:gap-48">
-		<div class="wrapper stack gap-8 lg:gap-20">
-			<header class="hero">
-				<Hero
-					tagline="We help organisations modernise APIs, integrations and platforms - so teams can deliver AI-enabled products, scalable architectures and better customer experiences without losing governance or control."
-					align="start"
-				>
-					<Fragment slot="title">
-						Modernise APIs, integrations and platforms for the <span class="highlight">AI era.</span>
-					</Fragment>
-					<div class="hero-actions">
-						<CallToAction href="https://calendly.com/marjukka-niinioja/meet-with-marjukka">
-							Book a strategy call
-							<Icon icon="paper-plane-tilt" size="1.2em" />
-						</CallToAction>
-						<CallToAction href="/work/" variant="secondary">
-							Explore our work
-							<Icon icon="arrow-right" size="1.2em" />
-						</CallToAction>
-					</div>
-				</Hero>
-				<Image
-					src={agilePeopleInt}
-					alt="digital tree made of people and integration icons"
-					width={1536}
-					height={1024}
-					sizes="(max-width: 50em) 90vw, min(56vw, 46rem)"
-					widths={[480, 720, 960, 1200, 1536]}
-					format="webp"
-					loading="eager"
-					fetchpriority="high"
-				/>
-			</header>
+<BaseLayout
+  title="Make complex change flow. | Osaango"
+  description="Osaango helps organisations move difficult digital change forward when strategy, architecture, technology, ownership and ways of working need to change together."
+  isHome={true}
+>
+  <main>
+    <section class="hero-shell wrapper">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Strategy &middot; Architecture &middot; Change</p>
+        <h1>Make complex change <em>flow.</em></h1>
+        <p class="lead">We help organisations move difficult digital change forward when strategy, architecture, technology, ownership and ways of working need to change together.</p>
+        <div class="actions">
+          <CallToAction href="https://calendly.com/marjukka-niinioja/meet-with-marjukka">Start a conversation <Icon icon="arrow-right" /></CallToAction>
+          <CallToAction href="/work/" variant="secondary">See our work</CallToAction>
+        </div>
+      </div>
+      <Image
+        class="hero-ecosystem"
+        src={agilePeopleInt}
+        alt="Digital tree made of people and integration icons"
+        width={1536}
+        height={1024}
+        sizes="(max-width: 50em) 90vw, min(56vw, 46rem)"
+        widths={[480, 720, 960, 1200, 1536]}
+        format="webp"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </section>
 
-			<Quote
-				quote="Working together has clarified our customer and market insights and given a stronger direction of integration capabilities for our US expansion. Our strategies are grounded in deep customer understanding. I am now confident in the road ahead. A truly valuable collaboration."
-				author="Chief Product Officer"
-				role="Global SaaS Company"
-			/>
+    <section class="wrapper hero-testimonial" aria-label="Customer testimonial">
+      <figure>
+        <blockquote>
+          <p>Working together has clarified our customer and market insights and given a stronger direction of integration capabilities for our US expansion. Our strategies are grounded in deep customer understanding. I am now confident in the road ahead. A truly valuable collaboration.</p>
+        </blockquote>
+        <figcaption>
+          <strong>Chief Product Officer</strong>
+          <span>Global SaaS Company</span>
+        </figcaption>
+      </figure>
+    </section>
 
-			<section class="positioning">
-				<div class="positioning-content stack gap-4">
-					<h2>Architecture, APIs and AI - connected in practice</h2>
-					<p>Most organisations do not struggle with a lack of tools. They struggle with fragmented architectures, disconnected teams, legacy integrations and unclear ownership.</p>
-					<p>Osaango helps organisations align APIs, integrations, platform strategy and operating models into practical capabilities that support long-term growth, customer value and AI readiness.</p>
-				</div>
-				<ul class="capability-list">
-					<li>API and integration strategy</li>
-					<li>Architecture renewal</li>
-					<li>Platform product strategy</li>
-					<li>Governance and operating models</li>
-					<li>Capability orchestration for AI-enabled services</li>
-				</ul>
-			</section>
+    <section class="signal-bar">
+      <div class="wrapper signal-inner">
+        <p>For leaders navigating</p>
+        <ul><li>AI readiness</li><li>Platform strategy</li><li>Architecture renewal</li><li>API & integration governance</li></ul>
+      </div>
+    </section>
 
-			<Skills />
-		</div>
+    <section class="wrapper section-block approach">
+      <div class="section-intro">
+        <p class="eyebrow"><span></span> How we help</p>
+        <h2>Clarity across the whole system.</h2>
+        <p>Digital transformation rarely gets stuck because of one technology or one team. Business goals, ownership, architecture and ways of working all affect what can actually be delivered.</p>
+        <p>We help organisations understand where change is getting stuck, make the decisions needed to move forward, and turn those decisions into practical changes that teams can actually implement.</p>
+      </div>
+      <ol class="service-grid">
+        {services.map((service) => <li><span>{service.number}</span><h3>{service.title}</h3><p>{service.text}</p></li>)}
+      </ol>
+    </section>
 
-		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="intro">
-				<div class="promo-content">
-					<div class="text stack gap-4">
-						<header class="section-header stack gap-2 lg:gap-4">
-							<h3>AI-ready APIs and integration architectures</h3>
-							<p>Modern AI systems increasingly rely on APIs, integrations and reusable platform capabilities.</p>
-							<p>Osaango helps organisations design architectures that support AI-enabled products, intelligent automation, reusable business capabilities, governed platform ecosystems and scalable integration landscapes.</p>
-							<p>We connect enterprise architecture, integration strategy and capability orchestration so AI opportunities can move from experiments into reliable digital services.</p>
-						</header>
-						<div class="cta">
-							<CallToAction href="/work/">
-								Explore our work
-								<Icon icon="arrow-right" size="1.2em" />
-							</CallToAction>
-						</div>
-					</div>
-					<div class="promo-image">
-						<Image
-							src={apiopsCyclesWS}
-							alt="business people looking at the APIOps Cycles metro map"
-							width={1200}
-							height={675}
-							widths={[280, 360, 480, 600, 660]}
-							sizes="(max-width: 50em) 70vw, 660px"
-							format="webp"
-							loading="eager"
-							fetchpriority="high"
-							class="service-image"
-						/>
-					</div>
-				</div>
-			</section>
+    <section class="dark-panel">
+      <div class="wrapper dark-grid">
+        <div>
+          <p class="eyebrow light"><span></span> Our perspective</p>
+          <h2>AI-ready starts long before the AI.</h2>
+        </div>
+        <div class="dark-copy">
+          <p>AI readiness is not just about models or data. Organisations also need to understand which capabilities matter, where responsibilities sit, how systems and information connect, and what can safely be reused or automated.</p>
+          <p>We work on those foundations across architecture, platforms, APIs, integrations and operating models. This helps organisations move beyond isolated AI experiments and build useful services that fit their architecture, responsibilities and ways of working.</p>
+          <a href="/about/">How we think <Icon icon="arrow-right" /></a>
+        </div>
+      </div>
+    </section>
 
-			<section class="product-thinking">
-				<div class="product-thinking-content stack gap-4">
-					<h3>Platforms are products</h3>
-					<p>APIs, integrations and shared services are not just technical assets. They are reusable business capabilities that shape customer experience, scalability and innovation.</p>
-					<p>Osaango helps organisations align platform strategy, product ownership, architecture, governance, AI opportunities and delivery capabilities into practical transformation roadmaps.</p>
-					<p>We support platform and product leaders in turning capability orchestration into operating models, roadmaps and measurable customer value.</p>
-				</div>
-				<ul class="capability-list">
-					<li>Platform strategy and product ownership</li>
-					<li>Reusable business capabilities</li>
-					<li>Architecture and governance</li>
-					<li>AI opportunity alignment</li>
-					<li>Delivery capability roadmaps</li>
-				</ul>
-			</section>
+    <section class="wrapper section-block help-section">
+      <div class="section-intro">
+        <p class="eyebrow"><span></span> Where we typically help</p>
+        <h2>Specific problems, connected work.</h2>
+        <p>The problems we are asked to help with often appear in one part of the organisation, but their causes cross several boundaries. We work across strategy, architecture, technology and ways of working to understand the whole problem rather than treating only the most visible symptom.</p>
+      </div>
+      <ul class="help-list">
+        {helpAreas.map((area) => (
+          <li>
+            <a href={area.href}>
+              <span>{area.title}</span>
+              <p>{area.text}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
 
-			<section class="positioning">
-				<div class="positioning-content stack gap-4">
-					<h3>Capability orchestration as a transformation lens</h3>
-					<p>Capability orchestration connects business goals, platform capabilities, APIs, integrations, data and AI-enabled workflows into a coherent architecture and delivery model.</p>
-					<p>It helps leaders see which capabilities should be reused, governed, exposed through platforms or APIs, and evolved into intelligent products and services.</p>
-				</div>
-				<ul class="capability-list">
-					<li>Enterprise capability mapping</li>
-					<li>API and platform portfolio decisions</li>
-					<li>AI-compatible architecture choices</li>
-					<li>Business and technology alignment</li>
-					<li>Transformation roadmap design</li>
-				</ul>
-			</section>
+    <section class="wrapper section-block work-section">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span></span> Selected work</p><h2>Change, made tangible.</h2></div>
+        <a href="/work/">View all work <Icon icon="arrow-right" /></a>
+      </div>
+      <p class="section-lead">Our work ranges from architecture renewal and integration modernisation to platform strategy, governance and AI readiness. The situations are different, but they often share the same challenge: the change crosses organisational and technical boundaries, and the existing architecture, ownership or ways of working no longer fit what needs to happen next.</p>
+      <ul class="work-grid">{projects.map((project) => <li><PortfolioPreview project={project} /></li>)}</ul>
+    </section>
 
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p>Anonymised examples of architecture renewal, integration governance, platform product strategy, AI-enabled services and AI-ready API work.</p>
-				</header>
+    <section class="wrapper section-block ways-section">
+      <div class="section-intro">
+        <p class="eyebrow"><span></span> Ways to work with us</p>
+        <h2>Different challenges need different kinds of support.</h2>
+        <p>Some organisations need help solving a specific architecture or operating-model problem. Others need ongoing support for a transformation, practical training for their teams, or an outside perspective that helps leaders make better decisions.</p>
+        <p>We work in different ways depending on what will help the situation move forward.</p>
+      </div>
+      <div class="ways-grid">
+        {waysToWork.map((way) => (
+          <a class="ways-card" href={way.href}>
+            <h3 class="ways-card-title">{way.title}</h3>
+            <p class="ways-card-text">{way.text}</p>
+            <span class="ways-card-link">Learn more</span>
+          </a>
+        ))}
+      </div>
+      <a class="text-link" href="/how-we-help/">Talk to us about working together <Icon icon="arrow-right" /></a>
+    </section>
 
-				<div class="gallery">
-					<Grid variant="offset">
-						{
-							projects.map((project) => (
-								<li>
-									<PortfolioPreview project={project} />
-								</li>
-							))
-						}
-					</Grid>
-				</div>
+    <section class="method-band">
+      <div class="wrapper method-grid">
+        <div>
+          <p class="eyebrow"><span></span> APIOps Cycles</p>
+          <h2>From uncertainty to decisions.</h2>
+        </div>
+        <div class="method-copy">
+          <ul class="method-entry-points">
+            <li>Capability</li>
+            <li>API</li>
+            <li>Integration</li>
+            <li>Automation</li>
+          </ul>
+          <p>APIOps Cycles is a practical method for working through decisions where business needs, architecture, product thinking and technology meet.</p>
+          <p>The four cycles help teams identify the uncertainty that is preventing progress, gather the evidence they need, and make better decisions about capabilities, APIs, integrations and automation. The method connects those decisions to productization, governance and the way the resulting capabilities are provided and consumed.</p>
+          <p>You do not have to begin with a particular cycle. You start with the question or uncertainty that needs to be resolved and use the cycle that helps you work through it.</p>
+          <a href="/events/fixing-api-delivery-at-scale-apiops-cycles/">Explore APIOps Cycles <Icon icon="arrow-right" /></a>
+        </div>
+      </div>
+    </section>
 
-				<div class="cta">
-					<CallToAction href="/work/">
-						View All
-						<Icon icon="arrow-right" size="1.2em" />
-					</CallToAction>
-				</div>
-			</section>
-
-			<section class="intro">
-				<div class="promo-content">
-					<div class="text stack gap-4">
-						<header class="section-header stack gap-2 lg:gap-4">
-							<h3>APIOps Cycles as a transformation capability</h3>
-							<p>APIOps Cycles helps organisations align APIs, integrations, architecture, governance and delivery into a shared transformation model.</p>
-							<p>It combines business strategy, platform product thinking, architecture, governance, delivery practices and API lifecycle management into one practical operational framework.</p>
-						</header>
-						<div class="cta">
-							<CallToAction href="/services/accelerate-your-apis-with-apiops-cycles/">
-								View APIOps Cycles workshop
-								<Icon icon="arrow-right" size="1.2em" />
-							</CallToAction>
-						</div>
-					</div>
-					<div class="promo-image">
-						<Image
-							src={apiopsCyclesWS}
-							alt="business people looking at the APIOps Cycles metro map"
-							width={1200}
-							height={675}
-							widths={[280, 360, 480, 600, 660]}
-							sizes="(max-width: 50em) 70vw, 660px"
-							format="webp"
-							loading="lazy"
-							class="service-image"
-						/>
-					</div>
-				</div>
-			</section>
-
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Latest Insights</h3>
-					<p>Practical writing on AI-ready APIs, agentic architectures, platform capability design, integration governance, API operating models, architecture modernisation, capability orchestration and AI-driven product strategy.</p>
-					<div class="topic-list">
-						<span>AI-ready APIs</span>
-						<span>Agentic architectures</span>
-						<span>Platform capabilities</span>
-						<span>Integration governance</span>
-						<span>Capability orchestration</span>
-					</div>
-				</header>
-
-				<div class="gallery">
-					<Grid variant="small">
-						{
-							posts.map((post) => (
-								<li>
-									<BlogPreview post={post} />
-								</li>
-							))
-						}
-					</Grid>
-				</div>
-
-				<div class="cta">
-					<CallToAction href="/blog/">
-						View All
-						<Icon icon="arrow-right" size="1.2em" />
-					</CallToAction>
-				</div>
-			</section>
-		</main>
-
-		<ContactCTA />
-	</div>
+    <section class="wrapper section-block thinking-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow"><span></span> Thought leadership</p>
+          <h2>The thinking behind the work.</h2>
+        </div>
+        <a href="/blog/">Explore our thinking <Icon icon="arrow-right" /></a>
+      </div>
+      <div class="thinking-card">
+        <div class="book-cover" aria-hidden="true">
+          <span>Beyond</span>
+          <span>the API</span>
+          <span>Economy</span>
+        </div>
+        <div class="book-copy">
+          <strong>Beyond the API Economy</strong>
+          <p>What if the API, integration or AI solution is not the right place to start?</p>
+          <p><em>Beyond the API Economy</em> looks at digital change through the capabilities that people and organisations need. It explores how those capabilities can be productized and how APIs, integrations, automation and other means can be used to provide and consume them.</p>
+          <p>The book also introduces the four current APIOps Cycles and the thinking behind the method.</p>
+          <a href="/books/">Explore the book <Icon icon="arrow-right" /></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <ContactCTA />
 </BaseLayout>
 
 <style>
-	.hero {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2.25rem;
-	}
-
-	.hero img {
-		object-fit: contain;
-		object-position: center;
-		border: 0;
-	}
-
-	.hero-actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1rem;
-		width: 100%;
-	}
-
-	.hero-actions :global(a) {
-		flex: 1 1 13rem;
-		max-width: 100%;
-	}
-
-	.positioning,
-	.product-thinking {
-		display: grid;
-		gap: 1.5rem;
-		padding: 1.5rem;
-		border: 1px solid var(--gray-800);
-		border-radius: var(--rounded-sm);
-		background: var(--gradient-subtle);
-		box-shadow: var(--shadow-sm);
-	}
-
-	.positioning-content,
-	.product-thinking-content {
-		max-width: 65ch;
-	}
-
-	.positioning-content p,
-	.product-thinking-content p {
-		color: var(--gray-300);
-		font-size: var(--text-md);
-	}
-
-	.capability-list,
-	.topic-list {
-		list-style: none;
-		padding: 0;
-	}
-
-	.capability-list {
-		display: grid;
-		gap: 0.75rem;
-		align-content: start;
-	}
-
-	.capability-list li {
-		padding: 0.75rem 1rem;
-		border: 1px solid var(--gray-800);
-		border-radius: var(--rounded-sm);
-		background-color: rgba(255, 255, 255, 0.68);
-		color: var(--gray-200);
-		font-weight: 700;
-	}
-
-	.topic-list {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-		margin-top: 0.5rem;
-	}
-
-	.topic-list span {
-		padding: 0.45rem 0.7rem;
-		border: 1px solid var(--gray-800);
-		border-radius: var(--rounded-sm);
-		color: var(--gray-200);
-		background-color: rgba(255, 255, 255, 0.68);
-		font-size: var(--text-sm);
-		font-weight: 700;
-	}
-
-	.section {
-		display: grid;
-		gap: 2rem;
-	}
-
-	.with-background {
-		position: relative;
-	}
-
-	.with-background::before {
-		--hero-bg: var(--bg-image-subtle-2);
-
-		content: '';
-		position: absolute;
-		pointer-events: none;
-		left: 50%;
-		width: 100vw;
-		aspect-ratio: calc(2.25 / var(--bg-scale));
-		top: 0;
-		transform: translateY(-75%) translateX(-50%);
-		background:
-			url('/assets/backgrounds/noise.png') top center/220px repeat,
-			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
-			var(--gray-999);
-		background-blend-mode: overlay, normal, normal, normal;
-		mix-blend-mode: var(--bg-blend-mode);
-		z-index: -1;
-	}
-
-	.section-header {
-		justify-self: center;
-		text-align: left;
-		max-width: 50ch;
-		font-size: var(--text-md);
-		color: var(--gray-300);
-		min-width: 0;
-		overflow-wrap: anywhere;
-	}
-
-	.intro {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-	}
-
-	.promo-content {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-template-areas:
-			'image'
-			'text';
-		gap: 2rem;
-		align-items: center;
-	}
-
-	.promo-content .text {
-		grid-area: text;
-		min-width: 0;
-	}
-
-	.promo-content .promo-image {
-		grid-area: image;
-		min-width: 0;
-	}
-
-	.service-image {
-		width: 100%;
-		aspect-ratio: 16 / 9;
-		background: radial-gradient(circle at 20% 20%, var(--gray-700), var(--gray-900)), var(--gradient-subtle);
-		border-radius: var(--rounded-sm);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: var(--gray-400);
-		gap: 0.75rem;
-		text-align: left;
-	}
-
-	.service-image img {
-		width: 100%;
-		height: auto;
-		border-radius: var(--rounded-sm);
-		object-fit: cover;
-	}
-
-	.cta {
-		max-width: 100%;
-	}
-
-	.cta :global(a) {
-		max-width: 100%;
-		white-space: normal;
-	}
-
-	@media (min-width: 50em) {
-		.hero {
-			display: grid;
-			grid-template-columns: minmax(0, 0.88fr) minmax(28rem, 1.12fr);
-			padding-inline: clamp(0rem, 1.5vw, 2rem);
-			gap: clamp(2.5rem, 5vw, 5.75rem);
-			align-items: center;
-		}
-
-		.hero img {
-			width: min(100%, 46rem);
-			justify-self: end;
-			aspect-ratio: auto;
-			border-radius: 0;
-			object-fit: contain;
-		}
-
-		.hero-actions {
-			flex-wrap: nowrap;
-			width: auto;
-		}
-
-		.hero-actions :global(a) {
-			flex: 0 0 auto;
-		}
-
-		.positioning,
-		.product-thinking {
-			grid-template-columns: minmax(0, 3fr) minmax(18rem, 2fr);
-			padding: 2.5rem;
-			gap: 3rem;
-			align-items: start;
-		}
-
-		.promo-content {
-			grid-template-columns: 1fr 1fr;
-			grid-template-areas: 'text image';
-		}
-
-		.section {
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
-			gap: 5rem;
-		}
-
-		.section.with-cta {
-			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
-		}
-
-		.section-header {
-			grid-area: header;
-			font-size: var(--text-lg);
-		}
-
-		.section-header h3 {
-			font-size: var(--text-4xl);
-		}
-
-		.with-cta .section-header {
-			justify-self: flex-start;
-			text-align: left;
-		}
-
-		.gallery {
-			grid-area: gallery;
-		}
-
-		.cta {
-			grid-area: cta;
-		}
-	}
+  .hero-shell { display:grid; gap:3rem; min-height:clamp(42rem,78vh,54rem); align-items:center; padding-block:4rem 4rem; }
+  .hero-copy { max-width:43rem; position:relative; z-index:2; }
+  .eyebrow { display:flex; align-items:center; gap:.7rem; color:var(--apiops-accent-community); font-size:.76rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; margin-bottom:1.4rem; }
+  .eyebrow span { width:2rem; height:3px; background:var(--color-cycle-capability); }
+  h1 { font-size:clamp(3.6rem,8vw,7.2rem)!important; line-height:.91; letter-spacing:-.065em; max-width:9ch; }
+  h1 em { color:var(--apiops-accent-community); font-style:normal; }
+  .lead { max-width:41rem; margin-top:2rem; font-size:clamp(1.1rem,2vw,1.35rem); color:var(--color-neutral-stone); }
+  .actions { display:flex; flex-wrap:wrap; gap:.8rem; margin-top:2rem; }
+  .hero-ecosystem { width:min(100%,46rem); height:auto; justify-self:center; object-fit:contain; object-position:center; border:0; }
+  .hero-testimonial { padding-bottom:clamp(3rem,6vw,5rem); }
+  .hero-testimonial figure { display:grid; gap:1.1rem; max-width:58rem; margin:0 auto; padding:1.5rem; border:1px solid var(--panel-border); border-left:.45rem solid var(--color-cycle-capability); border-radius:var(--rounded-sm); background:linear-gradient(135deg,rgba(231,247,242,.78),rgba(216,236,251,.5)); box-shadow:var(--shadow-sm); }
+  .hero-testimonial blockquote { margin:0; }
+  .hero-testimonial p { color:var(--foreground); font-size:clamp(1.2rem,2vw,1.65rem); line-height:1.35; font-weight:650; }
+  .hero-testimonial p::before { content:'“'; color:var(--apiops-accent-community); }
+  .hero-testimonial p::after { content:'”'; color:var(--apiops-accent-community); }
+  .hero-testimonial figcaption { display:flex; flex-wrap:wrap; gap:.5rem 1rem; align-items:baseline; color:var(--muted); }
+  .hero-testimonial strong { color:var(--foreground); }
+  .hero-testimonial span { padding:.25rem .65rem; border:1px solid var(--panel-border); border-radius:999px; background:rgba(255,255,255,.62); font-size:.92rem; font-weight:800; }
+  .signal-bar { background:var(--color-neutral-cloud); border-block:1px solid var(--panel-border); }
+  .signal-inner { display:grid; gap:1rem; padding-block:1.4rem; align-items:center; }
+  .signal-inner>p{font-weight:800;color:var(--foreground)}.signal-inner ul{display:flex;flex-wrap:wrap;gap:.7rem 1.7rem;list-style:none;padding:0;color:var(--muted)}
+  .section-block { padding-block:clamp(6rem,11vw,10rem); }
+  .section-intro { max-width:48rem; }.section-intro h2,.section-heading h2,.dark-panel h2{font-size:clamp(2.6rem,5vw,4.7rem);letter-spacing:-.04em}.section-intro>p:not(.eyebrow){font-size:1.2rem;max-width:44rem;margin-top:1.5rem}.section-intro>p:not(.eyebrow)+p{margin-top:1rem}
+  .service-grid { display:grid; list-style:none; padding:0; margin-top:4rem; border-top:1px solid var(--panel-border); }
+  .service-grid li{padding:2rem 0;border-bottom:1px solid var(--panel-border)}.service-grid span{color:var(--color-cycle-capability);font:800 .75rem var(--font-code)}.service-grid h3{font-size:1.6rem;margin:.8rem 0}.service-grid p{max-width:33ch;color:var(--muted)}
+  .dark-panel { background:var(--color-neutral-graphite); color:#cbd5e1; padding-block:clamp(6rem,10vw,9rem); position:relative; overflow:hidden; }.dark-panel::after{content:'';position:absolute;width:28rem;height:28rem;border:5rem solid rgba(16,185,129,.09);border-radius:50%;right:-9rem;top:-12rem}.dark-panel h2{color:#fff;max-width:10ch}.eyebrow.light{color:#93c5fd}.dark-grid{display:grid;gap:3rem}.dark-copy{display:grid;gap:1.5rem;font-size:1.18rem;max-width:36rem;position:relative;z-index:1}.dark-copy a,.section-heading>a{display:inline-flex;gap:.5rem;align-items:center;width:max-content;font-weight:800;text-decoration:none}.dark-copy a{color:#fff;border-bottom:2px solid var(--color-cycle-capability);padding-bottom:.35rem}
+  .help-section { display:grid; gap:3rem; }
+  .help-list { display:grid; gap:.8rem; list-style:none; padding:0; }
+  .help-list li { border-bottom:1px solid var(--panel-border); }
+  .help-list a { display:grid; grid-template-columns:auto 1fr; gap:.35rem .8rem; padding:1.1rem 0; color:var(--foreground); text-decoration:none; }
+  .help-list a::before { content:''; width:.7rem; height:.7rem; margin-top:.45rem; border-radius:50%; background:var(--color-cycle-capability); box-shadow:0 0 0 5px rgba(16,185,129,.12); }
+  .help-list span { font:700 clamp(1.15rem,2vw,1.45rem)/1.2 var(--font-brand); }
+  .help-list p { grid-column:2; color:var(--muted); font-size:.98rem; line-height:1.5; }
+  .help-list a:hover span,.help-list a:focus span { color:var(--apiops-accent-community); }
+  .section-heading{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:2rem;margin-bottom:3rem}.section-heading>a{color:var(--foreground)}.work-grid{display:grid;list-style:none;padding:0;gap:1.5rem}
+  .section-lead { max-width:52rem; margin:-1.5rem 0 3rem; color:var(--muted); font-size:1.12rem; }
+  .ways-section { display:grid; gap:3rem; }
+  .ways-grid { display:grid; gap:1rem; }
+  :global(.ways-card) { display:grid; grid-template-rows:auto 1fr auto; gap:.75rem; min-height:100%; padding:1.35rem; border:1px solid var(--panel-border); border-radius:var(--rounded-sm); background:#fff; box-shadow:var(--shadow-sm); color:var(--foreground); text-decoration:none; transition:transform 200ms ease, box-shadow var(--theme-transition), border-color var(--theme-transition); }
+  :global(.ways-card:hover),:global(.ways-card:focus) { transform:translateY(-2px); border-color:rgba(63,143,210,.45); box-shadow:var(--shadow-md); }
+  :global(.ways-card-title) { color:var(--foreground); font-size:1.35rem; line-height:1.15; text-decoration:none; }
+  :global(.ways-card-text) { color:var(--muted); text-decoration:none; }
+  :global(.ways-card-link) { display:inline-flex; align-items:center; gap:.45rem; width:max-content; color:var(--apiops-accent-community); font-weight:800; font-size:.95rem; text-decoration:none; }
+  .text-link { display:inline-flex; align-items:center; gap:.5rem; width:max-content; color:var(--foreground); font-weight:800; text-decoration:none; }
+  .method-band { background:var(--color-neutral-cloud); border-block:1px solid var(--panel-border); padding-block:clamp(5rem,8vw,8rem); }
+  .method-grid { display:grid; gap:3rem; }
+  .method-grid h2 { font-size:clamp(2.5rem,5vw,4.2rem); letter-spacing:-.04em; }
+  .method-copy { display:grid; gap:1.5rem; max-width:39rem; font-size:1.18rem; color:var(--muted); }
+  .method-entry-points { display:flex; flex-wrap:wrap; gap:.6rem; list-style:none; margin:0; padding:0; }
+  .method-entry-points li { padding:.5rem .75rem; border:1px solid var(--panel-border); border-radius:999px; background:#fff; color:var(--foreground); font-size:.86rem; font-weight:800; }
+  .method-copy a { display:inline-flex; align-items:center; gap:.5rem; width:max-content; font-weight:800; text-decoration:none; color:var(--foreground); }
+  .thinking-section { padding-top:clamp(5rem,8vw,8rem); }
+  .thinking-card { display:grid; gap:1.5rem; max-width:58rem; padding:2rem; border:1px solid var(--panel-border); border-radius:var(--rounded-sm); background:var(--gradient-subtle); box-shadow:var(--shadow-sm); }
+  .book-cover { display:grid; align-content:end; gap:.15rem; min-height:15rem; padding:1.25rem; border-radius:.45rem; background:linear-gradient(145deg,var(--color-neutral-graphite),#12469b); color:#fff; box-shadow:var(--shadow-md); font:800 1.45rem/1.05 var(--font-brand); }
+  .book-copy { display:grid; gap:.75rem; align-content:center; }
+  .thinking-card strong { color:var(--foreground); font:700 clamp(1.5rem,3vw,2rem)/1.1 var(--font-brand); }
+  .thinking-card p { color:var(--muted); font-size:1.05rem; }
+  .book-copy a { display:inline-flex; align-items:center; gap:.5rem; width:max-content; font-weight:800; text-decoration:none; color:var(--foreground); }
+  @media(min-width:50em){.hero-shell{grid-template-columns:1.02fr .98fr}.hero-ecosystem{justify-self:end}.hero-testimonial figure{padding:2rem}.signal-inner{grid-template-columns:auto 1fr;gap:3rem}.service-grid{grid-template-columns:repeat(3,1fr)}.service-grid li{padding:2rem;border-right:1px solid var(--panel-border)}.service-grid li:first-child{padding-left:0}.service-grid li:last-child{border-right:0}.dark-grid,.method-grid{grid-template-columns:1fr 1fr;gap:7rem}.help-section{grid-template-columns:.85fr 1.15fr;align-items:start}.work-grid{grid-template-columns:repeat(3,1fr)}.work-grid li:nth-child(2){transform:translateY(2rem)}.ways-grid{grid-template-columns:repeat(2,1fr)}.thinking-card{grid-template-columns:14rem 1fr;align-items:stretch}}
+  @media(max-width:36em){.hero-shell{padding-block:3rem}.hero-testimonial figure{padding:1.25rem}.hero-testimonial p{font-size:1.1rem}:global(.ways-card){padding:1rem}}
 </style>

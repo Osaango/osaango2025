@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CallToAction from '../components/CallToAction.astro';
+import Icon from '../components/Icon.astro';
+
+const sections = [
+  {
+    title: 'Consulting and advisory',
+    paragraphs: [
+      'We help organisations work through difficult strategy, architecture, governance, platform, API, integration and transformation questions, especially when the problem crosses several teams or technology domains.',
+      'A consulting engagement may begin with an assessment, architecture review, capability or operating-model analysis, or a focused decision that has become difficult to resolve internally. In longer engagements, we work alongside leaders and teams while architecture, governance, responsibilities and delivery practices evolve together.',
+      'The aim is not to leave behind a presentation that describes an ideal future. We work toward decisions, structures and practices that can actually be used in the organisation.',
+    ],
+  },
+  {
+    title: 'Coaching',
+    paragraphs: [
+      'We coach architects, product managers, technology leaders and other people who are responsible for making complex change happen across organisational boundaries.',
+      'Coaching gives the person responsible for the work an experienced outside perspective while they deal with real decisions about architecture, platforms, APIs, integrations, governance, product responsibilities and ways of working.',
+      'Rather than handing the problem over to a consultant, we help the person leading the change clarify the situation, test assumptions, make stronger decisions and develop their own ability to lead the work.',
+      'Coaching can be used on its own or alongside a consulting engagement. It is particularly useful when new responsibilities, governance practices or ways of working need to become sustainable inside the organisation rather than remain dependent on external support.',
+    ],
+  },
+  {
+    title: 'Training and workshops',
+    paragraphs: [
+      'We provide practical training and facilitated workshops for teams working with APIs, integrations, architecture, governance, product thinking, AI readiness and APIOps Cycles.',
+      'Training can be delivered as focused sessions, longer programmes or workshops built around the organisation\'s own situation. Where appropriate, participants work with real decisions and examples from their environment rather than generic exercises.',
+      'The goal is not only to transfer knowledge, but to help teams develop shared language, clearer practices and the confidence to apply the ideas after the session.',
+    ],
+  },
+  {
+    title: 'Speaking',
+    paragraphs: [
+      'We speak at conferences, leadership events and internal company events about the organisational and architectural challenges behind digital transformation.',
+      'Topics include APIs, integrations, capability and product thinking, AI readiness, APIOps Cycles, governance, platform strategy and the practical realities of changing how organisations make technology decisions.',
+    ],
+    href: '/speaking/',
+    linkText: 'Explore speaking topics',
+  },
+  {
+    title: 'APIOps Community and partnerships',
+    paragraphs: [
+      'Osaango is closely involved in the global APIOps Community, which brings practitioners together through meetups, conferences, shared methods and practical learning.',
+      'Organisations can participate by hosting or supporting a meetup, contributing speakers or expertise, collaborating on community activities, or exploring a broader partnership.',
+      'Community participation is not the same as buying an Osaango service. The purpose is to create a wider space where practitioners can exchange experience, challenge methods and develop better ways of working together.',
+    ],
+    href: 'https://apiops.info/',
+    linkText: 'Explore the APIOps Community',
+  },
+];
+---
+
+<BaseLayout
+  title="How we help | Osaango"
+  description="Consulting, advisory, coaching, training, workshops, speaking and APIOps Community partnerships from Osaango."
+>
+  <main class="wrapper help-page">
+    <section class="hero-block">
+      <p class="eyebrow"><span></span> How we help</p>
+      <h1>Support that fits the problem, not the other way around.</h1>
+      <p>The same organisation may need different kinds of support at different points in a change. Sometimes the priority is to resolve a difficult architecture or governance question. Sometimes leaders need ongoing support while they build a new operating model. In other cases, the most useful intervention is a workshop, training programme or outside perspective.</p>
+      <p>We choose the form of the work based on what will help the organisation make progress and build its own ability to continue the change.</p>
+    </section>
+
+    <div class="section-list">
+      {sections.map((section) => (
+        <section>
+          <h2>{section.title}</h2>
+          <div>
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            {section.href && <a href={section.href}>{section.linkText} <Icon icon="arrow-right" /></a>}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <section class="contact-block">
+      <h2>Talk to us about working together.</h2>
+      <CallToAction href="https://calendly.com/marjukka-niinioja/meet-with-marjukka">Start a conversation <Icon icon="arrow-right" /></CallToAction>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .help-page {
+    display: grid;
+    gap: clamp(4rem, 8vw, 7rem);
+    padding-block: clamp(4rem, 8vw, 7rem);
+  }
+
+  .hero-block {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 58rem;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    color: var(--apiops-accent-community);
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow span {
+    width: 2rem;
+    height: 3px;
+    background: var(--color-cycle-capability);
+  }
+
+  h1 {
+    font-size: clamp(3rem, 6vw, 5.5rem) !important;
+    letter-spacing: -.055em;
+    max-width: 12ch;
+  }
+
+  .hero-block p,
+  .section-list p {
+    color: var(--muted);
+    font-size: var(--text-lg);
+  }
+
+  .section-list {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .section-list section {
+    display: grid;
+    gap: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--panel-border);
+  }
+
+  .section-list div {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .section-list h2,
+  .contact-block h2 {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+  }
+
+  .section-list a {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    width: max-content;
+    color: var(--foreground);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .contact-block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem;
+    border: 1px solid var(--panel-border);
+    border-radius: var(--rounded-sm);
+    background: var(--gradient-subtle);
+    box-shadow: var(--shadow-sm);
+  }
+
+  @media (min-width: 50em) {
+    .section-list section {
+      grid-template-columns: .55fr 1fr;
+      gap: 4rem;
+    }
+  }
+</style>

@@ -5,9 +5,13 @@ import Icon from './Icon.astro';
 
 <aside>
 	<div class="cta-inner">
-		<h2>Ready to remove your biggest integration and delivery bottlenecks?</h2>
+		<div class="cta-copy">
+			<h2>Have a change that isn't moving?</h2>
+			<p>Sometimes the difficult part is not the technology itself. The challenge is getting the decisions, ownership, architecture and people around it to work together.</p>
+			<p>If that sounds familiar, let us talk about where the change is getting stuck and what would help move it forward.</p>
+		</div>
 		<CallToAction href="https://calendly.com/marjukka-niinioja/meet-with-marjukka">
-			Book a strategy call
+			Start a conversation
 			<Icon icon="paper-plane-tilt" size="1.2em" />
 		</CallToAction>
 	</div>
@@ -36,7 +40,19 @@ import Icon from './Icon.astro';
 	h2 {
 		font-size: var(--text-xl);
 		text-align: center;
-		max-width: 15ch;
+		max-width: 13ch;
+	}
+
+	.cta-copy {
+		display: grid;
+		gap: 1rem;
+		max-width: 42rem;
+	}
+
+	.cta-copy p {
+		color: var(--muted);
+		font-size: var(--text-md);
+		text-align: center;
 	}
 
 	@media (min-width: 50em) {
@@ -52,6 +68,10 @@ import Icon from './Icon.astro';
 
 		h2 {
 			font-size: var(--text-3xl);
+			text-align: left;
+		}
+
+		.cta-copy p {
 			text-align: left;
 		}
 	}

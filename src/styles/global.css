@@ -83,6 +83,36 @@
 	--rounded-sm: 0.2rem;
 }
 
+/* Osaango uses the APIOps design system as its visual foundation. These aliases
+   preserve the existing site API while sourcing colour, type and surfaces from
+   the shared package. */
+:root {
+	--gray-0: var(--color-neutral-graphite);
+	--gray-50: var(--color-neutral-slate);
+	--gray-100: var(--color-neutral-stone);
+	--gray-200: #475569;
+	--gray-300: var(--muted);
+	--gray-400: #64748b;
+	--gray-700: #e2e8f0;
+	--gray-800: var(--panel-border);
+	--gray-900: var(--color-neutral-cloud);
+	--gray-999: var(--color-neutral-paper);
+	--accent-light: #dbeafe;
+	--accent-regular: var(--apiops-accent-community);
+	--accent-dark: #12469b;
+	--accent-mint-soft: #ecfdf5;
+	--accent-blue-soft: #eff6ff;
+	--accent-overlay: color-mix(in srgb, var(--apiops-accent-community) 14%, transparent);
+	--gradient-subtle: linear-gradient(145deg, var(--color-neutral-paper), var(--surface-muted));
+	--gradient-accent: linear-gradient(135deg, var(--color-cycle-capability), var(--apiops-accent-community));
+	--gradient-stroke: var(--panel-border);
+	--shadow-sm: 0 4px 16px rgba(15, 23, 42, .05);
+	--shadow-md: 0 12px 30px rgba(15, 23, 42, .09);
+	--shadow-lg: var(--panel-shadow-soft);
+	--font-brand: var(--font-display);
+	--rounded-sm: 12px;
+}
+
 :root.theme-dark {
 	--gray-0: #ffffff;
 	--gray-50: #f3f4f7;
@@ -139,6 +169,7 @@ body {
 	font-family: var(--font-body);
 	-webkit-font-smoothing: antialiased;
 	line-height: 1.5;
+	background-image: radial-gradient(circle at 10% 0%, rgba(16,185,129,.07), transparent 28rem);
 }
 
 *,
@@ -208,6 +239,10 @@ h5 {
 	margin-inline: auto;
 	padding-inline: 1.5rem;
 }
+
+::selection { background: #bfdbfe; color: var(--color-neutral-graphite); }
+
+:focus-visible { outline: 3px solid var(--color-cycle-api); outline-offset: 3px; }
 
 .stack {
 	display: flex;
