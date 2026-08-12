@@ -1,10 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CallToAction from '../components/CallToAction.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import Icon from '../components/Icon.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
+import agilePeopleInt from '../assets/osaango-platform-growth.png';
 
 const selectedProjectIds = [
   'integration-architecture-design-for-strategic-transformation',
@@ -77,6 +79,7 @@ const waysToWork = [
     href: 'https://apiops.info/',
   },
 ];
+
 ---
 
 <BaseLayout
@@ -95,23 +98,30 @@ const waysToWork = [
           <CallToAction href="/work/" variant="secondary">See our work</CallToAction>
         </div>
       </div>
-      <div class="hero-system" aria-label="Fragmented change becoming coordinated and moving forward">
-        <span class="node node-a"></span>
-        <span class="node node-b"></span>
-        <span class="node node-c"></span>
-        <span class="node node-d"></span>
-        <span class="node node-e"></span>
-        <span class="node node-f"></span>
-        <span class="node node-g"></span>
-        <span class="flow flow-a"></span>
-        <span class="flow flow-b"></span>
-        <span class="flow flow-c"></span>
-        <span class="flow flow-d"></span>
-        <span class="flow flow-e"></span>
-        <div class="flow-card card-strategy">Strategy</div>
-        <div class="flow-card card-architecture">Architecture</div>
-        <div class="flow-card card-delivery">Delivery</div>
-      </div>
+      <Image
+        class="hero-ecosystem"
+        src={agilePeopleInt}
+        alt="Digital tree made of people and integration icons"
+        width={1536}
+        height={1024}
+        sizes="(max-width: 50em) 90vw, min(56vw, 46rem)"
+        widths={[480, 720, 960, 1200, 1536]}
+        format="webp"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </section>
+
+    <section class="wrapper hero-testimonial" aria-label="Customer testimonial">
+      <figure>
+        <blockquote>
+          <p>Working together has clarified our customer and market insights and given a stronger direction of integration capabilities for our US expansion. Our strategies are grounded in deep customer understanding. I am now confident in the road ahead. A truly valuable collaboration.</p>
+        </blockquote>
+        <figcaption>
+          <strong>Chief Product Officer</strong>
+          <span>Global SaaS Company</span>
+        </figcaption>
+      </figure>
     </section>
 
     <section class="signal-bar">
@@ -242,7 +252,7 @@ const waysToWork = [
 </BaseLayout>
 
 <style>
-  .hero-shell { display:grid; gap:3rem; min-height:clamp(42rem,78vh,54rem); align-items:center; padding-block:4rem 7rem; }
+  .hero-shell { display:grid; gap:3rem; min-height:clamp(42rem,78vh,54rem); align-items:center; padding-block:4rem 4rem; }
   .hero-copy { max-width:43rem; position:relative; z-index:2; }
   .eyebrow { display:flex; align-items:center; gap:.7rem; color:var(--apiops-accent-community); font-size:.76rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; margin-bottom:1.4rem; }
   .eyebrow span { width:2rem; height:3px; background:var(--color-cycle-capability); }
@@ -250,19 +260,16 @@ const waysToWork = [
   h1 em { color:var(--apiops-accent-community); font-style:normal; }
   .lead { max-width:41rem; margin-top:2rem; font-size:clamp(1.1rem,2vw,1.35rem); color:var(--color-neutral-stone); }
   .actions { display:flex; flex-wrap:wrap; gap:.8rem; margin-top:2rem; }
-  .hero-system { min-height:32rem; position:relative; background:linear-gradient(145deg,#fff,#f6f9fe); border:1px solid var(--panel-border); border-radius:24px; overflow:hidden; box-shadow:var(--panel-shadow-soft); }
-  .hero-system::before { content:''; position:absolute; inset:0; background-image:radial-gradient(#cbd5e1 1px,transparent 1px); background-size:22px 22px; opacity:.45; }
-  .hero-system::after { content:''; position:absolute; left:7%; right:-8%; top:55%; height:7rem; border-top:9px solid rgba(18,70,155,.18); border-radius:50%; transform:rotate(-8deg); }
-  .flow { position:absolute; height:7px; border-radius:999px; transform-origin:left center; z-index:2; }
-  .flow-a{left:10%;top:31%;width:25%;background:var(--color-cycle-capability);transform:rotate(14deg)}
-  .flow-b{left:18%;top:61%;width:28%;background:var(--color-line-operating-model);transform:rotate(-23deg)}
-  .flow-c{left:37%;top:47%;width:32%;background:var(--apiops-accent-community);transform:rotate(2deg)}
-  .flow-d{left:56%;top:38%;width:29%;background:var(--color-line-operating-model);transform:rotate(24deg)}
-  .flow-e{left:61%;top:64%;width:28%;background:var(--color-cycle-capability);transform:rotate(-17deg)}
-  .node { position:absolute; width:1.4rem; aspect-ratio:1; border:5px solid #fff; border-radius:50%; background:var(--color-line-operating-model); box-shadow:0 0 0 3px var(--color-line-operating-model),var(--shadow-sm); z-index:3; }
-  .node-a{left:9%;top:28%}.node-b{left:18%;top:59%;background:var(--color-cycle-capability);box-shadow:0 0 0 3px var(--color-cycle-capability),var(--shadow-sm)}.node-c{left:37%;top:44%}.node-d{left:55%;top:35%;background:var(--apiops-accent-community);box-shadow:0 0 0 3px var(--apiops-accent-community),var(--shadow-sm)}.node-e{left:70%;top:53%}.node-f{right:10%;top:28%;background:var(--color-cycle-capability);box-shadow:0 0 0 3px var(--color-cycle-capability),var(--shadow-sm)}.node-g{right:8%;bottom:20%;background:var(--apiops-accent-community);box-shadow:0 0 0 3px var(--apiops-accent-community),var(--shadow-sm)}
-  .flow-card { position:absolute; z-index:4; padding:.75rem 1rem; border:1px solid var(--panel-border); border-radius:10px; background:rgba(255,255,255,.88); color:var(--foreground); box-shadow:var(--shadow-sm); font:800 .9rem/1.1 var(--font-brand); }
-  .card-strategy{left:8%;top:12%}.card-architecture{left:39%;top:16%}.card-delivery{right:8%;bottom:12%}
+  .hero-ecosystem { width:min(100%,46rem); height:auto; justify-self:center; object-fit:contain; object-position:center; border:0; }
+  .hero-testimonial { padding-bottom:clamp(3rem,6vw,5rem); }
+  .hero-testimonial figure { display:grid; gap:1.1rem; max-width:58rem; margin:0 auto; padding:1.5rem; border:1px solid var(--panel-border); border-left:.45rem solid var(--color-cycle-capability); border-radius:var(--rounded-sm); background:linear-gradient(135deg,rgba(231,247,242,.78),rgba(216,236,251,.5)); box-shadow:var(--shadow-sm); }
+  .hero-testimonial blockquote { margin:0; }
+  .hero-testimonial p { color:var(--foreground); font-size:clamp(1.2rem,2vw,1.65rem); line-height:1.35; font-weight:650; }
+  .hero-testimonial p::before { content:'“'; color:var(--apiops-accent-community); }
+  .hero-testimonial p::after { content:'”'; color:var(--apiops-accent-community); }
+  .hero-testimonial figcaption { display:flex; flex-wrap:wrap; gap:.5rem 1rem; align-items:baseline; color:var(--muted); }
+  .hero-testimonial strong { color:var(--foreground); }
+  .hero-testimonial span { padding:.25rem .65rem; border:1px solid var(--panel-border); border-radius:999px; background:rgba(255,255,255,.62); font-size:.92rem; font-weight:800; }
   .signal-bar { background:var(--color-neutral-cloud); border-block:1px solid var(--panel-border); }
   .signal-inner { display:grid; gap:1rem; padding-block:1.4rem; align-items:center; }
   .signal-inner>p{font-weight:800;color:var(--foreground)}.signal-inner ul{display:flex;flex-wrap:wrap;gap:.7rem 1.7rem;list-style:none;padding:0;color:var(--muted)}
@@ -303,6 +310,6 @@ const waysToWork = [
   .thinking-card strong { color:var(--foreground); font:700 clamp(1.5rem,3vw,2rem)/1.1 var(--font-brand); }
   .thinking-card p { color:var(--muted); font-size:1.05rem; }
   .book-copy a { display:inline-flex; align-items:center; gap:.5rem; width:max-content; font-weight:800; text-decoration:none; color:var(--foreground); }
-  @media(min-width:50em){.hero-shell{grid-template-columns:1.02fr .98fr}.signal-inner{grid-template-columns:auto 1fr;gap:3rem}.service-grid{grid-template-columns:repeat(3,1fr)}.service-grid li{padding:2rem;border-right:1px solid var(--panel-border)}.service-grid li:first-child{padding-left:0}.service-grid li:last-child{border-right:0}.dark-grid,.method-grid{grid-template-columns:1fr 1fr;gap:7rem}.help-section{grid-template-columns:.85fr 1.15fr;align-items:start}.work-grid{grid-template-columns:repeat(3,1fr)}.work-grid li:nth-child(2){transform:translateY(2rem)}.ways-grid{grid-template-columns:repeat(2,1fr)}.thinking-card{grid-template-columns:14rem 1fr;align-items:stretch}}
-  @media(max-width:36em){.hero-system{min-height:28rem}.flow-card{padding:.6rem .75rem;font-size:.78rem}.card-architecture{left:35%}.node{width:1.1rem}.flow{height:5px}:global(.ways-card){padding:1rem}}
+  @media(min-width:50em){.hero-shell{grid-template-columns:1.02fr .98fr}.hero-ecosystem{justify-self:end}.hero-testimonial figure{padding:2rem}.signal-inner{grid-template-columns:auto 1fr;gap:3rem}.service-grid{grid-template-columns:repeat(3,1fr)}.service-grid li{padding:2rem;border-right:1px solid var(--panel-border)}.service-grid li:first-child{padding-left:0}.service-grid li:last-child{border-right:0}.dark-grid,.method-grid{grid-template-columns:1fr 1fr;gap:7rem}.help-section{grid-template-columns:.85fr 1.15fr;align-items:start}.work-grid{grid-template-columns:repeat(3,1fr)}.work-grid li:nth-child(2){transform:translateY(2rem)}.ways-grid{grid-template-columns:repeat(2,1fr)}.thinking-card{grid-template-columns:14rem 1fr;align-items:stretch}}
+  @media(max-width:36em){.hero-shell{padding-block:3rem}.hero-testimonial figure{padding:1.25rem}.hero-testimonial p{font-size:1.1rem}:global(.ways-card){padding:1rem}}
 </style>

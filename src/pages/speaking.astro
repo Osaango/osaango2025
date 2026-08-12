@@ -60,7 +60,8 @@ const themes = [
     </section>
 
     <section class="contact-block">
-      <div>
+      <img class="speaker-photo" src="/assets/experts/marjukka-niinioja.jpg" alt="Marjukka Niinioja" loading="lazy" />
+      <div class="contact-copy">
         <h2>Invite Marjukka to speak</h2>
         <p>If you are organising a conference, leadership event, customer event or internal company session, contact us with the audience, format and the problem or theme you want the session to address.</p>
       </div>
@@ -154,7 +155,17 @@ const themes = [
     box-shadow: var(--shadow-sm);
   }
 
-  .contact-block div {
+  .speaker-photo {
+    width: min(11rem, 45vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 5px solid #fff;
+    box-shadow: var(--shadow-md);
+  }
+
+  .contact-copy {
     display: grid;
     gap: 1rem;
   }
@@ -169,7 +180,7 @@ const themes = [
     }
 
     .contact-block {
-      grid-template-columns: 1fr auto;
+      grid-template-columns: auto minmax(0, 1fr) auto;
       align-items: center;
     }
   }
