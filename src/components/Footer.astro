@@ -1,12 +1,30 @@
 ---
+const footerLinks = [
+        { label: 'How we help', href: '/how-we-help/' },
+        { label: 'Work', href: '/work/' },
+        { label: 'Speaking', href: '/speaking/' },
+        { label: 'Books', href: '/books/' },
+        { label: 'APIOps diagnostic', href: '/connect/' },
+        { label: 'Blog', href: '/blog/' },
+        { label: 'About', href: '/about/' },
+];
 ---
 
-<footer>
+<footer id="contact">
         <div class="footer-inner">
                 <div class="footer-brand">
                         <strong>Make change flow.</strong>
                         <p>Strategy, architecture and ways of working for organisations navigating difficult digital change.</p>
                 </div>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                        <ul>
+                                {
+                                        footerLinks.map((link) => (
+                                                <li><a href={link.href}>{link.label}</a></li>
+                                        ))
+                                }
+                        </ul>
+                </nav>
                 <div class="columns">
                         <div>Osaango Oy is a private limited company registered in Finland.</div>
                         <div>
@@ -62,6 +80,29 @@
 
         footer a {
                 color: white;
+        }
+
+        .footer-nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: .7rem 1.4rem;
+                padding: 0;
+                list-style: none;
+        }
+
+        .footer-nav a {
+                color: #e2e8f0;
+                font-family: var(--font-brand);
+                font-weight: 600;
+                text-decoration: none;
+        }
+
+        .footer-nav a:hover,
+        .footer-nav a:focus {
+                color: white;
+                text-decoration: underline;
+                text-decoration-thickness: 1px;
+                text-underline-offset: .25em;
         }
 
         .columns {
