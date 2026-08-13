@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <defs>
+    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".62" stop-color="#f6fafb"/>
+      <stop offset="1" stop-color="#eef6f8"/>
+    </linearGradient>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#24313a" stroke-opacity=".055" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#paper)"/>
+  <rect width="1200" height="1200" fill="url(#grid)"/>
+  <path d="M-90 1020 C210 820 380 945 690 770 C965 615 990 345 1285 235" fill="none" stroke="#10233f" stroke-width="140" stroke-opacity=".08"/>
+  <path d="M-80 1045 C230 840 392 980 715 785 C980 625 1010 365 1285 255" fill="none" stroke="#00a6a6" stroke-width="46" stroke-opacity=".14"/>
+  
+      <g opacity=".92" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M725 390 H1035 V820 H725 Z" stroke="#10233f" stroke-width="8"/>
+        <path d="M780 510 L835 565 L970 430" stroke="#00a6a6" stroke-width="12"/>
+        <path d="M785 660 H975 M785 735 H915" stroke="#67389B" stroke-width="8"/>
+        <circle cx="1040" cy="830" r="62" stroke="#00a6a6" stroke-width="8"/>
+        <path d="M1010 830 H1070" stroke="#00a6a6" stroke-width="8"/>
+      </g>
+  <rect x="84" y="84" width="1032" height="1032" rx="34" fill="none" stroke="#10233f" stroke-opacity=".12" stroke-width="2"/>
+  <rect x="84" y="84" width="14" height="1032" fill="#10233f"/>
+  <circle cx="150" cy="150" r="28" fill="#00a6a6"/>
+  <circle cx="220" cy="150" r="14" fill="#67389B"/>
+  <text x="142" y="276" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="800" fill="#10233f" letter-spacing="0">BEYOND API ECONOMY</text>
+  <text x="142" y="324" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="650" fill="#647184" letter-spacing="0">Capability thinking for API and AI strategy</text>
+  <g font-family="Inter, Arial, sans-serif" font-weight="820" fill="#111820" letter-spacing="0">
+    <text x="142" y="416"  font-size="64">Your</text>
+<text x="142" y="482.56"  font-size="64">governance</text>
+<text x="142" y="549.12"  font-size="64">linter isn't</text>
+<text x="142" y="615.6800000000001"  font-size="64">governance</text>
+  </g>
+  <path d="M142 710 H522" stroke="#00a6a6" stroke-width="8" stroke-linecap="round"/>
+  <g font-family="Inter, Arial, sans-serif" font-weight="560" fill="#25313a" letter-spacing="0">
+    <text x="142" y="786"  font-size="35">Automate the rule. Keep</text>
+<text x="142" y="834"  font-size="35">judgment, evidence and</text>
+<text x="142" y="882"  font-size="35">accountability visible.</text>
+  </g>
+  <text x="142" y="1042" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#10233f">beyondapieconomy.com</text>
+  <text x="995" y="1042" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="700" fill="#5c6870">Beyond API Economy - Marjukka Niinioja</text>
+</svg>
