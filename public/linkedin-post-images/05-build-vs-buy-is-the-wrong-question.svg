@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <defs>
+    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".62" stop-color="#f6fafb"/>
+      <stop offset="1" stop-color="#eef6f8"/>
+    </linearGradient>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#24313a" stroke-opacity=".055" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#paper)"/>
+  <rect width="1200" height="1200" fill="url(#grid)"/>
+  <path d="M-90 1020 C210 820 380 945 690 770 C965 615 990 345 1285 235" fill="none" stroke="#00a6a6" stroke-width="140" stroke-opacity=".08"/>
+  <path d="M-80 1045 C230 840 392 980 715 785 C980 625 1010 365 1285 255" fill="none" stroke="#2F7D32" stroke-width="46" stroke-opacity=".14"/>
+  
+      <g opacity=".92" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M705 730 L880 630 L1055 730 L880 830 Z" stroke="#00a6a6" stroke-width="8"/>
+        <path d="M705 610 L880 510 L1055 610 L880 710 Z" stroke="#2F7D32" stroke-width="8"/>
+        <path d="M705 490 L880 390 L1055 490 L880 590 Z" stroke="#E5640A" stroke-width="8"/>
+      </g>
+  <rect x="84" y="84" width="1032" height="1032" rx="34" fill="none" stroke="#10233f" stroke-opacity=".12" stroke-width="2"/>
+  <rect x="84" y="84" width="14" height="1032" fill="#00a6a6"/>
+  <circle cx="150" cy="150" r="28" fill="#2F7D32"/>
+  <circle cx="220" cy="150" r="14" fill="#E5640A"/>
+  <text x="142" y="276" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="800" fill="#00a6a6" letter-spacing="0">BEYOND API ECONOMY</text>
+  <text x="142" y="324" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="650" fill="#647184" letter-spacing="0">Capability thinking for API and AI strategy</text>
+  <g font-family="Inter, Arial, sans-serif" font-weight="820" fill="#111820" letter-spacing="0">
+    <text x="142" y="416"  font-size="74">Build vs buy</text>
+<text x="142" y="492.96000000000004"  font-size="74">is the wrong</text>
+<text x="142" y="569.9200000000001"  font-size="74">question</text>
+  </g>
+  <path d="M142 710 H522" stroke="#2F7D32" stroke-width="8" stroke-linecap="round"/>
+  <g font-family="Inter, Arial, sans-serif" font-weight="560" fill="#25313a" letter-spacing="0">
+    <text x="142" y="786"  font-size="35">The real question is what to</text>
+<text x="142" y="834"  font-size="35">control, and what can be safely</text>
+<text x="142" y="882"  font-size="35">sourced.</text>
+  </g>
+  <text x="142" y="1042" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#00a6a6">beyondapieconomy.com</text>
+  <text x="995" y="1042" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="700" fill="#5c6870">Beyond API Economy - Marjukka Niinioja</text>
+</svg>
