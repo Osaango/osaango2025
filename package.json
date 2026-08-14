@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "images:case-studies": "node scripts/generate-case-study-images.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

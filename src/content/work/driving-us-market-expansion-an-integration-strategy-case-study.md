@@ -1,31 +1,46 @@
 ---
-title: "Driving US Market Expansion - an Integration Strategy Case Study"
+title: "Using Integration Strategy to Focus US Market Expansion"
 publishDate: 2023-12-01 00:00:00
-img: ../../assets/case-study-mobile-integration-strategy.png
-img_alt: A connected digital tree growing on a mobile device
+img: ../../assets/case-study-scenes/us-market-expansion-integration-strategy.png
+card_img: ../../assets/case-study-scenes/us-market-expansion-integration-strategy-card.png
+img_alt: A connected digital product ecosystem expanding through integrations
 description: |
-  Operating globally, a leading device management scaleup was poised to accelerate its growth in the US markets. With an existing product and partner strategy in place, the company recognized an increasing demand for integrations by both customers and partners. Integrations were not just a mere request but a potential catalyst for rapid growth.
+  Helped a global device-management SaaS company turn broad demand for integrations into a focused US market strategy, platform direction and prioritised product roadmap.
 tags:
   - SaaS
-  - APAC
-  - Monetizing
+  - Integration strategy
+  - Market expansion
+  - Platform product
 ---
 
-## Challenge
+## Starting point
 
-A leading device management scaleup wanted to grow in the US market. With an existing product and partner strategy, integrations were a showstopper for growth. The company recognized an increasing demand for integrations from customers and partners. Their current platform and integration solutions couldn't meet the needs. The client wanted a fast-paced project focused on the US market.
+A global device-management scaleup was preparing to accelerate its growth in the United States. Customers and partners increasingly expected integrations, but the potential landscape was broad: different segments had different needs, the company faced dozens of possible partners and competitors, and reactive integration requests risked fragmenting the product roadmap.
 
-## What we did
+The company needed a fast, evidence-based way to determine where integration could genuinely support market entry and differentiation.
 
-- Outlined the customer (buyer’s) journey and pre-sales support for integration.  
-- Prioritized market positioning based on our market study and understanding the depth of knowledge of the integration user personas.
-- Helped distinguish unknown variables, particularly with channels and segments.  
-- Conceptualized the target solution, and collate stakeholder feedback. We leveraged methods such as the Lean Canvas and APIOps Cycles, collaborating with business and technology management to form assumptions.  
-- Conducted a thorough assessment of data processing, the infrastructure, and the technology required.  
-- Created an operational model, a roadmap, and pinpoint required roles and resources.
+## The decision to make
 
-## Outcome
-     
-Through intensive market research and a deep dive into customer needs, we empowered the client to define a future-proof integration strategy and accelerate their US market expansion. This approach clarified the integration perspective and identified API-enabled integration technologies. The client was able to focus on 1-2 key segments. They were able to target the one real competitor, cutting through the noise of the 30+ potential integration partners and competitors.
+The central decision was not how to build every requested integration. It was which customer segments and integration capabilities deserved investment, what role partners should play, and how the platform, operating model and go-to-market approach should develop together.
 
-This research led us to craft a revamped business model, operating model, and product roadmap. In total, we had 40 suggestions for improvement. Our team immersed itself in the customer journey and benchmarked touchpoints and features. We identified significant areas for improvement. Our team's external perspective expedited product development, sales, and marketing strategies.  
+## How we worked
+
+- Mapped the buyer and integration-user journeys, including the role of integrations in discovery, presales, onboarding and continued use.
+- Researched customer needs, market positioning and the technical maturity of relevant integration personas.
+- Examined more than 30 potential partners and competitors to distinguish direct competition, ecosystem opportunities and background noise.
+- Made assumptions about segments, channels and value propositions explicit and tested them with business and technology stakeholders.
+- Conceptualised the target integration offering and gathered stakeholder feedback before committing to implementation.
+- Assessed the required data processing, platform, integration technology, roles and operational capabilities.
+- Connected the findings to a revised business model, operating model and product roadmap.
+
+## What the client gained
+
+The client was able to focus on one or two priority segments and identify the one genuinely comparable competitor among more than 30 possible partners and competitors. The work produced 40 concrete improvement recommendations covering the integration experience, product, technology, sales and marketing.
+
+Instead of treating integrations as an unbounded list of customer requests, the company gained a clearer integration strategy and a prioritised roadmap for supporting US expansion.
+
+## Client perspective
+
+> Working together has clarified our customer and market insights and given a stronger direction of integration capabilities for our US expansion. Our strategies are grounded in deep customer understanding. I am now confident in the road ahead. A truly valuable collaboration.
+
+— Chief Product Officer, global SaaS company

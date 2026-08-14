@@ -1,27 +1,39 @@
 ---
-title: "API & Governance Transformation for Scalable Growth"
+title: "Scaling API Governance Across Teams"
 publishDate: 2026-05-24 00:00:00
-img: ../../assets/regular-coaching-for-api-products.png
-img_alt: Team discussing API designs in a coaching session around a money tree
+img: ../../assets/case-study-scenes/scaling-api-governance.png
+card_img: ../../assets/case-study-scenes/scaling-api-governance-card.png
+img_alt: Product teams connected to shared API evidence, standards and enablement in a federated governance model
 description: |
-  Established governance and operating model practices supporting API reuse, integration scalability and cross-team collaboration across business and technology domains.
+  Helped a growing organisation replace inconsistent team-level API practices with a federated governance model connecting ownership, lifecycle evidence, integration needs and delivery.
 tags:
   - API governance
-  - Integration governance
   - Operating models
+  - APIOps Cycles
 ---
 
-## Challenge
+## Starting point
 
-The client had APIs in active use but lacked clarity on ownership, lifecycle, reuse and quality expectations. Teams used different practices, which slowed onboarding and made governance difficult to scale.
+The organisation already used APIs across several business and technology domains. Teams had developed their own design, documentation and review practices, but there was no shared view of API ownership, lifecycle responsibilities, reuse or the evidence required for important decisions.
 
-## What we did
+The problem was not a complete absence of governance. It was that governance depended on local knowledge and did not scale consistently across teams, vendors and integration initiatives.
 
-- Ran an API governance and operating model assessment across business and technology teams.
-- Defined ownership, lifecycle management and quality expectations for API-first delivery.
-- Co-created practical API design, documentation and review practices.
-- Aligned governance with enterprise integration needs and delivery realities.
+## The decision to make
 
-## Outcome
+The organisation needed to decide which API decisions should be shared, which should remain within product and delivery teams, and how common expectations could be introduced without creating a central approval bottleneck.
 
-The organisation aligned on shared API governance, improved API consistency and created a repeatable model for scalable integration work across teams and vendors.
+## How we worked
+
+- Assessed how API work actually moved from business need and design through delivery, publishing and improvement.
+- Mapped existing roles, decision points, artefacts, review practices and gaps between documented and actual ways of working.
+- Clarified accountability for API products, consumer outcomes, platform services, architecture and lifecycle decisions.
+- Defined minimum evidence and quality expectations for the relevant lifecycle stages.
+- Co-created lightweight design, documentation, review and exception practices that teams could apply in their existing delivery environment.
+- Used APIOps Cycles to connect API governance with integration, architecture, product and operational concerns.
+- Designed a federated governance model with shared enablement, local decision-making and explicit escalation paths.
+
+## What the client gained
+
+The engagement produced a repeatable governance model, clearer decision rights and a practical set of shared practices that could be introduced progressively. Teams gained a common language for API quality and reuse, while governance gained better visibility into the evidence behind delivery decisions.
+
+The result was a foundation for scaling API and integration work without requiring every decision to pass through one central group.

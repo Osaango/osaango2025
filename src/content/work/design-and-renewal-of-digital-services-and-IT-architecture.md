@@ -1,31 +1,40 @@
 ---
-title: "Design and renewal of digital services and IT architecture"
+title: "Renewing Digital Legal Services and Their Supporting Architecture"
 publishDate: 2024-08-03 00:00:00
-img: ../../assets/renewing-legal-systems.png
-img_alt: A tree surrounding legal digital services
+img: ../../assets/case-study-scenes/fondia-digital-legal-services.png
+card_img: ../../assets/case-study-scenes/fondia-digital-legal-services-card.png
+img_alt: A digital service ecosystem connecting clients, legal work and supporting systems
 description: |
-  Fondia is a full-service business law firm with 14 locations in Finland, Sweden, Lithuania, Estonia, and more than 100 lawyers. They wanted to renew their digital services and service support systems and implement the change.
+  Supported Fondia in connecting the renewal of client-facing digital services with the architecture, integrations, governance and ways of working needed to operate them across markets.
 tags:
-  - Europe
-  - APIs
-  - Digital services
-  - AI
+  - Legal services
+  - Digital capabilities
+  - Enterprise architecture
+  - AI-enabled services
 ---
 
-## Challenge
+## Starting point
 
-The client needed to build new digital capabilities while still operating a complex, high-reliability environment. They faced siloed systems, inconsistent interfaces and growing demands for inter-agency communication.
+Fondia is a business law firm operating across several Nordic and Baltic markets. The organisation wanted to renew its digital services and the systems supporting legal work while existing client services and operational processes continued to run.
 
-## What we did
+This was not a single website or application project. Client experience, legal-service workflows, country-specific content, identity and access, documents, business systems, data and integrations all had to evolve together.
 
-- Mapped cross-service information flows and integration pain points.
-- Designed an API-driven architecture to improve interoperability and reduce system coupling.
-- Facilitated co-creation sessions to align agencies, IT teams and external suppliers.
-- Provided integration and API design support for early service pilots.
+## The decision to make
 
-## Outcome
+The important question was how to develop these elements as coherent digital capabilities rather than as separate technology projects. Fondia needed to decide what should be shared across markets, where variation was necessary, which capabilities should be built or configured internally, and where platforms or partners could provide the better foundation.
 
-A clearer architectural direction, improved cross-agency collaboration and a concrete plan for implementing API-based interoperability in a regulated environment.
+## How we worked
 
-‍
+- Connected customer and lawyer journeys with service, product and business objectives.
+- Mapped the capabilities, information flows, integrations and system responsibilities behind the visible digital services.
+- Developed architecture direction for client-facing experiences, service logic, data, identity, documents and supporting platforms.
+- Helped prioritise changes according to customer value, strategic relevance, delivery dependencies and organisational readiness.
+- Facilitated decisions between legal-service owners, product and technology teams, architects, operational stakeholders and suppliers.
+- Supported the staged development and implementation of renewed services while maintaining continuity with the existing environment.
+- Evaluated automation and AI-enabled opportunities in the context of legal-service quality, governance, adoption and operational responsibility.
 
+## What the client gained
+
+Fondia gained a shared product and architecture direction for renewing digital legal services incrementally. The work made dependencies and ownership needs visible, connected customer-facing development with the systems and workflows underneath it, and provided a practical basis for prioritising future capabilities.
+
+The result was not merely a target diagram. It was a continuing decision framework for balancing customer value, legal-service delivery, architecture, governance and feasible implementation.
