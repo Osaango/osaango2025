@@ -21,27 +21,15 @@ export interface PromotionBanner {
  *   Example category values: `blog`, `services`, `work`, `about`.
  */
 export const ads: PromotionBanner[] = [
-   {
-    id: 'agile-games-highlight',
-    enabled: true,
-    audience: 'categories',
-    categories: ['services'],
-    title: 'Team up with our delivery and platform enablement games workshop.',
-    description: 'A hands-on format for improving cross-functional delivery, platform collaboration and communication.',
-    linkHref: '/services/agile-collaboration-games',
-    linkLabel: 'Book a workshop',
-    imageAlt: 'Facilitated workshop participants in a collaborative game setup.',
-    excludePaths: ['/services/accelerate-your-apis-with-apiops-cycles'],
-  },
   {
     id: 'apiops-cycles-apidays-india-2026',
     enabled: true,
     audience: 'all',
-    title: 'APIdays India 2026 workshop: Fix API delivery bottlenecks with APIOps Cycles',
+    title: 'APIdays India 2026 workshop: Creating Valuable Digital Capabilities with APIs - APIOps Cycles in Practice',
     description: 'Join Marjukka Niinioja for a full-day hands-on workshop on 21 Aug 2026.',
-    linkHref: '/events/fixing-api-delivery-at-scale-apiops-cycles/',
+    linkHref: '/events/creating-valuable-digital-capabilities-with-apis/',
     linkLabel: 'View event',
-    excludePaths: ['/events/fixing-api-delivery-at-scale-apiops-cycles/', '/services/accelerate-your-apis-with-apiops-cycles'],
+    excludePaths: ['/events/creating-valuable-digital-capabilities-with-apis/', '/services/accelerate-your-apis-with-apiops-cycles'],
   },
 ];
 
