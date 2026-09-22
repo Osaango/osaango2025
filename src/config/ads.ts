@@ -22,14 +22,23 @@ export interface PromotionBanner {
  */
 export const ads: PromotionBanner[] = [
   {
-    id: 'apiops-cycles-apidays-india-2026',
+    id: 'beyond-the-api-economy-book',
+    enabled: true,
+    audience: 'categories',
+    categories: ['blog', 'work'],
+    title: 'New: Beyond the API Economy',
+    description: 'What if the API, integration or AI solution is not the right place to start?',
+    linkHref: '/books/',
+    linkLabel: 'Explore the book',
+  },
+  {
+    id: 'apiops-community-events',
     enabled: true,
     audience: 'all',
-    title: 'APIdays India 2026 workshop: Creating Valuable Digital Capabilities with APIs - APIOps Cycles in Practice',
-    description: 'Join Marjukka Niinioja for a full-day hands-on workshop on 21 Aug 2026.',
-    linkHref: '/events/creating-valuable-digital-capabilities-with-apis/',
-    linkLabel: 'View event',
-    excludePaths: ['/events/creating-valuable-digital-capabilities-with-apis/', '/services/accelerate-your-apis-with-apiops-cycles'],
+    title: 'Take APIOps Cycles into the real world 🌍',
+    description: 'Meet practitioners working on API, integration, platform and AI challenges at upcoming APIOps events across Europe.',
+    linkHref: 'https://www.apiops.info/#events',
+    linkLabel: 'Find an APIOps event near you',
   },
 ];
 
