@@ -1,21 +1,26 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
 
 interface Props {
         post: CollectionEntry<'blog'>;
+        headingLevel?: 'h3' | 'h4';
 }
 
-const { post } = Astro.props;
+const { post, headingLevel: Heading = 'h4' } = Astro.props;
 ---
 
 <article class="card">
         {post.data.img && (
                 <Image src={post.data.img} alt={post.data.img_alt || ''} format="webp" width={400} />
         )}
-        <h4><a href={`/blog/${post.id}/`}>{post.data.title}</a></h4>
+        <Heading class="title"><a href={`/blog/${post.id}/`}>{post.data.title}</a></Heading>
         <p class="publish-date">{post.data.publishDate.toLocaleDateString()}</p>
         <p class="description">{post.data.description}</p>
+        <a class="read-link" href={`/blog/${post.id}/`} aria-label={`Read article: ${post.data.title}`}>
+                Read article <Icon icon="arrow-right" />
+        </a>
 </article>
 
 <style>
@@ -45,20 +50,22 @@ const { post } = Astro.props;
     		border-radius: var(--rounded-sm);
         }
 
-        .card h4 {
+        .card .title {
                 margin: 0;
                 font-size: var(--text-lg);
                 line-height: 1.12;
         }
 
-        .card h4 a {
-                color: var(--gray-0);
-                text-decoration: none;
+        .card .title a {
+                color: var(--apiops-accent-community);
+                text-decoration: underline;
+                text-decoration-thickness: 0.08em;
+                text-underline-offset: 0.16em;
                 transition: color var(--theme-transition);
         }
 
-        .card h4 a:hover,
-        .card h4 a:focus {
+        .card .title a:hover,
+        .card .title a:focus {
                 color: var(--accent-regular);
                 text-decoration: underline;
                 text-underline-offset: 0.16em;
@@ -67,6 +74,25 @@ const { post } = Astro.props;
         .publish-date {
                 font-size: var(--text-xs);
                 color: var(--gray-500);
+        }
+
+        .read-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                align-self: flex-start;
+                margin-top: auto;
+                padding-top: 1rem;
+                color: var(--apiops-accent-community);
+                font-weight: 800;
+                text-decoration: underline;
+                text-underline-offset: 0.2em;
+        }
+
+        .card a:focus-visible {
+                outline: 2px solid currentColor;
+                outline-offset: 4px;
+                border-radius: 2px;
         }
 
         .description {
