@@ -111,7 +111,13 @@ A demonstration might take a day to build.
 
 But before the assistant becomes part of a professional service, several questions remain:
 
-Can it access the right information, and only the right information? How do we evaluate the accuracy and completeness of its output? What happens when it produces an incorrect recommendation? Who reviews the results? How is confidential information protected? How does it fit into existing workflows? Who maintains the solution when models, requirements or source documents change?
+- Can it access the right information, and only the right information?
+- How do we evaluate the accuracy and completeness of its output?
+- What happens when it produces an incorrect recommendation?
+- Who reviews the results?
+- How is confidential information protected?
+- How does it fit into existing workflows?
+- Who maintains the solution when models, requirements or source documents change?
 
 And perhaps most importantly: **who is accountable for the service and its outcomes?**
 
