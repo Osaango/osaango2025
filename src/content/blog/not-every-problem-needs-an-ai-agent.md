@@ -343,4 +343,4 @@ As AI makes implementation easier, that judgment becomes increasingly valuable.
 
 *In Part 2, **[Ten AI Experiments. One Business Problem.](/blog/ten-ai-experiments-one-business-problem/)**, we examined why more prototypes don't necessarily mean more innovation.*
 
-*Next: **The Invisible Work Between a Demo and a Service** — what it really takes to turn a promising AI prototype into something an organization can safely rely on.*
+*Next: **[The Invisible Work Between a Demo and a Service](/blog/the-invisible-work-between-a-demo-and-a-service/)** — what it really takes to turn a promising AI prototype into something an organization can safely rely on.*
