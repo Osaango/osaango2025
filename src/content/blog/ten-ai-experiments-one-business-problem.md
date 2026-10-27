@@ -1,8 +1,8 @@
 ---
 title: "Ten AI Experiments. One Business Problem."
 publishDate: 2026-10-27 00:00:00
-img: ../../assets/blogimg/not-every-good-idea-needs-a-prototype.png
-img_alt: "AI opportunities pass through a lightweight check of existing knowledge, capabilities, business value and risk, leading to four possible next steps: reuse, experiment, improve, or stop and reframe."
+img: ../../assets/blogimg/2-ten-ai-experiments-one-business-problem.png
+img_alt: "Ten pastel circles arranged in two rows above a shared blue line, representing individual AI experiments and their common business context."
 description: |
   More AI prototypes don't necessarily mean more innovation. Learn how to reduce uncertainty, reuse existing capabilities and choose when to experiment, improve or stop.
 author: Marjukka Niinioja, founding partner at Osaango
@@ -210,6 +210,8 @@ I would suggest a simple decision model.
 Before starting a new experiment, check whether the problem has already been explored or whether an existing capability can address it.
 
 Then choose the most useful next action.
+
+![AI opportunities pass through a lightweight check of existing knowledge, capabilities, business value and risk, leading to four possible next steps: reuse, experiment, improve, or stop and reframe.](../../assets/blogimg/not-every-good-idea-needs-a-prototype.png)
 
 **Reuse.** An existing application, API, automation or service already provides much of what is needed. Use it, configure it or extend it.
 

@@ -1,8 +1,8 @@
 ---
 title: "The Invisible Work Between a Demo and a Service"
 publishDate: 2026-10-27 00:00:00
-img: ../../assets/blogimg/from-working-demo-to-dependable-software.png
-img_alt: "From a working AI demo to a dependable service: the invisible work includes data and information, quality and reliability, integration and workflow, security and compliance, operations and continuity, and ownership and governance. Design experiments to be disposable and services to be dependable."
+img: ../../assets/blogimg/4-the-invisible-work-between-demo-and-service.png
+img_alt: "A small light-blue circle and a large dark-blue circle joined by a line with three colored milestones, representing the journey from a demo to a dependable service."
 description: |
   A convincing AI demo is only the beginning. Explore the data, reliability, integrations, operations and ownership needed to turn a prototype into a dependable business service.
 author: Marjukka Niinioja, founding partner at Osaango
@@ -70,6 +70,8 @@ A prototype might use a language model, a document upload interface and a carefu
 The result could be impressive.
 
 But turning it into a dependable service introduces questions that may not be visible in the demonstration.
+
+![From a working AI demo to a dependable service: the invisible work includes data and information, quality and reliability, integration and workflow, security and compliance, operations and continuity, and ownership and governance. Design experiments to be disposable and services to be dependable.](../../assets/blogimg/from-working-demo-to-dependable-software.png)
 
 ### Information and data
 

@@ -1,8 +1,8 @@
 ---
 title: "Not Every Problem Needs an AI Agent"
 publishDate: 2026-10-27 00:00:00
-img: ../../assets/blogimg/what-kind-of-problem-are-you-actually-solving.png
-img_alt: "Four overlapping problem types: information and interpretation; connectivity and integration; workflow and automation; and process, ownership and adoption. Solutions often combine AI, deterministic automation, integrations and human review to deliver a business outcome."
+img: ../../assets/blogimg/3-not-every-problem-needs-an-ai-agent.png
+img_alt: "A central blue circle connected to four surrounding circles by blue, purple, gold and green lines, representing different approaches to solving a problem."
 description: |
   Not every improvement needs an AI agent. Learn to identify the real problem and combine AI, integrations, automation and process changes where they create value.
 author: Marjukka Niinioja, founding partner at Osaango
@@ -70,6 +70,8 @@ It may be a lack of connectivity or a poorly designed process.
 ## Four different kinds of problems hiding behind AI ideas
 
 When evaluating AI opportunities, I find it useful to distinguish between four overlapping types of problems.
+
+![Four overlapping problem types: information and interpretation; connectivity and integration; workflow and automation; and process, ownership and adoption. Solutions often combine AI, deterministic automation, integrations and human review to deliver a business outcome.](../../assets/blogimg/what-kind-of-problem-are-you-actually-solving.png)
 
 ### 1. An information and interpretation problem
 
