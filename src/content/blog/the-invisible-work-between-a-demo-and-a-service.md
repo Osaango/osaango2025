@@ -337,4 +337,4 @@ It's to make sure that speed leads somewhere valuable.
 
 *Part 3 — [Not Every Problem Needs an AI Agent](/blog/not-every-problem-needs-an-ai-agent/)*
 
-*Next: **When Everyone Can Build, Who Owns the Whole?** — how AI-assisted development is changing the relationship between innovation, architecture and organizational responsibility.*
+*Next: **[When Everyone Can Build, Who Owns the Whole?](/blog/when-everyone-can-build-who-owns-the-whole/)** — how AI-assisted development is changing the relationship between innovation, architecture and organizational responsibility.*
