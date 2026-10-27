@@ -315,4 +315,4 @@ It may be happening in how organizations discover opportunities, share knowledge
 
 *In Part 1, **[From Hill to Valley: How AI Is Moving the Software Development Bottleneck](/blog/from-hill-to-valley-how-ai-is-moving-the-software-development-bottleneck/)**, we explored how AI shifts the effort from implementation towards the work surrounding it.*
 
-*Next: **Not Every Problem Needs an AI Agent**, why recognizing the right type of problem may be one of the most valuable skills in the AI era.*
+*Next: **[Not Every Problem Needs an AI Agent](/blog/not-every-problem-needs-an-ai-agent/)**, why recognizing the right type of problem may be one of the most valuable skills in the AI era.*
