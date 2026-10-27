@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
 
 interface Props {
 	project: CollectionEntry<'work'>;
@@ -9,15 +10,18 @@ interface Props {
 const { data, id } = Astro.props.project;
 ---
 
-<a class="card" href={`/work/${id}`}>
+<article class="card">
         <div class="image-wrapper">
                 <Image src={data.img} alt={data.img_alt || ''} format="webp" width={640} />
         </div>
         <div class="content">
-                <span class="title">{data.title}</span>
+                <h3 class="title"><a href={`/work/${id}/`}>{data.title}</a></h3>
                 {data.description && <p class="description">{data.description}</p>}
+                <a class="read-link" href={`/work/${id}/`} aria-label={`Read case study: ${data.title}`}>
+                        Read case study <Icon icon="arrow-right" />
+                </a>
         </div>
-</a>
+</article>
 
 <style>
         .card {
@@ -35,7 +39,8 @@ const { data, id } = Astro.props.project;
                 transition: transform 200ms ease, box-shadow var(--theme-transition);
         }
 
-        .card:hover {
+        .card:hover,
+        .card:focus-within {
                 box-shadow: var(--shadow-lg), 0 0 0 1px var(--accent-overlay);
                 transform: translateY(-2px) scale(1.005);
         }
@@ -53,16 +58,51 @@ const { data, id } = Astro.props.project;
         }
 
         .content {
-                display: grid;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
                 gap: 0.5rem;
                 padding: 0 1.25rem 1.25rem;
         }
 
         .title {
+                margin: 0;
                 color: var(--gray-0);
                 font-size: var(--text-lg);
                 font-weight: 700;
                 line-height: 1.2;
+        }
+
+        .title a {
+                color: var(--apiops-accent-community);
+                text-decoration: underline;
+                text-decoration-thickness: 0.08em;
+                text-underline-offset: 0.16em;
+                transition: color var(--theme-transition);
+        }
+
+        .title a:hover,
+        .title a:focus {
+                color: var(--accent-regular);
+        }
+
+        .read-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                align-self: flex-start;
+                margin-top: auto;
+                padding-top: 1rem;
+                color: var(--apiops-accent-community);
+                font-weight: 800;
+                text-decoration: underline;
+                text-underline-offset: 0.2em;
+        }
+
+        .card a:focus-visible {
+                outline: 2px solid currentColor;
+                outline-offset: 4px;
+                border-radius: 2px;
         }
 
         .description {
