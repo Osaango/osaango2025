@@ -6,6 +6,7 @@ import CallToAction from '../components/CallToAction.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import Icon from '../components/Icon.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
+import BlogPreview from '../components/BlogPreview.astro';
 import agilePeopleInt from '../assets/osaango-platform-growth.png';
 import beyondApiEconomyCover from '../assets/book-covers/Beyond-the-API-economy-cover.png';
 
@@ -18,6 +19,16 @@ const selectedProjectIds = [
 const projects = (await getCollection('work'))
   .filter((project) => selectedProjectIds.includes(project.id))
   .sort((a, b) => selectedProjectIds.indexOf(a.id) - selectedProjectIds.indexOf(b.id));
+
+// Later parts of a series come first when several posts share a publication date.
+const seriesPart = (body: string | undefined) => Number(body?.match(/\*\*Part (\d+)\b/)?.[1] ?? 0);
+const recentPosts = (await getCollection('blog'))
+  .sort((a, b) =>
+    b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+    || seriesPart(b.body) - seriesPart(a.body)
+    || a.id.localeCompare(b.id)
+  )
+  .slice(0, 3);
 
 const services = [
   { number: '01', title: 'Understand what is blocking progress', text: 'We clarify what the organisation is trying to achieve, what is getting in the way, and where unclear ownership, dependencies or competing priorities are making progress difficult.' },
@@ -185,6 +196,22 @@ const waysToWork = [
       <ul class="work-grid">{projects.map((project) => <li><PortfolioPreview project={project} /></li>)}</ul>
     </section>
 
+    {recentPosts.length > 0 && (
+      <section class="wrapper section-block recent-blogs" aria-labelledby="recent-blogs-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> Ideas for moving forward</p>
+            <h2 id="recent-blogs-title">Recent blogs</h2>
+          </div>
+          <a href="/blog/">View all blogs <Icon icon="arrow-right" /></a>
+        </div>
+        <p class="section-lead">Practical perspectives on AI, architecture and the decisions that turn digital change into lasting value.</p>
+        <ul class="blog-grid">
+          {recentPosts.map((post) => <li><BlogPreview post={post} headingLevel="h3" /></li>)}
+        </ul>
+      </section>
+    )}
+
     <section class="wrapper section-block ways-section">
       <div class="section-intro">
         <p class="eyebrow"><span></span> Ways to work with us</p>
@@ -293,6 +320,9 @@ const waysToWork = [
   .help-list a:hover span,.help-list a:focus span { color:var(--apiops-accent-community); }
   .section-heading{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:2rem;margin-bottom:3rem}.section-heading>a{color:var(--foreground)}.work-grid{display:grid;list-style:none;padding:0;gap:1.5rem}
   .section-lead { max-width:52rem; margin:-1.5rem 0 3rem; color:var(--muted); font-size:1.12rem; }
+  .blog-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr)); list-style:none; padding:0; gap:1.5rem; }
+  .blog-grid li { display:flex; min-width:0; }
+  .recent-blogs { border-top:1px solid var(--panel-border); }
   .ways-section { display:grid; gap:3rem; }
   .ways-grid { display:grid; gap:1rem; }
   :global(.ways-card) { display:grid; grid-template-rows:auto 1fr auto; gap:.75rem; min-height:100%; padding:1.35rem; border:1px solid var(--panel-border); border-radius:var(--rounded-sm); background:#fff; box-shadow:var(--shadow-sm); color:var(--foreground); text-decoration:none; transition:transform 200ms ease, box-shadow var(--theme-transition), border-color var(--theme-transition); }
