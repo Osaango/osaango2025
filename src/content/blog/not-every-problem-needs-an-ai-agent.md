@@ -2,7 +2,7 @@
 title: "Not Every Problem Needs an AI Agent"
 publishDate: 2026-10-27 00:00:00
 img: ../../assets/blogimg/3-not-every-problem-needs-an-ai-agent.png
-img_alt: "A central blue circle connected to four surrounding circles by blue, purple, gold and green lines, representing different approaches to solving a problem."
+img_alt: "A business problem connected to four possible approaches: AI agents for autonomous tasks and decision support, integration using existing systems and APIs, automation, and improvements to processes and ways of working."
 description: |
   Not every improvement needs an AI agent. Learn to identify the real problem and combine AI, integrations, automation and process changes where they create value.
 author: Marjukka Niinioja, founding partner at Osaango

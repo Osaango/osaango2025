@@ -2,7 +2,7 @@
 title: "The Invisible Work Between a Demo and a Service"
 publishDate: 2026-10-27 00:00:00
 img: ../../assets/blogimg/4-the-invisible-work-between-demo-and-service.png
-img_alt: "A small light-blue circle and a large dark-blue circle joined by a line with three colored milestones, representing the journey from a demo to a dependable service."
+img_alt: "From demo to production service: validate value, ensure quality, integrate data and systems, address security and compliance, plan operations, and define ownership and support."
 description: |
   A convincing AI demo is only the beginning. Explore the data, reliability, integrations, operations and ownership needed to turn a prototype into a dependable business service.
 author: Marjukka Niinioja, founding partner at Osaango
