@@ -2,7 +2,7 @@
 title: "Ten AI Experiments. One Business Problem."
 publishDate: 2026-10-27 00:00:00
 img: ../../assets/blogimg/2-ten-ai-experiments-one-business-problem.png
-img_alt: "Ten pastel circles arranged in two rows above a shared blue line, representing individual AI experiments and their common business context."
+img_alt: "Ten AI experiments, including document analysis, meeting notes, reporting and code assistance, converge on one business problem."
 description: |
   More AI prototypes don't necessarily mean more innovation. Learn how to reduce uncertainty, reuse existing capabilities and choose when to experiment, improve or stop.
 author: Marjukka Niinioja, founding partner at Osaango
